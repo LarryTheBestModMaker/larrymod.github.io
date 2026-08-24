@@ -1,4 +1,7 @@
 class FlashbackEffect {
+    static get DELAY_TIME () {
+        return 5;
+    }
     static get TAIL_SECONDS () {
         return 5;
     }
