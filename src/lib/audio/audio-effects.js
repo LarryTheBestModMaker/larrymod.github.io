@@ -82,6 +82,10 @@ class AudioEffects {
                 sampleCount = Math.max(sampleCount,
                     Math.floor((this.trimEndSeconds + ReverbEffect.TAIL_SECONDS) * buffer.sampleRate));
                 break;
+            case effectTypes.FLASHBACK:
+                sampleCount = Math.max(sampleCount,
+                    Math.floor((this.trimEndSeconds + ReverbEffect.TAIL_SECONDS) * buffer.sampleRate));
+                break;
             case effectTypes.FASTER:
                 this.playbackRate = pitchRatio;
                 adjustedAffectedSampleCount = Math.floor(affectedSampleCount / this.playbackRate);

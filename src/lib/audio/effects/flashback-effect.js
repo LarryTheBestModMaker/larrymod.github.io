@@ -1,4 +1,7 @@
 class FlashbackEffect {
+    static get TAIL_SECONDS () {
+        return 5;
+    }
     constructor(audioContext, startSeconds, endSeconds) {
         this.audioContext = audioContext;
 
