@@ -12,6 +12,8 @@ import addSoundFromRecordingIcon from '../components/asset-panel/icon--add-sound
 import fileUploadIcon from '../components/action-menu/icon--file-upload.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
 import searchIcon from '../components/action-menu/icon--search.svg';
+import textToSoundIcon from '../components/text-to-sound-ai/icon--text-to-sound.svg';
+import TextToSoundAIGenerator from '../components/text-to-sound-ai/text-to-sound-ai-generator.jsx';
 
 import RecordModal from './record-modal.jsx';
 import SoundEditor from './sound-editor.jsx';
@@ -24,6 +26,7 @@ import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import DragConstants from '../lib/drag-constants';
 import downloadBlob from '../lib/download-blob';
 import SharedAudioContext from '../lib/audio/shared-audio-context.js';
+import {generateAndAddSound} from '../lib/text-to-sound-ai-core.js';
 
 import { connect } from 'react-redux';
 
@@ -58,9 +61,15 @@ class SoundTab extends React.Component {
             'handleSoundUpload',
             'handleDrop',
             'setFileInput',
+            'handleTextToSoundAIClick',
+            'handleTextToSoundAIGenerate',
+            'handleTextToSoundAIClose',
             'handle__INTERNAL__createSound__GET_DEFAULT_EDITOR'
         ]);
-        this.state = { selectedSoundIndex: 0 };
+        this.state = {
+            selectedSoundIndex: 0,
+            textToSoundAIVisible: false
+        };
     }
 
     componentWillReceiveProps (nextProps) {
@@ -75,7 +84,6 @@ class SoundTab extends React.Component {
             return;
         }
 
-        // If switching editing targets, reset the sound index
         if (this.props.editingTarget !== editingTarget) {
             this.setState({ selectedSoundIndex: 0 });
         } else if (this.state.selectedSoundIndex > target.sounds.length - 1) {
@@ -84,9 +92,9 @@ class SoundTab extends React.Component {
     }
 
     handle__INTERNAL__createSound__GET_DEFAULT_EDITOR() {
-        const savedDefaultEditor = localStorage.getItem("dinosaurmod_musicEditor_data") !== null ? localStorage.getItem("dinosaurmod_musicEditor_data") : "dinobox"
-        const defaultEditor = savedTempStorage !== null ? getTempStorage().get("dinosaurmod_musicEditor_data") : savedDefaultEditor //idk what im doing i just hope it works
-        return String(defaultEditor).toLowerCase()
+        const savedDefaultEditor = localStorage.getItem("dinosaurmod_musicEditor_data") !== null ? localStorage.getItem("dinosaurmod_musicEditor_data") : "dinobox";
+        const defaultEditor = savedTempStorage !== null ? getTempStorage().get("dinosaurmod_musicEditor_data") : savedDefaultEditor;
+        return String(defaultEditor).toLowerCase();
     }
 
     handleSelectSound(soundIndex) {
@@ -122,6 +130,35 @@ class SoundTab extends React.Component {
         this.setState({ selectedSoundIndex: Math.max(sounds.length - 1, 0) });
     }
 
+    handleTextToSoundAIClick() {
+        this.setState({ textToSoundAIVisible: true });
+    }
+
+    handleTextToSoundAIClose() {
+        this.setState({ textToSoundAIVisible: false });
+    }
+
+    async handleTextToSoundAIGenerate(request) {
+        const vm = this.props.vm;
+        const targetId = vm.editingTarget && vm.editingTarget.id;
+        if (!vm.editingTarget || !targetId) {
+            throw new Error('No editable sound target is selected.');
+        }
+
+        // Generate directly through the provider-backed pipeline. Awaiting this
+        // promise guarantees that the sound has been decoded, stored and added
+        // before the generator closes the dialog.
+        const generatedSound = await generateAndAddSound(request, vm, targetId);
+        const sprite = vm.editingTarget.sprite;
+        const selectedSoundIndex = sprite.sounds ? sprite.sounds.indexOf(generatedSound) : -1;
+        if (selectedSoundIndex >= 0) {
+            this.setState({selectedSoundIndex});
+        } else {
+            this.handleNewSound();
+        }
+        return generatedSound;
+    }
+
     async handleSurpriseSound() {
         const soundLibraryContent = await getSoundLibrary();
         const soundItem = soundLibraryContent[Math.floor(Math.random() * soundLibraryContent.length)];
@@ -147,20 +184,20 @@ class SoundTab extends React.Component {
     async handleCreateSound() {
         switch (this.handle__INTERNAL__createSound__GET_DEFAULT_EDITOR()) {
             case 'dinobox':
-                window.open("https://dinobox.vercel.app/?dinosaurmod&", "_blank")
+                window.open("https://dinobox.vercel.app/?dinosaurmod&", "_blank");
                 break;
             case 'beepbox':
-                window.open("https://beepbox.co/", "_blank")
+                window.open("https://beepbox.co/", "_blank");
                 break;
             case 'jummbox':
-                window.open("https://jummb.us/", "_blank")
+                window.open("https://jummb.us/", "_blank");
                 break;
             case 'ultrabox':
-                window.open("https://ultraabox.github.io/", "_blank")
+                window.open("https://ultraabox.github.io/", "_blank");
                 break;
             default:
-                localStorage.setItem("dinosaurmod_musicEditor_data", "dinobox")
-                window.open("https://dinobox.vercel.app/?dinosaurmod&", "_blank")
+                localStorage.setItem("dinosaurmod_musicEditor_data", "dinobox");
+                window.open("https://dinobox.vercel.app/?dinosaurmod&", "_blank");
                 break;
         }
     }
@@ -227,7 +264,6 @@ class SoundTab extends React.Component {
         }
 
         const isSupported = !!(vm.runtime.audioEngine && new SharedAudioContext());
-
         const sprite = vm.editingTarget.sprite;
 
         const sounds = sprite.sounds ? sprite.sounds.map(sound => (
@@ -264,6 +300,11 @@ class SoundTab extends React.Component {
                 defaultMessage: 'Choose a Sound',
                 description: 'Button to add a sound in the editor tab',
                 id: 'gui.soundTab.addSoundFromLibrary'
+            },
+            textToSoundAI: {
+                defaultMessage: 'Text to Sound AI',
+                description: 'Button to generate a sound from a text description',
+                id: 'gui.soundTab.textToSoundAI'
             }
         });
 
@@ -294,9 +335,9 @@ class SoundTab extends React.Component {
                     img: addSoundFromRecordingIcon,
                     onClick: onNewSoundFromRecordingClick
                 }, {
-                    title: intl.formatMessage(messages.addSound),
-                    img: searchIcon,
-                    onClick: onNewSoundFromLibraryClick
+                    title: intl.formatMessage(messages.textToSoundAI),
+                    img: textToSoundIcon,
+                    onClick: this.handleTextToSoundAIClick
                 }] : []}
                 dragType={DragConstants.SOUND}
                 isRtl={isRtl}
@@ -314,6 +355,14 @@ class SoundTab extends React.Component {
                     ) : (
                         <SoundEditorNotSupported />
                     )
+                ) : null}
+                {this.state.textToSoundAIVisible ? (
+                    <div style={{alignItems: 'center', background: 'rgba(0, 0, 0, .35)', display: 'flex', inset: 0, justifyContent: 'center', position: 'absolute', zIndex: 20}}>
+                        <TextToSoundAIGenerator
+                            onClose={this.handleTextToSoundAIClose}
+                            onGenerate={this.handleTextToSoundAIGenerate}
+                        />
+                    </div>
                 ) : null}
                 {this.props.soundRecorderVisible ? (
                     <RecordModal

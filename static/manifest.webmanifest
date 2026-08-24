@@ -1,7 +1,7 @@
 {
-  "short_name": "DinosaurMod",
-  "name": "DinosaurMod",
-  "description": "Mod of PenguinMod that was made to allow for really cool projects on PenguinMod.",
+  "short_name": "LarryMod",
+  "name": "LarryMod",
+  "description": "Mod of DinosaurMod.",
   "icons": [
     {
       "src": "images/192.png",

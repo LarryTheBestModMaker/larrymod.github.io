@@ -1,6 +1,12 @@
 // reverb effect is currently work in progress.
 
 class ReverbEffect {
+    static get DELAY_TIME () {
+        return 0.25;
+    }
+    static get TAIL_SECONDS () {
+        return 0.75;
+    }
     constructor(audioContext, startTime, endTime) {
         this.audioContext = audioContext;
         this.input = this.audioContext.createGain();

@@ -9,6 +9,15 @@ import ReverbEffect from './effects/reverb-effect.js';
 import BitCrushEffect from './effects/bit-crush-effect.js';
 import MegaphoneEffect from './effects/megaphone-effect.js';
 import TrembleEffect from './effects/tremble-effect.js';
+import TelephoneEffect from './effects/telephone-effect.js';
+import AlienEffect from './effects/alien-effect.js';
+import DistortionEffect from './effects/distortion-effect.js';
+import VocoderEffect from './effects/vocoder-effect.js';
+import LowBatteryEffect from './effects/low-battery-effect.js';
+import CongaBusherEffect from './effects/conga-busher-effect.js';
+import NoiseReductionEffect from './effects/noise-reduction-effect.js';
+import FlashbackEffect from './effects/flashback-effect.js';
+import LoudBreathsEffect from './effects/loud-breaths-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -28,6 +37,15 @@ const effectTypes = {
     HIGHPITCH: 'higher pitch',
     MEGAPHONE: 'megaphone',
     TREMBLE: 'tremble',
+    TELEPHONE: 'telephone',
+    ALIEN: 'alien',
+    DISTORTION: 'distortion',
+    VOCODER: 'vocoder',
+    LOWBATTERY: 'low battery',
+    CONGABUSHER: 'conga busher',
+    NOISEREDUCTION: 'noise reduction',
+    FLASHBACK: 'flashback',
+    LOUDBREATHS: 'loud breaths',
 };
 
 const centsToFrequency = (cents) => {
@@ -59,6 +77,10 @@ class AudioEffects {
             case effectTypes.ECHO:
                 sampleCount = Math.max(sampleCount,
                     Math.floor((this.trimEndSeconds + EchoEffect.TAIL_SECONDS) * buffer.sampleRate));
+                break;
+            case effectTypes.REVERB:
+                sampleCount = Math.max(sampleCount,
+                    Math.floor((this.trimEndSeconds + ReverbEffect.TAIL_SECONDS) * buffer.sampleRate));
                 break;
             case effectTypes.FASTER:
                 this.playbackRate = pitchRatio;
@@ -207,6 +229,42 @@ class AudioEffects {
                 break;
             case effectTypes.ECHO:
                 ({input, output} = new EchoEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.TELEPHONE:
+                ({input, output} = new TelephoneEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.ALIEN:
+                ({input, output} = new AlienEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.DISTORTION:
+                ({input, output} = new DistortionEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.VOCODER:
+                ({input, output} = new VocoderEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.LOWBATTERY:
+                ({input, output} = new LowBatteryEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.CONGABUSHER:
+                ({input, output} = new CongaBusherEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.NOISEREDUCTION:
+                ({input, output} = new NoiseReductionEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.FLASHBACK:
+                ({input, output} = new FlashbackEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.LOUDBREATHS:
+                ({input, output} = new LoudBreathsEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

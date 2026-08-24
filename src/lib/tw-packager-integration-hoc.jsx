@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import log from './log';
 import {getIsShowingProject} from '../reducers/project-state';
 
-const PACKAGER_URL = 'https://dinosaurmod.github.io/Dinosaurmod-Packager';//'https://studio.penguinmod.com/PenguinMod-Packager';
-const PACKAGER_ORIGIN = "https://dinosaurmod.github.io";//"https://studio.penguinmod.com";
+const PACKAGER_URL = 'https://larrythebestmodmaker.github.io/Larrymod-Packager';//'https://studio.penguinmod.com/PenguinMod-Packager';
+const PACKAGER_ORIGIN = "https://larrythebestmodmaker.github.io/larrymod.github.io";//"https://studio.penguinmod.com";
 
 const PackagerIntegrationHOC = function (WrappedComponent) {
     class PackagerIntegrationComponent extends React.Component {
@@ -53,7 +53,7 @@ const PackagerIntegrationHOC = function (WrappedComponent) {
 
             this.props.vm.saveProjectSb3('arraybuffer')
                 .then(buffer => {
-                    const name = `${this.props.reduxProjectTitle}.dino`;
+                    const name = `${this.props.reduxProjectTitle}.larry`;
                     e.source.postMessage({
                         p4: {
                             type: 'finish-import',

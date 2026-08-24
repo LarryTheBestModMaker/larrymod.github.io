@@ -1,0 +1,26 @@
+.fastForwardButton {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 40px;
+    padding: 2px 4px;
+}
+
+.fastForwardButton:hover {
+    transform: scale(1.08);
+}
+
+.fastForwardButtonIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.speed {
+    margin-left: 2px;
+    font-size: 10px;
+    font-weight: bold;
+}

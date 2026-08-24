@@ -5,6 +5,7 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 
 import GreenFlag from '../green-flag/green-flag.jsx';
 import PauseButton from '../pause-button/pause-button.jsx';
+import FastForwardButton from '../fast-forward-button/fast-forward-button.jsx';
 import StopAll from '../stop-all/stop-all.jsx';
 import TurboMode from '../turbo-mode/turbo-mode.jsx';
 import FramerateIndicator from '../tw-framerate-indicator/framerate-indicator.jsx';
@@ -22,6 +23,11 @@ const messages = defineMessages({
         defaultMessage: 'Pause',
         description: 'Pause button title'
     },
+    fastForwardTitle: {
+        id: 'gui.controls.fastForward',
+        defaultMessage: 'Fast forward',
+        description: 'Fast-forward button title'
+    },
     stopTitle: {
         id: 'gui.controls.stop',
         defaultMessage: 'Stop',
@@ -37,13 +43,18 @@ const Controls = function (props) {
         intl,
         onGreenFlagClick,
         onPauseButtonClick,
+        onFastForwardButtonClick,
         onStopAllClick,
+        fastForwardSpeed,
         turbo,
         framerate,
         interpolation,
         isSmall,
         ...componentProps
     } = props;
+
+    const modeLabel = fastForwardSpeed > 1 ? `FF – ${fastForwardSpeed}x` : null;
+    
     return (
         <div
             className={classNames(styles.controlsContainer, className)}
@@ -56,23 +67,35 @@ const Controls = function (props) {
             />
             <PauseButton
                 paused={paused}
-                title={intl.formatMessage(messages.goTitle)}
+                title={intl.formatMessage(messages.pauseTitle)}
                 onClick={onPauseButtonClick}
+            />
+            <FastForwardButton
+                speed={fastForwardSpeed}
+                title={intl.formatMessage(messages.fastForwardTitle)}
+                onClick={onFastForwardButtonClick}
             />
             <StopAll
                 active={active}
                 title={intl.formatMessage(messages.stopTitle)}
                 onClick={onStopAllClick}
             />
-            {turbo ? (
-                <TurboMode isSmall={isSmall} />
+            {modeLabel ? (
+                <span
+                    className={styles.speedStatus}
+                    role="status"
+                    aria-live="polite"
+                >
+                    {modeLabel}
+                </span>
             ) : null}
-            {!isSmall && (
+            {turbo ? <TurboMode isSmall={isSmall} /> : null}
+            {!isSmall ? (
                 <FramerateIndicator
                     framerate={framerate}
                     interpolation={interpolation}
                 />
-            )}
+            ) : null}
         </div>
     );
 };
@@ -84,7 +107,9 @@ Controls.propTypes = {
     intl: intlShape.isRequired,
     onGreenFlagClick: PropTypes.func.isRequired,
     onPauseButtonClick: PropTypes.func.isRequired,
+    onFastForwardButtonClick: PropTypes.func.isRequired,
     onStopAllClick: PropTypes.func.isRequired,
+    fastForwardSpeed: PropTypes.number,
     framerate: PropTypes.number,
     interpolation: PropTypes.bool,
     isSmall: PropTypes.bool,
@@ -94,7 +119,8 @@ Controls.propTypes = {
 Controls.defaultProps = {
     active: false,
     turbo: false,
-    isSmall: false
+    isSmall: false,
+    fastForwardSpeed: 1
 };
 
 export default injectIntl(Controls);

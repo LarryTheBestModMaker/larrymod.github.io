@@ -54,16 +54,16 @@ const Credits = () => (
     <main className={styles.main}>
         <header className={styles.headerContainer}>
             <h1 className={styles.headerText}>
-                DinosaurMod Credits
+                LarryMod Credits
             </h1>
         </header>
         <section>
-            <h1>Dinosaurmod</h1>
+            <h1>Larrymod</h1>
         </section>
         <section>
             <h2>Thank you</h2>
             <p>
-                Without Penguinmod, DinosaurMod may have never existed.
+                Without DinosaurMod, LarryMod may have never existed.
                 Thank you to everyone who worked on Scratch, TurboWarp & Penguinmod,
                 you have made many people be able to make whatever they can imagine.
             </p>
@@ -80,13 +80,13 @@ const Credits = () => (
             </a>
             <h2>Contributors</h2>
             <p>
-                DinosaurMod is made by a single developer.
-                A list is below, but you can also check <a href="https://github.com/orgs/DinosaurMod/people">our GitHub</a> incase this one is out of date.
+                LarryMod is made by a single developer.
+                A list is below, but you can also check <a href="https://github.com/LarryTheBestModMaker">our GitHub</a> incase this one is out of date.
             </p>
             <UserList users={UserData.pmDevelopers} />
             <p><i>The list order is randomized on each refresh.</i></p>
             <p>
-                We've also included work from other open-source projects inside of DinosaurMod.
+                We've also included work from other open-source projects inside of LarryMod.
                 Here's a list of some other projects you should check out:
             </p>
             <UserList users={UserData.pmCodeUsedFrom} />
@@ -100,7 +100,7 @@ const Credits = () => (
         </section>
         <section>
             <h2>GitHub Pages</h2>
-            <p>We currently use <a href="https://pages.github.com/">GitHub Pages</a> to host DinosaurMod.</p>
+            <p>We currently use <a href="https://pages.github.com/">GitHub Pages</a> to host LarryMod.</p>
             <a href="https://pages.github.com/">
                 <img
                     src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png"

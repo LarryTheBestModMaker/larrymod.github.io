@@ -5,7 +5,7 @@ const searchParams = new URLSearchParams(location.search);
 const cloudHost = searchParams.get('cloud_host') || 'wss://clouddata.turbowarp.org';
 
 const onClickLogo = () => {
-    window.location = 'https://dinosaurmod.github.io/Dino-Home';
+    window.location = 'https://larrythebestmodmaker.github.io/LarryMod-Home';
 };
 
 const RenderGUI = props => (

@@ -462,7 +462,7 @@ class MenuBar extends React.Component {
                                 draggable={false}
                                 src={this.props.logo}
                                 onClick={() => {
-                                    window.location.href = "https://dinosaurmod.github.io/Dino-Home"
+                                    window.location.href = "https://larrythebestmodmaker.github.io/LarryMod-Home/"
                                 }}
                             />
                         </div>

@@ -40,6 +40,15 @@ import reverbIcon from './icon--reverb.svg';
 import bitcrushIcon from './icon--bit-crush.png';
 import higherPitchIcon from './icon--higher-pitch.svg';
 import lowerPitchIcon from './icon--lower-pitch.svg';
+import telephoneIcon from './icon--telephone.svg';
+import alienIcon from './icon--alien.svg';
+import distortionIcon from './icon--distortion.svg';
+import vocoderIcon from './icon--vocoder.svg';
+import lowBatteryIcon from './icon--low-battery.svg';
+import congaBusherIcon from './icon--conga-busher.svg';
+import noiseReductionIcon from './icon--noise-reduction.svg';
+import flashbackIcon from './icon--flashback.svg';
+import loudBreathsIcon from './icon--loud-breaths.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -412,9 +421,33 @@ const SoundEditor = props => (
                 />
                 <IconButton
                     className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
                     img={echoIcon}
                     title={<FormattedMessage {...messages.echo} />}
                     onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
                 />
                 <IconButton
                     className={styles.effectButton}
@@ -436,30 +469,6 @@ const SoundEditor = props => (
                 />
                 <IconButton
                     className={styles.effectButton}
-                    img={reverbIcon}
-                    title={"Reverb"}
-                    onClick={props.onReverb}
-                />
-                {/*<IconButton
-                    className={styles.effectButton}
-                    img={bitcrushIcon}
-                    title={"Bit-Crush"}
-                    onClick={props.onBitCrush}
-                />*/}
-                <IconButton
-                    className={styles.effectButton}
-                    img={higherPitchIcon}
-                    title={"Higher Pitch"}
-                    onClick={props.onHigherPitch}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={lowerPitchIcon}
-                    title={"Lower Pitch"}
-                    onClick={props.onLowerPitch}
-                />
-                <IconButton
-                    className={styles.effectButton}
                     img={megaphoneIcon}
                     title={"Megaphone"}
                     onClick={props.onMegaphone}
@@ -469,6 +478,42 @@ const SoundEditor = props => (
                     img={trembleIcon}
                     title={"Tremble"}
                     onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={congaBusherIcon}
+                    title={"Conga Busher Effect"}
+                    onClick={props.onCongaBusher}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
                 />
             </div>
         </div>
@@ -561,6 +606,15 @@ SoundEditor.propTypes = {
     onFadeIn: PropTypes.func.isRequired,
     onFadeOut: PropTypes.func.isRequired,
     onReverb: PropTypes.func.isRequired,
+    onTelephone: PropTypes.func.isRequired,
+    onAlien: PropTypes.func.isRequired,
+    onDistortion: PropTypes.func.isRequired,
+    onVocoder: PropTypes.func.isRequired,
+    onLowBattery: PropTypes.func.isRequired,
+    onCongaBusher: PropTypes.func.isRequired,
+    onNoiseReduction: PropTypes.func.isRequired,
+    onFlashback: PropTypes.func.isRequired,
+    onLoudBreaths: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,

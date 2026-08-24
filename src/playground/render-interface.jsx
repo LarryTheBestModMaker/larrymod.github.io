@@ -143,8 +143,8 @@ const Footer = () => (
             <div className={styles.footerText}>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="Dinosaurmod, PenguinMod and TurboWarp are not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
-                    description="Disclaimer that Dinosaurmod, PenguinMod and TurboWarp are not connected to Scratch"
+                    defaultMessage="LarryMod, Dinosaurmod, PenguinMod and TurboWarp are not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
+                    description="Disclaimer that LarryMod, Dinosaurmod, PenguinMod and TurboWarp are not connected to Scratch"
                     id="tw.footer.disclaimer"
                 />
             </div>
@@ -173,9 +173,9 @@ const Footer = () => (
                     </a>
                 </div>
                 <div className={styles.footerSection}>
-                    <a href="https://dinosaurmod.github.io/Dinosaurmod-Packager">
+                    <a href="https://larrythebestmodmaker.github.io/Larrymod-Packager">
                         {/* Do not translate */}
-                        {'DinosaurMod Packager'}
+                        {'LarryMod Packager'}
                     </a>
                     <a href="https://studio.penguinmod.com/PenguinMod-Packager">
                         {/* Do not translate */}
@@ -207,15 +207,8 @@ const Footer = () => (
                         />
                     </a>
                 </div>
-                <div className={styles.footerSection}>
-                    <a href="https://github.com/Dinosaurmod/dinosaurmod.github.io/issues">
-                        <FormattedMessage
-                            defaultMessage="Feedback & Bugs"
-                            description="Link to feedback/bugs page"
-                            id="tw.feedback"
-                        />
-                    </a>
-                    <a href="https://github.com/Dinosaurmod">
+                <div className={styles.footerSection}> 
+                    <a href="https://github.com/LarryTheBestModMaker">
                         <FormattedMessage
                             defaultMessage="Source Code"
                             description="Link to source code"
@@ -483,29 +476,29 @@ class Interface extends React.Component {
                                 <p>
                                     {/*<FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="<a style='color: #80F41A; cursor: pointer;'>Dinosaurmod</a> is a mod of <a style='color: #00C3FF; cursor: pointer;' href='https://penguinmod.com'>Penguinmod</a> that adds new blocks and features in extensions or the main toolbox. <a style='color: #00C3FF; cursor: pointer;' href='https://penguinmod.com'>Penguinmod</a> is a cool mod of <a style='color: #FF4C4C; cursor: pointer;' href='https://turbowarp.org'>turbowarp</a> to share projects with other people. <a style='color: #FF4C4C; cursor: pointer;' href='https://turbowarp.org'>TurboWarp</a> is a <a style='color: #FCA919; cursor: pointer;' href='https://scratch.mit.edu'>Scratch</a> mod that compiles projects to JavaScript to make them run really fast. Try it out by choosing an uploaded project below or making your own in the editor."
-                                        description="Description of Dinosaurmod, PenguinMod and TurboWarp"
+                                        defaultMessage="<a style='color: #00C3FF; cursor: pointer;'>Larrymod</a> is a mod of <a style='color: #80f41a; cursor: pointer;' href='https://dinosaurmod.github.io'>DinosaurMod</a> that adds new blocks and features in extensions or the main toolbox. <a style='color: #00C3FF; cursor: pointer;' href='https://penguinmod.com'>Penguinmod</a> is a cool mod of <a style='color: #FF4C4C; cursor: pointer;' href='https://turbowarp.org'>turbowarp</a> to share projects with other people. <a style='color: #FF4C4C; cursor: pointer;' href='https://turbowarp.org'>TurboWarp</a> is a <a style='color: #FCA919; cursor: pointer;' href='https://scratch.mit.edu'>Scratch</a> mod that compiles projects to JavaScript to make them run really fast. Try it out by choosing an uploaded project below or making your own in the editor."
+                                        description="Description of Larrymod, Dinosaurmod, PenguinMod and TurboWarp"
                                         id="tw.home.description"
                                     />*/}
                                     <span>
                                         <a 
                                             style={{
-                                                color: '#7DD100',
+                                                color: '#00C3FF',
                                                 cursor: 'pointer'
                                             }}
-                                            href={'https://dinosaurmod.github.io/Dino-Home'}
+                                            href={'https://larrythebestmodmaker.github.io/LarryMod-Home'}
                                         >
-                                            Dinosaurmod
+                                            Larrymod
                                         </a>
                                          is a mod of 
                                         <a 
                                             style={{
-                                                color: '#00C3FF',
+                                                color: '#7DD100',
                                                 cursor: 'pointer'
                                             }}
-                                            href={'https://penguinmod.com'}
+                                            href={'https://dinosaurmod.github.io'}
                                         >
-                                            Penguinmod
+                                            Dinosaurmod
                                         </a>
                                          that adds new blocks and features in extensions or the main toolbox. 
                                         <a 

@@ -69,8 +69,10 @@ class SoundEditor extends React.Component {
     }
     componentDidMount() {
         this.audioBufferPlayer = new AudioBufferPlayer(this.props.samples, this.props.sampleRate);
-
-        document.addEventListener('keydown', this.handleKeyPress);
+        // Do not register a document-level keyboard handler here. The Sound
+        // Editor must never hijack Space or ordinary letter keys while a sound
+        // is open. This lets text entry and normal browser/app keyboard input
+        // work without playing, trimming, undoing, or modifying the sound.
     }
     componentWillReceiveProps(newProps) {
         if (newProps.soundId !== this.props.soundId) { // A different sound has been selected
@@ -85,60 +87,12 @@ class SoundEditor extends React.Component {
     }
     componentWillUnmount() {
         this.audioBufferPlayer.stop();
-
-        document.removeEventListener('keydown', this.handleKeyPress);
     }
     handleKeyPress(event) {
-        if (event.target instanceof HTMLInputElement) {
-            // Ignore keyboard shortcuts if a text input field is focused
-            return;
-        }
-        if (this.props.isFullScreen) {
-            // Ignore keyboard shortcuts if the stage is fullscreen mode
-            return;
-        }
-        if (event.key === ' ') {
-            event.preventDefault();
-            if (this.state.playhead) {
-                this.handleStopPlaying();
-            } else {
-                this.handlePlay();
-            }
-        }
-        if (event.key === 'Delete' || event.key === 'Backspace') {
-            event.preventDefault();
-            if (event.shiftKey) {
-                this.handleDeleteInverse();
-            } else {
-                this.handleDelete();
-            }
-        }
-        if (event.key === 'Escape') {
-            event.preventDefault();
-            this.handleUpdateTrim(null, null);
-        }
-        if (event.metaKey || event.ctrlKey) {
-            if (event.shiftKey && event.key.toLowerCase() === 'z') {
-                event.preventDefault();
-                if (this.redoStack.length > 0) {
-                    this.handleRedo();
-                }
-            } else if (event.key === 'z') {
-                if (this.undoStack.length > 0) {
-                    event.preventDefault();
-                    this.handleUndo();
-                }
-            } else if (event.key === 'c') {
-                event.preventDefault();
-                this.handleCopy();
-            } else if (event.key === 'v') {
-                event.preventDefault();
-                this.handlePaste();
-            } else if (event.key === 'a') {
-                event.preventDefault();
-                this.handleUpdateTrim(0, 1);
-            }
-        }
+        // Kept for compatibility with callers that may still reference this
+        // method, but intentionally does nothing. Sound Editor keyboard input
+        // must never control or alter the open sound.
+        return event;
     }
     resetState(samples, sampleRate) {
         this.audioBufferPlayer.stop();
@@ -372,9 +326,6 @@ class SoundEditor extends React.Component {
             const sampleRateRatio = newRate / buffer.sampleRate;
             const newLength = sampleRateRatio * buffer.samples.length;
             let offlineContext;
-            // Try to use either OfflineAudioContext or webkitOfflineAudioContext to resample
-            // The constructors will throw if trying to resample at an unsupported rate
-            // (e.g. Safari/webkitOAC does not support lower than 44khz).
             try {
                 if (window.OfflineAudioContext) {
                     offlineContext = new window.OfflineAudioContext(1, newLength, newRate);
@@ -382,7 +333,6 @@ class SoundEditor extends React.Component {
                     offlineContext = new window.webkitOfflineAudioContext(1, newLength, newRate);
                 }
             } catch {
-                // If no OAC available and downsampling by 2, downsample by dropping every other sample.
                 if (newRate === buffer.sampleRate / 2) {
                     return resolve(dropEveryOtherSample(buffer));
                 }
@@ -404,7 +354,6 @@ class SoundEditor extends React.Component {
         });
     }
     paste() {
-        // If there's no selection, paste at the end of the sound
         const { samples } = this.copyCurrentBuffer();
         if (this.state.trimStart === null) {
             const newLength = samples.length + this.state.copyBuffer.samples.length;
@@ -417,7 +366,6 @@ class SoundEditor extends React.Component {
                 }
             });
         } else {
-            // else replace the selection with the pasted sound
             const trimStartSamples = this.state.trimStart * samples.length;
             const trimEndSamples = this.state.trimEnd * samples.length;
             const firstPart = samples.slice(0, trimStartSamples);
@@ -460,24 +408,19 @@ class SoundEditor extends React.Component {
         this.ref = element;
     }
     handleContainerClick(e) {
-        // If the click is on the sound editor's div (and not any other element), delesect
         if (e.target === this.ref && this.state.trimStart !== null) {
             this.handleUpdateTrim(null, null);
         }
     }
     handleModifyMenu() {
-        // get selected audio
         const bufferSelection = this.getSelectionBuffer();
-        // for preview
         const audio = new AudioContext();
         const gainNode = audio.createGain();
         gainNode.gain.value = 1;
         gainNode.connect(audio.destination);
-        // create inputs before menu so we can get the value easier
         const pitch = document.createElement("input");
         const volume = document.createElement("input");
         const menu = this.displayPopup("Modify Sound", 200, 280, "Apply", "Cancel", () => {
-            // accepted
             audio.close();
             const truePitch = isNaN(Number(pitch.value)) ? 0 : Number(pitch.value);
             const trueVolume = isNaN(Number(volume.value)) ? 0 : Number(volume.value);
@@ -486,12 +429,9 @@ class SoundEditor extends React.Component {
                 volume: trueVolume
             });
         }, () => {
-            // denied
             audio.close();
-            // we dont need to do anything else
         });
         menu.textarea.style = "position: relative;display: flex;justify-content: flex-end;flex-direction: row;height: calc(100% - (3.125em + 2.125em + 16px));align-items: center;";
-        // set pitch stuff
         pitch.type = "range";
         pitch.classList.add(confirmStyles.verticalSlider);
         pitch.style = "position: absolute;left: -40px;top: 80px;";
@@ -499,7 +439,6 @@ class SoundEditor extends React.Component {
         pitch.min = -360;
         pitch.max = 360;
         pitch.step = 1;
-        // set volume stuff
         volume.type = "range";
         volume.classList.add(confirmStyles.verticalSlider);
         volume.style = "position: absolute;left: 0px;top: 80px;";
@@ -537,11 +476,8 @@ class SoundEditor extends React.Component {
         previewButton.style = "font-weight: bold;color: white;border-radius: 1000px;width: 46px;margin-right: 28px;height: 46px;border-style: none;background: #76fa02;";
         previewButton.innerHTML = "Play";
         menu.textarea.append(previewButton);
-        // playing audio
-        // create an audio buffer using the selection
         const properBuffer = audio.createBuffer(1, bufferSelection.samples.length, bufferSelection.sampleRate);
         properBuffer.getChannelData(0).set(bufferSelection.samples);
-        // button functionality
         let bufferSource;
         let audioPlaying = false;
         function play() {
@@ -568,7 +504,6 @@ class SoundEditor extends React.Component {
             }
             play();
         }
-        // updates
         pitch.onchange = (updateValue) => {
             if (updateValue !== false) {
                 valuePitch.value = Number(pitch.value);
@@ -583,7 +518,6 @@ class SoundEditor extends React.Component {
             valueVolume.value = Number(volume.value) * 100;
         }
         volume.oninput = volume.onchange;
-        // value changes
         valuePitch.onchange = () => {
             pitch.value = valuePitch.value;
             pitch.onchange(false);
@@ -603,7 +537,6 @@ class SoundEditor extends React.Component {
         let selectedSampleRate = this.props.sampleRate;
         let selectedForceRate = false;
         const menu = this.displayPopup("Format Sound", 580, 300, "Apply", "Cancel", () => {
-            // accepted
             const edits = {
                 sampleRate: selectedSampleRate,
             };
@@ -870,7 +803,6 @@ class SoundEditor extends React.Component {
             else play();
         };
 
-        // updates
         bitcrush.onchange = (updateValue) => {
             if (updateValue !== false) {
                 valueBitCrush.value = Number(bitcrush.value) * 100;
@@ -883,7 +815,6 @@ class SoundEditor extends React.Component {
             valueFreqCrush.value = Number(freqcrush.value) * 100;
         }
         freqcrush.oninput = freqcrush.onchange;
-        // value changes
         valueBitCrush.onchange = () => {
             bitcrush.value = valueBitCrush.value / 100;
             bitcrush.onchange(false);
@@ -922,6 +853,15 @@ class SoundEditor extends React.Component {
                 onCutToNew={this.handleCutToNew}
                 onDelete={this.handleDelete}
                 onEcho={this.effectFactory(effectTypes.ECHO)}
+                onTelephone={this.effectFactory(effectTypes.TELEPHONE)}
+                onAlien={this.effectFactory(effectTypes.ALIEN)}
+                onDistortion={this.effectFactory(effectTypes.DISTORTION)}
+                onVocoder={this.effectFactory(effectTypes.VOCODER)}
+                onLowBattery={this.effectFactory(effectTypes.LOWBATTERY)}
+                onCongaBusher={this.effectFactory(effectTypes.CONGABUSHER)}
+                onNoiseReduction={this.effectFactory(effectTypes.NOISEREDUCTION)}
+                onFlashback={this.effectFactory(effectTypes.FLASHBACK)}
+                onLoudBreaths={this.effectFactory(effectTypes.LOUDBREATHS)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
                 onFaster={this.effectFactory(effectTypes.FASTER)}
@@ -968,7 +908,6 @@ SoundEditor.propTypes = {
 
 const mapStateToProps = (state, { soundIndex }) => {
     const sprite = state.scratchGui.vm.editingTarget.sprite;
-    // Make sure the sound index doesn't go out of range.
     const index = soundIndex < sprite.sounds.length ? soundIndex : sprite.sounds.length - 1;
     const sound = state.scratchGui.vm.editingTarget.sprite.sounds[index];
     const audioBuffer = state.scratchGui.vm.getSoundBuffer(index);

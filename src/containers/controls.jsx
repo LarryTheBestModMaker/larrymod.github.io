@@ -5,69 +5,102 @@ import VM from 'scratch-vm';
 import {connect} from 'react-redux';
 
 import ControlsComponent from '../components/controls/controls.jsx';
+import {
+    getNextPlaybackSpeed,
+    getPlaybackSpeed,
+    resetPlaybackSpeed,
+    setPlaybackSpeed
+} from '../lib/project-playback-speed';
 
 class Controls extends React.Component {
     constructor (props) {
         super(props);
+        this.state = {
+            fastForwardSpeed: getPlaybackSpeed()
+        };
         bindAll(this, [
             'handleGreenFlagClick',
             'handlePauseButtonClick',
-            'handleStopAllClick'
+            'handleFastForwardButtonClick',
+            'handleStopAllClick',
+            'resetPlaybackSpeed'
         ]);
     }
+
+
+    resetPlaybackSpeed () {
+        const speed = resetPlaybackSpeed(this.props.vm);
+        this.setState({fastForwardSpeed: speed});
+    }
+
     handleGreenFlagClick (e) {
         e.preventDefault();
-        // tw: implement alt+click and right click to toggle FPS
+        this.resetPlaybackSpeed();
         if (e.shiftKey || e.altKey || e.type === 'contextmenu') {
             if (e.shiftKey) {
                 this.props.vm.setTurboMode(!this.props.turbo);
             }
             if (e.altKey || e.type === 'contextmenu') {
-                if (this.props.framerate === 30) {
-                    this.props.vm.setFramerate(60);
-                } else {
-                    this.props.vm.setFramerate(30);
-                }
+                this.props.vm.setFramerate(this.props.framerate === 30 ? 60 : 30);
             }
-        } else {
-            if (!this.props.isStarted) {
-                this.props.vm.start();
-            }
-            this.props.vm.greenFlag();
+            return;
         }
+
+        if (!this.props.isStarted) {
+            this.props.vm.start();
+        }
+        this.props.vm.greenFlag();
     }
     handlePauseButtonClick (e) {
         e.preventDefault();
-        const root = document.documentElement;
-        if (!this.props.paused) {
+        
+        // Pause ends fast-forward and restores normal script/audio speed while
+        // preserving the project's current state and position.
+        if (this.state.fastForwardSpeed > 1) {
+            this.resetPlaybackSpeed();
             this.props.vm.pause();
-            root.style.setProperty("--pause-btn-color", "hsla(87, 100%, 50%, 0.15)");
             return;
         }
-        root.style.setProperty("--pause-btn-color", "hsla(49, 100%, 50%, 0.15)");
-        this.props.vm.play();
+        
+        if (!this.props.paused) {
+            this.props.vm.pause();
+        } else {
+            this.props.vm.play();
+        }
     }
+
+    handleFastForwardButtonClick (e) {
+        e.preventDefault();
+        const speed = getNextPlaybackSpeed(this.state.fastForwardSpeed);
+        const appliedSpeed = setPlaybackSpeed(this.props.vm, speed);
+        this.setState({fastForwardSpeed: appliedSpeed});
+    }
+
     handleStopAllClick (e) {
         e.preventDefault();
+        this.resetPlaybackSpeed();
         this.props.vm.stopAll();
     }
     render () {
         const {
             vm, // eslint-disable-line no-unused-vars
             isStarted, // eslint-disable-line no-unused-vars
-            projectRunning,
+            projectRunning, // eslint-disable-line no-unused-vars
             paused,
             turbo,
             ...props
         } = this.props;
+
         return (
             <ControlsComponent
                 {...props}
                 active={projectRunning && isStarted}
                 paused={paused}
                 turbo={turbo}
+                fastForwardSpeed={this.state.fastForwardSpeed}
                 onGreenFlagClick={this.handleGreenFlagClick}
                 onPauseButtonClick={this.handlePauseButtonClick}
+                onFastForwardButtonClick={this.handleFastForwardButtonClick}
                 onStopAllClick={this.handleStopAllClick}
             />
         );
@@ -93,7 +126,7 @@ const mapStateToProps = state => ({
     turbo: state.scratchGui.vmStatus.turbo,
     paused: state.scratchGui.vmStatus.paused
 });
-// no-op function to prevent dispatch prop being passed to component
+
 const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controls);

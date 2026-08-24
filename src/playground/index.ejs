@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google" value="notranslate">
-    <meta name="description" content="DinosaurMod is a Mod of Penguinmod that adds more blocks, extensions and new features." />
+    <meta name="description" content="LarryMod is a Mod of DinosaurMod that adds more blocks, extensions and new features." />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.root %>images/apple-touch-icon.png">
-    <link rel="icon" type="image/x-icon" href="https://dinosaurmod.github.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://LarryTheBestModMaker.github.io/larry.github.io/favicon.ico">
     <% if (htmlWebpackPlugin.options.root === "/" || htmlWebpackPlugin.options.root === "") { %>
       <link rel="manifest" href="<%= htmlWebpackPlugin.options.root %>manifest.webmanifest">
     <% } %>
@@ -59,8 +59,8 @@
         if (localStorage.getItem("tw:accent:customAccents") == null) localStorage.setItem("tw:accent:customAccents", JSON.stringify([]));
         if (localTheme ? localTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches) document.querySelector('#splash').setAttribute('splash-theme', 'dark');
         try {var accentTheme = localStorage.getItem('tw:accent');} catch (e) {}
-        if (accentTheme) document.body.setAttribute("coloraccent", accentTheme || "Lime Green")
-        if (accentTheme == null) document.body.setAttribute("coloraccent", "Lime Green")
+        if (accentTheme) document.body.setAttribute("coloraccent", accentTheme || "Light Blue")
+        if (accentTheme == null) document.body.setAttribute("coloraccent", "Light Blue")
         window.Recolor = {primary: getComputedStyle(document.body).getPropertyValue('--motion-primary')}
         if (new URLSearchParams(location.search).has("666")) {document.body.setAttribute("colorAccent", "OOHVERYSCARY"); document.body.setAttribute('theme', 'dark'); document.querySelector('#splash').setAttribute('splash-theme', 'dark');
           while (document.querySelector('#app') == null) {await new Promise(r => setTimeout(r, 50))}

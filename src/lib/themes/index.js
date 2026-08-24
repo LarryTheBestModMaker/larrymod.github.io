@@ -36,7 +36,7 @@ const ACCENT_MAP = {
     ["custom"]: {}
 };
 
-const ACCENT_DEFAULT = ACCENT_LIME;
+const ACCENT_DEFAULT = ACCENT_LIGHTBLUE;
 
 const GUI_LIGHT = 'light';
 const GUI_DARK = 'dark';
