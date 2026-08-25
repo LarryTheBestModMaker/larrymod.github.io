@@ -6408,6 +6408,23 @@
         "libraryFilePage": "sounds/nailgun3.mp3"
     },
     {
+        "name": "Nano Hoedown",
+        "tags": [
+            "larrymod",
+            "themes",
+            "loops",
+            "music",
+            "kevin macleod",
+            "new"
+        ],
+        "assetId": "8f00eac6e286eb4ba5ff7bbeb8778d92",
+        "dataFormat": "",
+        "md5ext": "8f00eac6e286eb4ba5ff7bbeb8778d92.mp3",
+        "sampleCount": 7375307,
+        "rate": 48000,
+        "customSoundPreviewName": "nano-hoedown"
+    },
+    {
         "name": "Night Core",
         "tags": [
             "music",

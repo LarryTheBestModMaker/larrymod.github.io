@@ -1,5 +1,6 @@
 import messages from './tag-messages.js';
 export default [
+    {tag: 'larrymod', intlLabel: messages.larrymod},
     {tag: 'dinosaurmod', intlLabel: messages.dinosaurmod},
     {tag: 'penguinmod', intlLabel: messages.penguinmod},
     {type: 'divider'},
