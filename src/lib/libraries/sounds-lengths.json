@@ -1,6 +1,9 @@
 {   
     "larrymod": {
-        "sounds/nano-hoedown.mp3": 153650
+        "sounds/nano-hoedown.mp3": 153650,
+        "sounds/monkeys-spinning-monkeys.mp3": 125070,
+        "sounds/fluffing-a-duck.mp3": 67370,
+        "sounds/hall-of-the-mountain-king.mp3": 152980
     },
     "dinosaurmod": {
         "sounds/mibup15full.mp3": 132480
@@ -711,6 +714,9 @@
         "30704b7e61f8f99caf0ae3233ad16794": 3660,
         "ba38281dc7a54c1ab1f7747577e6ab84": 17680,
         "8abd94d92d95421ff1b720f4bfcd8b75": 670,
-        "8f00eac6e286eb4ba5ff7bbeb8778d92": 153650
+        "8f00eac6e286eb4ba5ff7bbeb8778d92": 153650,
+        "a7c21348a70f24bd44d2fb5589308ed2": 125070,
+        "9489391257b3bf52ba27edfc35a29458": 67370,
+        "c03cdbab50dc0ee43672b0ac0a39d3c7": 152980
     }
 }

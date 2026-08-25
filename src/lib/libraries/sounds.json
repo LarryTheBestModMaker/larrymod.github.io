@@ -3856,6 +3856,23 @@
         "libraryFilePage": "sounds/user/effects/freesound-pool1-namelesscat/Flip Paper 2.mp3"
     },
     {
+        "name": "Fluffing a Duck",
+        "tags": [
+            "larrymod",
+            "themes",
+            "loops",
+            "music",
+            "kevin macleod",
+            "new"
+        ],
+        "assetId": "9489391257b3bf52ba27edfc35a29458",
+        "dataFormat": "",
+        "md5ext": "9489391257b3bf52ba27edfc35a29458.mp3",
+        "sampleCount": 3233664,
+        "rate": 48000,
+        "customSoundPreviewName": "fluffing-a-duck"
+    },
+    {
         "name": "Footstep",
         "tags": [
             "footsteps",
@@ -4665,6 +4682,23 @@
         "rate": 44100,
         "fromPenguinModLibrary": true,
         "libraryFilePage": "sounds/gunshot4.mp3"
+    },
+    {
+        "name": "Hall of the Mountain King",
+        "tags": [
+            "larrymod",
+            "themes",
+            "loops",
+            "music",
+            "kevin macleod",
+            "new"
+        ],
+        "assetId": "c03cdbab50dc0ee43672b0ac0a39d3c7",
+        "dataFormat": "",
+        "md5ext": "c03cdbab50dc0ee43672b0ac0a39d3c7.mp3",
+        "sampleCount": 7342848,
+        "rate": 48000,
+        "customSoundPreviewName": "hall-of-the-mountain-king"
     },
     {
         "name": "Hand Clap",
@@ -6178,6 +6212,23 @@
         "rate": 44100,
         "fromPenguinModLibrary": true,
         "libraryFilePage": "sounds/user/effects/Metronome2.mp3"
+    },
+    {
+        "name": "Monkeys Spinning Monkeys",
+        "tags": [
+            "larrymod",
+            "themes",
+            "loops",
+            "music",
+            "kevin macleod",
+            "new"
+        ],
+        "assetId": "a7c21348a70f24bd44d2fb5589308ed2",
+        "dataFormat": "",
+        "md5ext": "a7c21348a70f24bd44d2fb5589308ed2.mp3",
+        "sampleCount": 6003565,
+        "rate": 48000,
+        "customSoundPreviewName": "monkeys-spinning-monkeys"
     },
     {
         "name": "Monster Snarl 1",
