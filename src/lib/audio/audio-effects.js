@@ -22,6 +22,9 @@ import DJWarpEffect from './effects/dj-warp-effect.js';
 import BackpackRadioEffect from './effects/backpack-radio-effect.js';
 import BAndWTVEffect from './effects/b-and-w-tv-effect.js';
 import MicMalfunctionEffect from './effects/mic-malfunction-effect.js';
+import ElectroShiftEffect from './effects/electro-shift-effect.js';
+import DistortedMicEffect from './effects/distorted-mic-effect.js';
+import NormalizeEffect from './effects/normalize-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -54,6 +57,9 @@ const effectTypes = {
     BACKPACKRADIO: 'backpack radio',
     BANDWTV: 'b and w tv',
     MICMALFUNCTION: 'mic malfunction',
+    ELECTROSHIFT: 'electro shift',
+    DISTORTEDMIC: 'distorted mic',
+    NORMALIZE: 'normalize',
 };
 
 const centsToFrequency = (cents) => {
@@ -293,6 +299,18 @@ class AudioEffects {
                 break;
             case effectTypes.MICMALFUNCTION:
                 ({input, output} = new MicMalfunctionEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.ELECTROSHIFT:
+                ({input, output} = new ElectroShiftEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.DISTORTEDMIC:
+                ({input, output} = new DistortedMicEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.NORMALIZE:
+                ({input, output} = new NormalizeEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

@@ -866,6 +866,9 @@ class SoundEditor extends React.Component {
                 onBackpackRadio={this.effectFactory(effectTypes.BACKPACKRADIO)}
                 onBAndWTV={this.effectFactory(effectTypes.BANDWTV)}
                 onMicMalfunction={this.effectFactory(effectTypes.MICMALFUNCTION)}
+                onElectroShift={this.effectFactory(effectTypes.ELECTROSHIFT)}
+                onDistortedMic={this.effectFactory(effectTypes.DISTORTEDMIC)}
+                onNormalize={this.effectFactory(effectTypes.NORMALIZE)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
                 onFaster={this.effectFactory(effectTypes.FASTER)}

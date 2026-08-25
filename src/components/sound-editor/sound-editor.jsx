@@ -53,6 +53,9 @@ import djWarpIcon from './icon--dj-warp.svg';
 import backpackRadioIcon from './icon--backpack-radio.svg';
 import bAndWTVIcon from './icon--b-and-w-tv.svg';
 import micMalfunctionIcon from './icon--mic-malfunction.svg';
+import electroShiftIcon from './icon--electro-shift.svg';
+import distortedMicIcon from './icon--distorted-mic.svg';
+import normalizeIcon from './icon--normalize.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -543,6 +546,24 @@ const SoundEditor = props => (
                     title={"Mic Malfunction"}
                     onClick={props.onMicMalfunction}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
@@ -647,6 +668,9 @@ SoundEditor.propTypes = {
     onBackpackRadio: PropTypes.func.isRequired,
     onBAndWTV: PropTypes.func.isRequired,
     onMicMalfunction: PropTypes.func.isRequired,
+    onElectroShift: PropTypes.func.isRequired,
+    onDistortedMic: PropTypes.func.isRequired,
+    onNormalize: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
