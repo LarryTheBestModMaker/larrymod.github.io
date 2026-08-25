@@ -9169,6 +9169,21 @@
         "libraryFilePage": "images/user/Laptop3.svg"
     },
     {
+        "name": "Larry",
+        "tags": [
+            "people",
+            "person",
+            "drawing",
+            "new"
+        ],
+        "assetId": "ae65b9400547d7bfba542ce62a630fdc",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "ae65b9400547d7bfba542ce62a630fdc.svg",
+        "rotationCenterX": 47,
+        "rotationCenterY": 74
+    },
+    {
         "name": "Lb Pop Down",
         "tags": [
             "people",

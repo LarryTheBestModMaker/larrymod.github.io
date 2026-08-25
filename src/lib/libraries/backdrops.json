@@ -1,5 +1,18 @@
 [
     {
+        "name": "Abstract Purple",
+        "tags": [
+            "patterns",
+            "new"
+        ],
+        "assetId": "367fc5bb33183ee166ce20914a4fb896",
+        "bitmapResolution": 2,
+        "dataFormat": "jpg",
+        "md5ext": "367fc5bb33183ee166ce20914a4fb896.jpg",
+        "rotationCenterX": 480,
+        "rotationCenterY": 270
+    },
+    {
         "name": "Arctic",
         "tags": [
             "outdoors",
@@ -662,6 +675,22 @@
         "rotationCenterY": 360
     },
     {
+        "name": "Nature Waterfall",
+        "tags": [
+            "outdoors",
+            "view",
+            "relaxing",
+            "nature",
+            "new"
+        ],
+        "assetId": "0b442bdb2cdf955db169f0b0465df40b",
+        "bitmapResolution": 2,
+        "dataFormat": "png",
+        "md5ext": "0b442bdb2cdf955db169f0b0465df40b.png",
+        "rotationCenterX": 474,
+        "rotationCenterY": 315
+    },
+    {
         "name": "Nebula",
         "tags": [
             "space",
@@ -786,6 +815,19 @@
         "md5ext": "6cab934df643d2fc508cfa90c0c4059b.png",
         "rotationCenterX": 480,
         "rotationCenterY": 360
+    },
+    {
+        "name": "Rainbow with Sparkles",
+        "tags": [
+            "patterns",
+            "new"
+        ],
+        "assetId": "7c4b917581efdfffc88d54292494c631",
+        "bitmapResolution": 2,
+        "dataFormat": "jpg",
+        "md5ext": "7c4b917581efdfffc88d54292494c631.jpg",
+        "rotationCenterX": 480,
+        "rotationCenterY": 320
     },
     {
         "name": "Rays",

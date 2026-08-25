@@ -7257,6 +7257,22 @@
         "blocks": {}
     },
     {
+        "name": "Hit Me Keyboard",
+        "tags": [
+            "staxfun",
+            "new"
+        ],
+        "isStage": false,
+        "variables": {"36c8d82f-fd4c-4c9e-9efa-1184efa39149":["SPACEBARHITS",0]},
+        "costumes": [
+            {"name":"ChatGPT Image Apr 13, 2025, 03_40_13 AM","bitmapResolution":2,"dataFormat":"png","assetId":"fe7fc8067ff1f5a5b936d38334f38d66","md5ext":"fe7fc8067ff1f5a5b936d38334f38d66.png","rotationCenterX":360,"rotationCenterY":360},{"name":"ChatGPT Image Apr 13, 2025, 03_49_21 AM","bitmapResolution":2,"dataFormat":"png","assetId":"e2889d256d94ed3da4421b9250ce3406","md5ext":"e2889d256d94ed3da4421b9250ce3406.png","rotationCenterX":472,"rotationCenterY":320}
+        ],
+        "sounds": [
+            {"name":"Bark","assetId":"cd8fa8390b0efdd281882533fbfcfcfb","dataFormat":"wav","format":"","rate":48000,"sampleCount":6896,"md5ext":"cd8fa8390b0efdd281882533fbfcfcfb.wav"},{"name":"Scream6","assetId":"4fff2704afe75149ab9bbb3ca8ccdde6","dataFormat":"wav","format":"","rate":48000,"sampleCount":28991,"md5ext":"4fff2704afe75149ab9bbb3ca8ccdde6.wav"},{"name":"Final Struggle","assetId":"58b56ab1aed1df0762cc88172ae88717","dataFormat":"wav","format":"","rate":48000,"sampleCount":3073931,"md5ext":"58b56ab1aed1df0762cc88172ae88717.wav"},{"name":"Faster","assetId":"47475ab5bf650e7512acc4814c7e917b","dataFormat":"wav","format":"","rate":48000,"sampleCount":50249,"md5ext":"47475ab5bf650e7512acc4814c7e917b.wav"}
+        ],
+        "blocks": {"A":{"opcode":"event_whenflagclicked","next":"a","parent":null,"inputs":{},"fields":{},"shadow":false,"topLevel":true,"x":-979,"y":-1037},"a":{"opcode":"sound_play","next":"b","parent":"A","inputs":{"SOUND_MENU":[1,"N"]},"fields":{},"shadow":false,"topLevel":false},"N":{"opcode":"sound_sounds_menu","next":null,"parent":"a","inputs":{},"fields":{"SOUND_MENU":["Final Struggle","gU^Nc0X1a?Xdp4~(@d]/"]},"shadow":true,"topLevel":false},"b":{"opcode":"looks_switchcostumeto","next":"e","parent":"a","inputs":{"COSTUME":[1,"O"]},"fields":{},"shadow":false,"topLevel":false},"O":{"opcode":"looks_costume","next":null,"parent":"b","inputs":{},"fields":{"COSTUME":["ChatGPT Image Apr 13, 2025, 03_40_13 AM","+@vEC%GR80Mpc)v-C10r"]},"shadow":true,"topLevel":false},"e":{"opcode":"looks_sayforsecs","next":"f","parent":"b","inputs":{"MESSAGE":[1,[10,"Hit the SPACEBAR as many times as you can in 10 seconds!"]],"SECS":[1,[4,"4"]]},"fields":{},"shadow":false,"topLevel":false},"f":{"opcode":"looks_say","next":"i","parent":"e","inputs":{"MESSAGE":[1,[10,"Go"]]},"fields":{},"shadow":false,"topLevel":false},"i":{"opcode":"control_wait","next":"m","parent":"f","inputs":{"DURATION":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"m":{"opcode":"data_setvariableto","next":"o","parent":"i","inputs":{"VALUE":[1,[10,"0"]]},"fields":{"VARIABLE":["SPACEBARHITS","36c8d82f-fd4c-4c9e-9efa-1184efa39149",""]},"shadow":false,"topLevel":false},"o":{"opcode":"looks_sayforsecs","next":"n","parent":"m","inputs":{"MESSAGE":[1,[10,"10"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"n":{"opcode":"looks_sayforsecs","next":"j","parent":"o","inputs":{"MESSAGE":[1,[10,"9"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"k":{"opcode":"looks_sayforsecs","next":"p","parent":"j","inputs":{"MESSAGE":[1,[10,"8"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"p":{"opcode":"looks_sayforsecs","next":"q","parent":"k","inputs":{"MESSAGE":[1,[10,"7"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"q":{"opcode":"looks_sayforsecs","next":"r","parent":"p","inputs":{"MESSAGE":[1,[10,"6"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"r":{"opcode":"looks_sayforsecs","next":"c","parent":"q","inputs":{"MESSAGE":[1,[10,"5"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"u":{"opcode":"looks_sayforsecs","next":"v","parent":"c","inputs":{"MESSAGE":[1,[10,"4"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"v":{"opcode":"looks_sayforsecs","next":"g","parent":"u","inputs":{"MESSAGE":[1,[10,"3"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"s":{"opcode":"looks_sayforsecs","next":"l","parent":"g","inputs":{"MESSAGE":[1,[10,"2"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"t":{"opcode":"looks_sayforsecs","next":"B","parent":"l","inputs":{"MESSAGE":[1,[10,"1"]],"SECS":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"B":{"opcode":"control_wait","next":"w","parent":"t","inputs":{"DURATION":[1,[10,"1"]]},"fields":{},"shadow":false,"topLevel":false},"w":{"opcode":"looks_nextcostume","next":"h","parent":"B","inputs":{},"fields":{},"shadow":false,"topLevel":false},"h":{"opcode":"looks_say","next":"x","parent":"w","inputs":{"MESSAGE":[2,"y"]},"fields":{},"shadow":false,"topLevel":false},"y":{"opcode":"operator_join","next":null,"parent":"h","inputs":{"STRING1":[2,"E"],"STRING2":[1,[10," Times!"]]},"fields":{},"shadow":false,"topLevel":false},"E":{"opcode":"operator_join","next":null,"parent":"y","inputs":{"STRING1":[1,[10,"You Hit the SPACEBAR "]],"STRING2":[3,[12,"SPACEBARHITS","36c8d82f-fd4c-4c9e-9efa-1184efa39149"],[4,""]]},"fields":{},"shadow":false,"topLevel":false},"x":{"opcode":"control_wait","next":"P","parent":"h","inputs":{"DURATION":[1,[10,"5"]]},"fields":{},"shadow":false,"topLevel":false},"P":{"opcode":"control_stop","next":null,"parent":"x","inputs":{},"fields":{"STOP_OPTION":["all","98iTAuj,3+T0qd.vBhr{"]},"shadow":false,"topLevel":false,"mutation":{"tagName":"mutation","children":[],"hasnext":"false"}},"Y":{"opcode":"event_whenkeypressed","next":"Q","parent":null,"inputs":{},"fields":{"KEY_OPTION":["space","tz(Po~B]Cy]c)6o9.N{Z"]},"shadow":false,"topLevel":true,"x":-593,"y":-700},"Q":{"opcode":"data_changevariableby","next":null,"parent":"Y","inputs":{"VALUE":[1,[10,"1"]]},"fields":{"VARIABLE":["SPACEBARHITS","36c8d82f-fd4c-4c9e-9efa-1184efa39149",""]},"shadow":false,"topLevel":false},"d":{"opcode":"sound_play","next":"C","parent":"R","inputs":{"SOUND_MENU":[1,"S"]},"fields":{},"shadow":false,"topLevel":false},"S":{"opcode":"sound_sounds_menu","next":null,"parent":"d","inputs":{},"fields":{"SOUND_MENU":["Scream6","S7HqO3Um,cvmpj=f:UlP"]},"shadow":true,"topLevel":false},"C":{"opcode":"looks_seteffectto","next":"z","parent":"d","inputs":{"VALUE":[1,[4,"30"]]},"fields":{"EFFECT":["FISHEYE","jKrwx!76|_@y89,nFU~)"]},"shadow":false,"topLevel":false},"z":{"opcode":"control_wait","next":"T","parent":"C","inputs":{"DURATION":[1,[5,".04"]]},"fields":{},"shadow":false,"topLevel":false},"T":{"opcode":"looks_seteffectto","next":null,"parent":"z","inputs":{"VALUE":[1,[4,"0"]]},"fields":{"EFFECT":["FISHEYE","C96jk1@1;kaH@aQLKE]B"]},"shadow":false,"topLevel":false},"j":{"opcode":"sound_play","next":"k","parent":"n","inputs":{"SOUND_MENU":[1,"M"]},"fields":{},"shadow":false,"topLevel":false},"M":{"opcode":"sound_sounds_menu","next":null,"parent":"j","inputs":{},"fields":{"SOUND_MENU":["Faster","9iW6X-TdI,~r6!IbBbi^"]},"shadow":true,"topLevel":false},"l":{"opcode":"sound_play","next":"t","parent":"s","inputs":{"SOUND_MENU":[1,"U"]},"fields":{},"shadow":false,"topLevel":false},"U":{"opcode":"sound_sounds_menu","next":null,"parent":"l","inputs":{},"fields":{"SOUND_MENU":["Faster","{ZH.OPo98pwkxb*Ml-ZZ"]},"shadow":true,"topLevel":false},"c":{"opcode":"sound_play","next":"u","parent":"r","inputs":{"SOUND_MENU":[1,"F"]},"fields":{},"shadow":false,"topLevel":false},"F":{"opcode":"sound_sounds_menu","next":null,"parent":"c","inputs":{},"fields":{"SOUND_MENU":["Faster","Mb`VxCO|!d[p8_r+EL%f"]},"shadow":true,"topLevel":false},"g":{"opcode":"sound_play","next":"s","parent":"v","inputs":{"SOUND_MENU":[1,"D"]},"fields":{},"shadow":false,"topLevel":false},"D":{"opcode":"sound_sounds_menu","next":null,"parent":"g","inputs":{},"fields":{"SOUND_MENU":["Faster","*~u:8,lEE98Y)YbrGdlZ"]},"shadow":true,"topLevel":false},"R":{"opcode":"event_whenkeypressed","next":"d","parent":null,"inputs":{},"fields":{"KEY_OPTION":["space","=nRhr8)=OoPtT^)]WLOu"]},"shadow":false,"topLevel":true,"x":-658,"y":-524}}
+    },
+    {
         "name": "Home Button",
         "tags": [
             "ui",
@@ -8400,6 +8416,40 @@
                 "dataFormat": "svg",
                 "rotationCenterX": 75,
                 "rotationCenterY": 75
+            }
+        ],
+        "sounds": [
+            {
+                "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "name": "pop",
+                "dataFormat": "wav",
+                "format": "",
+                "rate": 44100,
+                "sampleCount": 1032,
+                "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
+            }
+        ],
+        "blocks": {}
+    },
+    {
+        "name": "Larry",
+        "tags": [
+            "people",
+            "person",
+            "drawing",
+            "new"
+        ],
+        "isStage": false,
+        "variables": {},
+        "costumes": [
+            {
+                "assetId": "ae65b9400547d7bfba542ce62a630fdc",
+                "name": "larry",
+                "bitmapResolution": 1,
+                "md5ext": "ae65b9400547d7bfba542ce62a630fdc.svg",
+                "dataFormat": "svg",
+                "rotationCenterX": 47,
+                "rotationCenterY": 74
             }
         ],
         "sounds": [
