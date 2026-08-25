@@ -1,0 +1,157 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: $ui-primary;
+    color: $text-primary;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: $space $space * 1.5;
+    border-bottom: 1px solid $ui-black-transparent;
+    background: $ui-white;
+}
+
+[theme="dark"] .header {
+    background: $ui-primary;
+}
+
+.title {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.count {
+    min-width: 1.5rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 999px;
+    background: $ui-black-transparent;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: $space;
+    align-content: start;
+    flex-grow: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: $space * 1.5;
+    box-sizing: border-box;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: $space * 0.75;
+    border: 2px solid transparent;
+    border-radius: $space * 0.75;
+    background: $ui-white;
+    color: $text-primary;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+[theme="dark"] .item {
+    background: $ui-primary;
+}
+
+.item:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+
+.item:focus-visible {
+    outline: 2px solid $motion-primary;
+    outline-offset: 2px;
+}
+
+.selected {
+    border-color: $motion-primary;
+}
+
+.preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 86px;
+    margin-bottom: $space * 0.5;
+    overflow: hidden;
+    border-radius: $space * 0.5;
+    background: $ui-tertiary;
+}
+
+.thumbnail {
+    display: block;
+    width: 100%;
+    height: 86px;
+    object-fit: contain;
+}
+
+.placeholder {
+    padding: 0.4rem;
+    color: $text-primary;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    word-break: break-word;
+}
+
+.name {
+    overflow: hidden;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.details {
+    margin-top: 0.15rem;
+    overflow: hidden;
+    color: $text-primary;
+    font-size: 0.65rem;
+    opacity: 0.7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 180px;
+    padding: $space * 2;
+    text-align: center;
+}
+
+.emptyTitle {
+    margin-bottom: $space * 0.5;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.emptyText {
+    max-width: 28rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
