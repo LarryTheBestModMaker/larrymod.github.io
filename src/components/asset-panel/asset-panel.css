@@ -23,7 +23,7 @@
     border-bottom-left-radius: $space;
 }
 
-.detail-area {
+.detailArea {
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
