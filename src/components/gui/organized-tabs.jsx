@@ -14,6 +14,7 @@ import addExtensionIcon from "./icon--extensions.svg";
 import codeIcon from "./icon--code.svg";
 import costumesIcon from "./icon--costumes.svg";
 import soundsIcon from "./icon--sounds.svg";
+import assetsIcon from "./icon--assets.svg";
 import filesIcon from "./icon--files.svg";
 
 import Blocks from "../../containers/blocks.jsx";
@@ -65,10 +66,11 @@ class OrganizedTabs extends React.Component {
             isDark,
             onActivateCostumesTab,
             onActivateSoundsTab,
+            onActivateAssetsTab,
             onExtensionButtonClick,
             blocksTabVisible,
             costumesTabVisible,
-            soundsTabVisible,
+            assetsTabVisible,
         } = this.props;
 
         const tabClassNames = {
@@ -136,11 +138,25 @@ class OrganizedTabs extends React.Component {
                     />
                 </Tab>
             );
+            const assetsTab = (
+                <Tab
+                    className={tabClassNames.tab}
+                    onClick={onActivateAssetsTab}
+                >
+                    <img draggable={false} src={assetsIcon} />
+                    <FormattedMessage
+                        defaultMessage="Assets"
+                        description="Button to get to the assets panel"
+                        id="gui.gui.assetsTab"
+                    />
+                </Tab>
+            );
 
             const tabPairs = {
                 code: codeTab,
                 costume: costumesTab,
                 sound: soundsTab,
+                asset: assetsTab,
             };
 
             const enabledTabs = [];
@@ -201,6 +217,9 @@ class OrganizedTabs extends React.Component {
                 <TabPanel className={tabClassNames.tabPanel}>
                     {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                 </TabPanel>
+                <TabPanel className={tabClassNames.tabPanel}>
+                    {assetsTabVisible ? <AssetTab vm={vm} /> : null}
+                </TabPanel>
             </Tabs>
         );
     }
@@ -219,10 +238,12 @@ OrganizedTabs.propTypes = {
     isDark: PropTypes.any,
     onActivateCostumesTab: PropTypes.any,
     onActivateSoundsTab: PropTypes.any,
+    onActivateAssetsTab: PropTypes.any,
     onExtensionButtonClick: PropTypes.any,
     blocksTabVisible: PropTypes.any,
     costumesTabVisible: PropTypes.any,
     soundsTabVisible: PropTypes.any,
+    assetsTabVisible: PropTypes.any,
 };
 
 export default injectIntl(OrganizedTabs);
