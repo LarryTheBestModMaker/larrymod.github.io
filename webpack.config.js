@@ -5,6 +5,7 @@ var webpack = require('webpack');
 // Plugins
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 var TWGenerateServiceWorkerPlugin = require('./src/playground/generate-service-worker-plugin');
 var defaultsdeep = require('lodash.defaultsdeep');
 //var GhPagesWebpackPlugin = require('gh-pages-webpack-plugin');
@@ -67,6 +68,14 @@ const base = {
     },
     module: {
         rules: [{
+            test: /\.css$/,
+            include: /node_modules[\\/]monaco-editor/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }]
+        }, {
             test: /\.jsx?$/,
             loader: 'babel-loader',
             include: [
@@ -88,6 +97,7 @@ const base = {
         },
         {
             test: /\.css$/,
+            exclude: /node_modules[\\/]monaco-editor/,
             use: [{
                 loader: 'style-loader'
             }, {
@@ -139,7 +149,7 @@ module.exports = [
         module: {
             rules: base.module.rules.concat([
                 {
-                    test: /\.(svg|png|wav|gif|jpg|mp3|ttf|otf|ico)$/,
+                    test: /\.(svg|png|wav|mp3|gif|jpg|woff|woff2|ttf|eot|hex)$/,
                     loader: 'file-loader',
                     options: {
                         outputPath: 'static/assets/'
@@ -265,7 +275,7 @@ module.exports = [
             module: {
                 rules: base.module.rules.concat([
                     {
-                        test: /\.(svg|png|wav|gif|jpg|mp3|ttf|otf|ico)$/,
+                        test: /\.(svg|png|wav|mp3|gif|jpg|woff|woff2|ttf|eot|hex)$/,
                         loader: 'file-loader',
                         options: {
                             outputPath: 'static/assets/',

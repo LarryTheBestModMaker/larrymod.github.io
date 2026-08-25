@@ -47,6 +47,7 @@ const projectData = translateFunction => {
                     }
                 ],
                 sounds: [],
+                assets: [],
                 volume: 101
             },
             {
@@ -97,6 +98,7 @@ const projectData = translateFunction => {
                     }
                 ],
                 sounds: [],
+                assets: [],
                 volume: 101,
                 visible: true,
                 x: 0,

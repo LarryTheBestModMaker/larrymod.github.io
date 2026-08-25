@@ -18,6 +18,7 @@ import Blocks from '../../containers/blocks.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
+import AssetTab from '../../containers/asset-tab.jsx';
 import VariablesTab from '../../containers/variables-tab.jsx';
 import FilesTab from '../../containers/files-tab.jsx';
 import StageWrapper from '../../containers/stage-wrapper.jsx';
@@ -58,6 +59,7 @@ import addExtensionIcon from './icon--extensions.svg';
 import codeIcon from '!../../lib/tw-recolor/build!./icon--code.svg';
 import costumesIcon from '!../../lib/tw-recolor/build!./icon--costumes.svg';
 import soundsIcon from '!../../lib/tw-recolor/build!./icon--sounds.svg';
+import assetsIcon from '!../../lib/tw-recolor/build!./icon--assets.svg';
 import variablesIcon from '!../../lib/tw-recolor/build!./icon--variables.svg';
 import filesIcon from '!../../lib/tw-recolor/build!./icon--files.svg';
 
@@ -102,6 +104,7 @@ const GUIComponent = props => {
         accountNavOpen,
         activeTabIndex,
         alertsVisible,
+        assetsTabVisible,
         authorId,
         authorThumbnailUrl,
         authorUsername,
@@ -151,6 +154,7 @@ const GUIComponent = props => {
         onToggleLoginOpen,
         onActivateCostumesTab,
         onActivateSoundsTab,
+        onActivateAssetsTab,
         onActivateVariablesTab,
         onActivateFilesTab,
         onActivateTab,
@@ -272,6 +276,19 @@ const GUIComponent = props => {
                     defaultMessage="Sounds"
                     description="Button to get to the sounds panel"
                     id="gui.gui.soundsTab"
+                />
+            </ContextMenuWrapTab>
+        </Tab>);
+    const assetsTab = (<Tab className={classNames(tabClassNames.tab, tabOrder.includes('asset') ? null : styles.tabDisabled)} onClick={onActivateAssetsTab}>
+            <ContextMenuWrapTab tabId="asset">
+                <img
+                    draggable={false}
+                    src={assetsIcon()}
+                />
+                <FormattedMessage
+                    defaultMessage="Assets"
+                    description="Button to get to the assets panel"
+                    id="gui.gui.assetsTab"
                 />
             </ContextMenuWrapTab>
         </Tab>);
@@ -648,6 +665,9 @@ const GUIComponent = props => {
                                     {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
+                                    {assetsTabVisible ? <AssetTab vm={vm} /> : null}
+                                </TabPanel>
+                                <TabPanel className={tabClassNames.tabPanel}>
                                     {variablesTabVisible ? <VariablesTab vm={vm} /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
@@ -724,6 +744,7 @@ GUIComponent.propTypes = {
     logo: PropTypes.string,
     onActivateCostumesTab: PropTypes.func,
     onActivateSoundsTab: PropTypes.func,
+    onActivateAssetsTab: PropTypes.func,
     onActivateVariablesTab: PropTypes.func,
     onActivateFilesTab: PropTypes.func,
     onActivateTab: PropTypes.func,

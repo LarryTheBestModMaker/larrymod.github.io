@@ -123,6 +123,7 @@ dependencies:
   immutable: 3.8.2
   intl: 1.2.5
   intl-messageformat: 2.2.0
+  istextorbinary: 9.5.0
   js-base64: 2.4.9
   keymirror: 0.1.1
   lodash.bindall: 4.4.0
@@ -130,6 +131,7 @@ dependencies:
   lodash.omit: 4.5.0
   lodash.throttle: 4.0.1
   minilog: 3.1.0
+  monaco-editor: 0.28.1
   omggif: 1.0.9
   papaparse: 5.3.0
   postcss-import: 12.0.1
@@ -146,6 +148,7 @@ dependencies:
   react-intl: 2.9.0_7b6ongk543eygvalcfff2i4m24
   react-intl-redux: 0.7.0_3dwfshyg73a42s74ypg3jjw4ym
   react-modal: 3.9.1_kxouedps7ii4ilphekzhaact3q
+  react-monaco-editor: 0.28.0
   react-popover: 0.5.10
   react-redux: 5.0.7_react@16.2.0+redux@3.7.2
   react-responsive: 4.1.0_react@16.2.0
@@ -199,6 +202,7 @@ devDependencies:
   jest-junit: 7.0.0
   lodash.defaultsdeep: 4.6.1
   mkdirp: 1.0.3
+  monaco-editor-webpack-plugin: 4.2.0
   raf: 3.4.1
   react-test-renderer: 16.2.0_react@16.2.0
   redux-mock-store: 1.5.3
