@@ -1,4 +1,4 @@
-class CongaBusherEffect {
+class MicMalfunctionEffect {
     constructor(audioContext) {
         this.audioContext = audioContext;
 
@@ -38,4 +38,4 @@ class CongaBusherEffect {
     }
 }
 
-export default CongaBusherEffect;
+export default MicMalfunctionEffect;

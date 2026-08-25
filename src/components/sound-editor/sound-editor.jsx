@@ -45,10 +45,14 @@ import alienIcon from './icon--alien.svg';
 import distortionIcon from './icon--distortion.svg';
 import vocoderIcon from './icon--vocoder.svg';
 import lowBatteryIcon from './icon--low-battery.svg';
-import congaBusherIcon from './icon--conga-busher.svg';
 import noiseReductionIcon from './icon--noise-reduction.svg';
 import flashbackIcon from './icon--flashback.svg';
 import loudBreathsIcon from './icon--loud-breaths.svg';
+import metalPipesIcon from './icon--metal-pipes.svg';
+import djWarpIcon from './icon--dj-warp.svg';
+import backpackRadioIcon from './icon--backpack-radio.svg';
+import bAndWTVIcon from './icon--b-and-w-tv.svg';
+import micMalfunctionIcon from './icon--mic-malfunction.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -493,12 +497,6 @@ const SoundEditor = props => (
                 />
                 <IconButton
                     className={styles.effectButton}
-                    img={congaBusherIcon}
-                    title={"Conga Busher Effect"}
-                    onClick={props.onCongaBusher}
-                />
-                <IconButton
-                    className={styles.effectButton}
                     img={noiseReductionIcon}
                     title={"Noise Reduction"}
                     onClick={props.onNoiseReduction}
@@ -514,6 +512,36 @@ const SoundEditor = props => (
                     img={loudBreathsIcon}
                     title={"Loud Breaths"}
                     onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
                 />
             </div>
         </div>
@@ -611,10 +639,14 @@ SoundEditor.propTypes = {
     onDistortion: PropTypes.func.isRequired,
     onVocoder: PropTypes.func.isRequired,
     onLowBattery: PropTypes.func.isRequired,
-    onCongaBusher: PropTypes.func.isRequired,
     onNoiseReduction: PropTypes.func.isRequired,
     onFlashback: PropTypes.func.isRequired,
     onLoudBreaths: PropTypes.func.isRequired,
+    onMetalPipes: PropTypes.func.isRequired,
+    onDJWarp: PropTypes.func.isRequired,
+    onBackpackRadio: PropTypes.func.isRequired,
+    onBAndWTV: PropTypes.func.isRequired,
+    onMicMalfunction: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,

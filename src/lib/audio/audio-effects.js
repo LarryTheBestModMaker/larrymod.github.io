@@ -14,10 +14,14 @@ import AlienEffect from './effects/alien-effect.js';
 import DistortionEffect from './effects/distortion-effect.js';
 import VocoderEffect from './effects/vocoder-effect.js';
 import LowBatteryEffect from './effects/low-battery-effect.js';
-import CongaBusherEffect from './effects/conga-busher-effect.js';
 import NoiseReductionEffect from './effects/noise-reduction-effect.js';
 import FlashbackEffect from './effects/flashback-effect.js';
 import LoudBreathsEffect from './effects/loud-breaths-effect.js';
+import MetalPipesEffect from './effects/metal-pipes-effect.js';
+import DJWarpEffect from './effects/dj-warp-effect.js';
+import BackpackRadioEffect from './effects/backpack-radio-effect.js';
+import BAndWTVEffect from './effects/b-and-w-tv-effect.js';
+import MicMalfunctionEffect from './effects/mic-malfunction-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -42,10 +46,14 @@ const effectTypes = {
     DISTORTION: 'distortion',
     VOCODER: 'vocoder',
     LOWBATTERY: 'low battery',
-    CONGABUSHER: 'conga busher',
     NOISEREDUCTION: 'noise reduction',
     FLASHBACK: 'flashback',
     LOUDBREATHS: 'loud breaths',
+    METALPIPES: 'metal pipes',
+    DJWARP: 'dj warp',
+    BACKPACKRADIO: 'backpack radio',
+    BANDWTV: 'b and w tv',
+    MICMALFUNCTION: 'mic malfunction',
 };
 
 const centsToFrequency = (cents) => {
@@ -255,10 +263,6 @@ class AudioEffects {
                 ({input, output} = new LowBatteryEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
-            case effectTypes.CONGABUSHER:
-                ({input, output} = new CongaBusherEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
             case effectTypes.NOISEREDUCTION:
                 ({input, output} = new NoiseReductionEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
@@ -269,6 +273,26 @@ class AudioEffects {
                 break;
             case effectTypes.LOUDBREATHS:
                 ({input, output} = new LoudBreathsEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.METALPIPES:
+                ({input, output} = new MetalPipesEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.DJWARP:
+                ({input, output} = new DJWarpEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.BACKPACKRADIO:
+                ({input, output} = new BackpackRadioEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.BANDWTV:
+                ({input, output} = new BAndWTVEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.MICMALFUNCTION:
+                ({input, output} = new MicMalfunctionEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

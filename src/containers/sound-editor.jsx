@@ -858,10 +858,14 @@ class SoundEditor extends React.Component {
                 onDistortion={this.effectFactory(effectTypes.DISTORTION)}
                 onVocoder={this.effectFactory(effectTypes.VOCODER)}
                 onLowBattery={this.effectFactory(effectTypes.LOWBATTERY)}
-                onCongaBusher={this.effectFactory(effectTypes.CONGABUSHER)}
                 onNoiseReduction={this.effectFactory(effectTypes.NOISEREDUCTION)}
                 onFlashback={this.effectFactory(effectTypes.FLASHBACK)}
                 onLoudBreaths={this.effectFactory(effectTypes.LOUDBREATHS)}
+                onMetalPipes={this.effectFactory(effectTypes.METALPIPES)}
+                onDJWarp={this.effectFactory(effectTypes.DJWARP)}
+                onBackpackRadio={this.effectFactory(effectTypes.BACKPACKRADIO)}
+                onBAndWTV={this.effectFactory(effectTypes.BANDWTV)}
+                onMicMalfunction={this.effectFactory(effectTypes.MICMALFUNCTION)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
                 onFaster={this.effectFactory(effectTypes.FASTER)}
