@@ -8416,32 +8416,6 @@
         "blocks": {}
     },
     {
-        "name": "Larry",
-        "tags": [
-            "people",
-            "person",
-            "drawing",
-            "new"
-        ],
-        "isStage": false,
-        "variables": {},
-        "costumes": [
-            {"name":"costume1","bitmapResolution":1,"dataFormat":"svg","assetId":"ae65b9400547d7bfba542ce62a630fdc","md5ext":"ae65b9400547d7bfba542ce62a630fdc.svg","rotationCenterX":47,"rotationCenterY":74}
-        ],
-        "sounds": [
-            {
-                "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "name": "pop",
-                "dataFormat": "wav",
-                "format": "",
-                "rate": 44100,
-                "sampleCount": 1032,
-                "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
-            }
-        ],
-        "blocks": {}
-    },
-    {
         "name": "Lightning",
         "tags": [
             "weather",
