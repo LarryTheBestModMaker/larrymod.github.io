@@ -13,7 +13,7 @@ const SAMPLE_RATE = 44100;
 const DEFAULT_DURATION = 2;
 const MIN_DURATION = 0.5;
 const MAX_DURATION = 30;
-const DEFAULT_ENDPOINT = '/api/text-to-sound-ai';
+const DEFAULT_ENDPOINT = './text-to-sound-ai-api.js';
 
 let generator = null;
 
