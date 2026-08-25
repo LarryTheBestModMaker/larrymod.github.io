@@ -6,11 +6,6 @@ export default defineMessages({
         description: 'Tag for filtering a library for everything',
         id: 'gui.libraryTags.all'
     },
-    staxfun: {
-        defaultMessage: 'Stax.fun Action Things (Try it!)',
-        description: 'Tag for filtering a library for stax.fun',
-        id: 'gui.libraryTags.staxfun'
-    },
     animals: {
         defaultMessage: 'Animals',
         description: 'Tag for filtering a library for animals',
