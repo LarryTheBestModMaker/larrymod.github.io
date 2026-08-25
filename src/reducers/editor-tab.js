@@ -4,8 +4,8 @@ const ACTIVATE_TAB = 'scratch-gui/navigation/ACTIVATE_TAB';
 const BLOCKS_TAB_INDEX = 0;
 const COSTUMES_TAB_INDEX = 1;
 const SOUNDS_TAB_INDEX = 2;
-const ASSETS_TAB_INDEX = 3;
-const VARIABLES_TAB_INDEX = 4;
+const VARIABLES_TAB_INDEX = 3;
+const ASSETS_TAB_INDEX = 4;
 const FILES_TAB_INDEX = 5;
 
 const initialState = {
