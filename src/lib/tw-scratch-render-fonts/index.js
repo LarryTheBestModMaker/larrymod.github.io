@@ -1,7 +1,6 @@
 /* eslint-disable import/no-commonjs */
 
 const SansSerif = require('./NotoSans-Medium.ttf');
-const Serif = require('./SourceSerifPro-Regular.otf');
 const Handwriting = require('./handlee-regular.ttf');
 const Marker = require('./Knewave.ttf');
 const Curly = require('./Griffy-Regular.ttf');
@@ -12,9 +11,7 @@ const Pixel = require('./Grand9K-Pixel.ttf');
 const Mopeds = require('./ScratchSavers_b2.ttf');
 
 /* PenguinMod Fonts */
-const Branches = require('./Xtraflexidisc.otf');
 const Technological = require('./MonospaceBold.ttf');
-const Bubbly = require('./QTKooper.otf');
 const Playful = require('./BadComic-Regular.ttf');
 const BitsAndBytes = require('./freecam-v2.ttf');
 const Arcade = require('./PressStart2P.ttf');
@@ -29,15 +26,11 @@ const log = require('../log').default;
 
 const fontSource = {
     'Sans Serif': SansSerif,
-    'Serif': Serif,
     'Handwriting': Handwriting,
     'Marker': Marker,
     'Curly': Curly,
     'Pixel': Pixel,
-    'Scratch': Branches,
-    // 'Branches': Branches,
     'Technological': Technological,
-    'Bubbly': Bubbly,
     'Bits and Bytes': BitsAndBytes,
     'Playful': Playful,
     'Arcade': Arcade,
