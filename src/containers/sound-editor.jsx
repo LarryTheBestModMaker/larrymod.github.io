@@ -531,38 +531,41 @@ class SoundEditor extends React.Component {
         valueVolume.oninput = valueVolume.onchange;
     }
     handleBackpackRadioWarning() {
-    return new Promise(resolve => {
-        const menu = this.displayPopup(
-            "Warning!",
-            420,
-            220,
-            "Continue anyway",
-            "Do not continue",
-            () => {
-                resolve(true);
-            },
-            () => {
-                resolve(false);
-            }
-        );
+    const menu = this.displayPopup(
+        "Warning!",
+        420,
+        240,
+        "Continue anyway",
+        "Do not continue",
+        () => {
+            // Apply Backpack Radio only after the user confirms.
+            this.handleEffect({
+                preset: AudioEffects.effectTypes.BACKPACKRADIO
+            });
+        },
+        () => {
+            // User chose not to continue.
+            return;
+        }
+    );
 
-        menu.textarea.style =
-            "padding: 20px;display:flex;align-items:center;" +
-            "justify-content:center;text-align:center;";
+    menu.textarea.style =
+        "padding: 20px;display:flex;align-items:center;" +
+        "justify-content:center;text-align:center;";
 
-        const warning = document.createElement("p");
+    const warning = document.createElement("p");
 
-        warning.style =
-            "margin:0;font-size:15px;line-height:1.5;font-weight:500;";
+    warning.style =
+        "margin:0;font-size:15px;line-height:1.5;" +
+        "font-weight:500;";
 
-        warning.innerHTML =
-            "The 'Backpack Radio' effect is very distorted. " +
-            "Its intensity and level are too high and can cause " +
-            "eardrum damage. Are you sure you want to apply this " +
-            "effect to it?";
+    warning.innerHTML =
+        "The 'Backpack Radio' effect is very distorted. " +
+        "Its intensity and level are too high and can cause " +
+        "eardrum damage. Are you sure you want to apply this " +
+        "effect to it?";
 
-        menu.textarea.append(warning);
-    });
+    menu.textarea.append(warning);
 }
     handleFormatMenu() {
         const sampleRates = [
