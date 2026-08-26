@@ -1,35 +1,40 @@
 class EchoEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    static get DELAY_TIME () {
+        return 0.25;
+    }
+    static get TAIL_SECONDS () {
+        return 0.75;
+    }
+    constructor (audioContext, startTime, endTime) {
         this.audioContext = audioContext;
-        this.input = audioContext.createGain();
-        this.output = audioContext.createGain();
+        this.input = this.audioContext.createGain();
+        this.output = this.audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        this.effectInput = this.audioContext.createGain();
+        this.effectInput.gain.value = 0;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        this.effectInput.gain.setValueAtTime(0.75, startTime);
+        this.effectInput.gain.setValueAtTime(0, endTime);
 
-        let node = this.input;
+        this.delay = this.audioContext.createDelay(1);
+        this.delay.delayTime.value = EchoEffect.DELAY_TIME;
+        this.decay = this.audioContext.createGain();
+        this.decay.gain.value = 0.3;
 
-        const delay = audioContext.createDelay(2);
-        delay.delayTime.value = 0.28;
-        const feedback = audioContext.createGain();
-        feedback.gain.value = 0.38;
-        node.connect(delay);
-        delay.connect(feedback);
-        feedback.connect(delay);
-        delay.connect(wet);
-        node.connect(wet);
+        this.compressor = this.audioContext.createDynamicsCompressor();
+        this.compressor.threshold.value = -5;
+        this.compressor.knee.value = 15;
+        this.compressor.ratio.value = 12;
+        this.compressor.attack.value = 0;
+        this.compressor.release.value = 0.25;
 
-        wet.connect(this.output);
-
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        this.input.connect(this.effectInput);
+        this.effectInput.connect(this.delay);
+        this.delay.connect(this.compressor);
+        this.input.connect(this.compressor);
+        this.delay.connect(this.decay);
+        this.decay.connect(this.delay);
+        this.compressor.connect(this.output);
     }
 }
 

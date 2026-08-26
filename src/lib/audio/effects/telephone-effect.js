@@ -1,43 +1,44 @@
 class TelephoneEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    constructor(audioContext) {
         this.audioContext = audioContext;
+
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        // Telephone bandwidth
+        this.highpass = audioContext.createBiquadFilter();
+        this.highpass.type = "highpass";
+        this.highpass.frequency.value = 300;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        this.lowpass = audioContext.createBiquadFilter();
+        this.lowpass.type = "lowpass";
+        this.lowpass.frequency.value = 3400;
 
-        let node = this.input;
+        // Speech presence
+        this.presence = audioContext.createBiquadFilter();
+        this.presence.type = "peaking";
+        this.presence.frequency.value = 1800;
+        this.presence.Q.value = 1;
+        this.presence.gain.value = 4;
 
-        const filter = audioContext.createBiquadFilter();
-        filter.type = 'peaking';
-        filter.frequency.value = 1400;
-        filter.Q.value = 0.8;
-        filter.gain.value = 3;
-        node.connect(filter);
-        node = filter;
+        // Slight saturation
+        this.distortion = audioContext.createWaveShaper();
 
-        const delay = audioContext.createDelay(2);
-        delay.delayTime.value = 0.28;
-        const feedback = audioContext.createGain();
-        feedback.gain.value = 0.38;
-        node.connect(delay);
-        delay.connect(feedback);
-        feedback.connect(delay);
-        delay.connect(wet);
-        node.connect(wet);
+        const curve = new Float32Array(44100);
 
-        wet.connect(this.output);
+        for (let i = 0; i < 44100; i++) {
+            const x = (i * 2) / 44100 - 1;
+            curve[i] = Math.tanh(1.5 * x);
+        }
 
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        this.distortion.curve = curve;
+
+        // Wiring
+        this.input.connect(this.highpass);
+        this.highpass.connect(this.lowpass);
+        this.lowpass.connect(this.presence);
+        this.presence.connect(this.distortion);
+        this.distortion.connect(this.output);
     }
 }
 

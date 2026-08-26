@@ -1,35 +1,55 @@
 class FlashbackEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    static get DELAY_TIME () {
+        return 5;
+    }
+    static get TAIL_SECONDS () {
+        return 5;
+    }
+    constructor(audioContext, startSeconds, endSeconds) {
         this.audioContext = audioContext;
-        this.input = audioContext.createGain();
-        this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        this.input = this.audioContext.createGain();
+        this.output = this.audioContext.createGain();
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        // --- Delay (main echo) ---
+        this.delay = this.audioContext.createDelay();
+        this.delay.delayTime.setValueAtTime(0.4, startSeconds);
 
-        let node = this.input;
+        // --- Feedback loop (repeats) ---
+        this.feedback = this.audioContext.createGain();
+        this.feedback.gain.value = 0.5;
 
-        const delay = audioContext.createDelay(2);
-        delay.delayTime.value = 0.28;
-        const feedback = audioContext.createGain();
-        feedback.gain.value = 0.38;
-        node.connect(delay);
-        delay.connect(feedback);
-        feedback.connect(delay);
-        delay.connect(wet);
-        node.connect(wet);
+        // --- Lowpass (old/distant sound) ---
+        this.lowpass = this.audioContext.createBiquadFilter();
+        this.lowpass.type = "lowpass";
+        this.lowpass.frequency.setValueAtTime(1500, startSeconds);
 
-        wet.connect(this.output);
+        // --- Wet/Dry mix ---
+        this.dry = this.audioContext.createGain();
+        this.wet = this.audioContext.createGain();
 
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        this.dry.gain.value = 1;
+        this.wet.gain.value = 0.7;
+
+        // --- Fade out (memory effect) ---
+        this.output.gain.setValueAtTime(1, startSeconds);
+        this.output.gain.linearRampToValueAtTime(0.3, endSeconds);
+
+        // --- Wiring ---
+
+        // Dry signal
+        this.input.connect(this.dry);
+        this.dry.connect(this.output);
+
+        // Delay loop
+        this.input.connect(this.delay);
+        this.delay.connect(this.lowpass);
+        this.lowpass.connect(this.feedback);
+        this.feedback.connect(this.delay);
+
+        // Output wet signal
+        this.lowpass.connect(this.wet);
+        this.wet.connect(this.output);
     }
 }
 

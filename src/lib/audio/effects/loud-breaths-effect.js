@@ -1,33 +1,20 @@
 class LoudBreathsEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
-        this.audioContext = audioContext;
+    constructor(audioContext, startSeconds, endSeconds) {
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        this.noiseGain = audioContext.createGain();
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        const step = 0.3;
 
-        let node = this.input;
+        for (let t = startSeconds; t < endSeconds; t += step) {
+            this.noiseGain.gain.setValueAtTime(0, t);
+            this.noiseGain.gain.linearRampToValueAtTime(1, t + 0.05);
+            this.noiseGain.gain.linearRampToValueAtTime(0, t + 0.2);
+        }
 
-        const tone = audioContext.createBiquadFilter();
-        tone.type = 'lowpass';
-        tone.frequency.value = 15000;
-        tone.Q.value = 0.35;
-        node.connect(tone);
-        tone.connect(wet);
-
-        wet.connect(this.output);
-
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        this.input.connect(this.noiseGain);
+        this.noiseGain.connect(this.output);
     }
 }
-
 export default LoudBreathsEffect;

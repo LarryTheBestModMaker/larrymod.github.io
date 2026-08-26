@@ -1,33 +1,24 @@
 class MetalPipesEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
-        this.audioContext = audioContext;
+    constructor(audioContext, startSeconds, endSeconds) {
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        this.bandpass = audioContext.createBiquadFilter();
+        this.bandpass.type = "bandpass";
+        this.bandpass.frequency.value = 800;
+        this.bandpass.Q.value = 15;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        this.delay = audioContext.createDelay();
+        this.delay.delayTime.value = 0.09;
 
-        let node = this.input;
+        this.feedback = audioContext.createGain();
+        this.feedback.gain.value = 0.7;
 
-        const tone = audioContext.createBiquadFilter();
-        tone.type = 'lowpass';
-        tone.frequency.value = 15000;
-        tone.Q.value = 0.35;
-        node.connect(tone);
-        tone.connect(wet);
-
-        wet.connect(this.output);
-
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        this.input.connect(this.bandpass);
+        this.bandpass.connect(this.delay);
+        this.delay.connect(this.feedback);
+        this.feedback.connect(this.delay);
+        this.delay.connect(this.output);
     }
 }
-
 export default MetalPipesEffect;

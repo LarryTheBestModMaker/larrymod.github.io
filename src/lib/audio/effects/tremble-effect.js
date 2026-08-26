@@ -1,43 +1,30 @@
 class TrembleEffect {
     constructor (audioContext, startSeconds, endSeconds) {
         this.audioContext = audioContext;
-        this.input = audioContext.createGain();
-        this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        this.input = this.audioContext.createGain();
+        this.output = this.audioContext.createGain();
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        const trembleGain = this.audioContext.createGain();
+        trembleGain.gain.value = 0.5;
 
-        let node = this.input;
+        const lfo = audioContext.createOscillator();
+        lfo.type = 'sine';
 
-        const shaper = audioContext.createWaveShaper();
-        const curve = new Float32Array(1024);
-        for (let i = 0; i < curve.length; i++) {
-            const x = (i * 2 / (curve.length - 1)) - 1;
-            curve[i] = Math.tanh(3.5 * x);
-        }
-        shaper.curve = curve;
-        shaper.oversample = '2x';
-        node.connect(shaper);
-        node = shaper;
+        lfo.frequency.setValueAtTime(8, startSeconds);
+        lfo.frequency.setValueAtTime(8, endSeconds);
 
-        const tone = audioContext.createBiquadFilter();
-        tone.type = 'lowpass';
-        tone.frequency.value = 15000;
-        tone.Q.value = 0.35;
-        node.connect(tone);
-        tone.connect(wet);
+        const lfoGain = audioContext.createGain();
+        lfoGain.gain.value = 0.5;
 
-        wet.connect(this.output);
+        lfo.connect(lfoGain);
+        lfoGain.connect(trembleGain.gain);
 
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        lfo.start(startSeconds);
+        lfo.stop(endSeconds);
+
+        this.input.connect(trembleGain);
+        trembleGain.connect(this.output);
     }
 }
 

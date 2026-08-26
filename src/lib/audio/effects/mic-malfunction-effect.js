@@ -1,32 +1,40 @@
 class MicMalfunctionEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    constructor(audioContext) {
         this.audioContext = audioContext;
+
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        // Settings
+        const bits = 10;
+        const normFreq = 0.05;
+        const bufferSize = 4096;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        this.processor = audioContext.createScriptProcessor(bufferSize, 1, 1);
 
-        let node = this.input;
+        let phaser = 0;
+        let lastSample = 0;
+        const step = Math.pow(0.5, bits);
 
-        const tone = audioContext.createBiquadFilter();
-        tone.type = 'lowpass';
-        tone.frequency.value = 15000;
-        tone.Q.value = 0.35;
-        node.connect(tone);
-        tone.connect(wet);
+        this.processor.onaudioprocess = (event) => {
+            const input = event.inputBuffer.getChannelData(0);
+            const output = event.outputBuffer.getChannelData(0);
 
-        wet.connect(this.output);
+            for (let i = 0; i < input.length; i++) {
+                phaser += normFreq;
 
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+                if (phaser >= 1.0) {
+                    phaser -= 1.0;
+                    lastSample = step * Math.floor(input[i] / step + 0.5);
+                }
+
+                output[i] = lastSample;
+            }
+        };
+
+        // Wiring
+        this.input.connect(this.processor);
+        this.processor.connect(this.output);
     }
 }
 

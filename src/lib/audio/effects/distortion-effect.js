@@ -1,43 +1,49 @@
 class DistortionEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    constructor(audioContext) {
         this.audioContext = audioContext;
+
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        // Drive amount
+        this.drive = audioContext.createGain();
+        this.drive.gain.value = 3;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        // Distortion
+        this.distortion = audioContext.createWaveShaper();
+        this.distortion.curve = this.createCurve(60);
+        this.distortion.oversample = "4x";
 
-        let node = this.input;
+        // Tone shaping
+        this.lowpass = audioContext.createBiquadFilter();
+        this.lowpass.type = "lowpass";
+        this.lowpass.frequency.value = 7000;
 
-        const shaper = audioContext.createWaveShaper();
-        const curve = new Float32Array(1024);
-        for (let i = 0; i < curve.length; i++) {
-            const x = (i * 2 / (curve.length - 1)) - 1;
-            curve[i] = Math.tanh(3.5 * x);
+        // Output level
+        this.makeupGain = audioContext.createGain();
+        this.makeupGain.gain.value = 0.8;
+
+        // Wiring
+        this.input.connect(this.drive);
+        this.drive.connect(this.distortion);
+        this.distortion.connect(this.lowpass);
+        this.lowpass.connect(this.makeupGain);
+        this.makeupGain.connect(this.output);
+    }
+
+    createCurve(amount) {
+        const samples = 44100;
+        const curve = new Float32Array(samples);
+        const deg = Math.PI / 180;
+
+        for (let i = 0; i < samples; i++) {
+            const x = (i * 2) / samples - 1;
+            curve[i] =
+                ((3 + amount) * x * 20 * deg) /
+                (Math.PI + amount * Math.abs(x));
         }
-        shaper.curve = curve;
-        shaper.oversample = '2x';
-        node.connect(shaper);
-        node = shaper;
 
-        const tone = audioContext.createBiquadFilter();
-        tone.type = 'lowpass';
-        tone.frequency.value = 15000;
-        tone.Q.value = 0.35;
-        node.connect(tone);
-        tone.connect(wet);
-
-        wet.connect(this.output);
-
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        return curve;
     }
 }
 

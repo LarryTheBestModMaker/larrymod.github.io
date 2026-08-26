@@ -1,43 +1,63 @@
 class BackpackRadioEffect {
-    constructor (audioContext, startSeconds, endSeconds) {
+    constructor(audioContext) {
         this.audioContext = audioContext;
+
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
 
-        const dry = audioContext.createGain();
-        const wet = audioContext.createGain();
-        dry.gain.value = 0.45;
-        wet.gain.value = 0.55;
+        // Portable-radio frequency range
+        this.highpass = audioContext.createBiquadFilter();
+        this.highpass.type = "highpass";
+        this.highpass.frequency.value = 250;
 
-        this.input.connect(dry);
-        dry.connect(this.output);
+        this.lowpass = audioContext.createBiquadFilter();
+        this.lowpass.type = "lowpass";
+        this.lowpass.frequency.value = 4200;
 
-        let node = this.input;
+        // Radio-style midrange emphasis
+        this.presence = audioContext.createBiquadFilter();
+        this.presence.type = "peaking";
+        this.presence.frequency.value = 1400;
+        this.presence.Q.value = 1;
+        this.presence.gain.value = 5;
 
-        const filter = audioContext.createBiquadFilter();
-        filter.type = 'peaking';
-        filter.frequency.value = 1400;
-        filter.Q.value = 0.8;
-        filter.gain.value = 3;
-        node.connect(filter);
-        node = filter;
+        // Mild radio distortion
+        this.distortion = audioContext.createWaveShaper();
+        this.distortion.curve = this.createCurve(18);
+        this.distortion.oversample = "2x";
 
-        const delay = audioContext.createDelay(2);
-        delay.delayTime.value = 0.28;
-        const feedback = audioContext.createGain();
-        feedback.gain.value = 0.38;
-        node.connect(delay);
-        delay.connect(feedback);
-        feedback.connect(delay);
-        delay.connect(wet);
-        node.connect(wet);
+        // Compression
+        this.compressor = audioContext.createDynamicsCompressor();
+        this.compressor.threshold.value = -18;
+        this.compressor.knee.value = 8;
+        this.compressor.ratio.value = 4;
+        this.compressor.attack.value = 0.003;
+        this.compressor.release.value = 0.12;
 
-        wet.connect(this.output);
+        // Output level
+        this.outputGain = audioContext.createGain();
+        this.outputGain.gain.value = 0.8;
 
-        this.output.gain.setValueAtTime(0, startSeconds);
-        this.output.gain.linearRampToValueAtTime(1, startSeconds + 0.02);
-        this.output.gain.setValueAtTime(1, Math.max(startSeconds + 0.021, endSeconds - 0.02));
-        this.output.gain.linearRampToValueAtTime(0, endSeconds);
+        // Wiring
+        this.input.connect(this.highpass);
+        this.highpass.connect(this.lowpass);
+        this.lowpass.connect(this.presence);
+        this.presence.connect(this.distortion);
+        this.distortion.connect(this.compressor);
+        this.compressor.connect(this.outputGain);
+        this.outputGain.connect(this.output);
+    }
+
+    createCurve(amount) {
+        const samples = 44100;
+        const curve = new Float32Array(samples);
+
+        for (let i = 0; i < samples; i++) {
+            const x = (i * 2) / samples - 1;
+            curve[i] = Math.tanh(amount * x) / Math.tanh(amount);
+        }
+
+        return curve;
     }
 }
 
