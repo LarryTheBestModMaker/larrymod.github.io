@@ -887,7 +887,7 @@ class SoundEditor extends React.Component {
                 onOppositeDuo={this.effectFactory(effectTypes.OPPOSITE_DUO)}
                 onWideSpookyEcho={this.effectFactory(effectTypes.WIDE_SPOOKY_ECHO)}
                 onLiveBounce={this.effectFactory(effectTypes.LIVE_BOUNCE)}
-                on9dSoundscape={this.effectFactory(effectTypes.9D_SOUNDSCAPE)}
+                onNinedSoundscape={this.effectFactory(effectTypes.NINED_SOUNDSCAPE)}
                 onSuperEcho={this.effectFactory(effectTypes.SUPER_ECHO)}
                 onWispy={this.effectFactory(effectTypes.WISPY)}
                 onDoubleTrouble={this.effectFactory(effectTypes.DOUBLE_TROUBLE)}
