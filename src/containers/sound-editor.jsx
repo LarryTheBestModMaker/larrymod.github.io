@@ -50,7 +50,7 @@ class SoundEditor extends React.Component {
             'setRef',
             'resampleBufferToRate',
             'handleModifyMenu',
-            'handleGenerateEffectMenu',
+            'handleBackpackRadioWarning',
             'handleFormatMenu',
             'handleBitCrushMenu',
             'getSelectionBuffer'
@@ -530,460 +530,38 @@ class SoundEditor extends React.Component {
         };
         valueVolume.oninput = valueVolume.onchange;
     }
-    handleGenerateEffectMenu() {
-    const bufferSelection = this.getSelectionBuffer();
-    const audio = new AudioContext();
-    const gainNode = audio.createGain();
-    gainNode.gain.value = 1;
-    gainNode.connect(audio.destination);
-
-    const bandpass = document.createElement("input");
-    const distortion = document.createElement("input");
-    const echo = document.createElement("input");
-    const reverb = document.createElement("input");
-    const chorus = document.createElement("input");
-    const bass = document.createElement("input");
-    const treble = document.createElement("input");
-    const bitCrush = document.createElement("input");
-    const noise = document.createElement("input");
-
-    const menu = this.displayPopup(
-        "Generate Effect",
-        560,
-        500,
-        "Generate",
-        "Cancel",
-        () => {
-            audio.close();
-
-            const trueBandpass = isNaN(Number(bandpass.value)) ?
-                0 : Number(bandpass.value);
-            const trueDistortion = isNaN(Number(distortion.value)) ?
-                0 : Number(distortion.value);
-            const trueEcho = isNaN(Number(echo.value)) ?
-                0 : Number(echo.value);
-            const trueReverb = isNaN(Number(reverb.value)) ?
-                0 : Number(reverb.value);
-            const trueChorus = isNaN(Number(chorus.value)) ?
-                0 : Number(chorus.value);
-            const trueBass = isNaN(Number(bass.value)) ?
-                0 : Number(bass.value);
-            const trueTreble = isNaN(Number(treble.value)) ?
-                0 : Number(treble.value);
-            const trueBitCrush = isNaN(Number(bitCrush.value)) ?
-                0 : Number(bitCrush.value);
-            const trueNoise = isNaN(Number(noise.value)) ?
-                0 : Number(noise.value);
-
-            this.handleEffect({
-                special: true,
-                generatedEffect: true,
-                bandpass: trueBandpass / 100,
-                distortion: trueDistortion / 100,
-                echo: trueEcho / 100,
-                reverb: trueReverb / 100,
-                chorus: trueChorus / 100,
-                bass: trueBass / 100,
-                treble: trueTreble / 100,
-                bitCrush: trueBitCrush / 100,
-                noise: trueNoise / 100
-            });
-        },
-        () => {
-            audio.close();
-        }
-    );
-
-    menu.textarea.style =
-        "position: relative;display: grid;grid-template-columns: 1fr 1fr;" +
-        "grid-template-rows: repeat(5, auto);gap: 12px;" +
-        "padding: 12px;overflow-y: auto;" +
-        "height: calc(100% - (3.125em + 2.125em + 16px));" +
-        "box-sizing: border-box;";
-
-    const controls = [
-        {
-            name: "Bandpass",
-            input: bandpass
-        },
-        {
-            name: "Distortion",
-            input: distortion
-        },
-        {
-            name: "Echo",
-            input: echo
-        },
-        {
-            name: "Reverb",
-            input: reverb
-        },
-        {
-            name: "Chorus",
-            input: chorus
-        },
-        {
-            name: "Bass",
-            input: bass
-        },
-        {
-            name: "Treble",
-            input: treble
-        },
-        {
-            name: "Bit Crush",
-            input: bitCrush
-        },
-        {
-            name: "Noise",
-            input: noise
-        }
-    ];
-
-    for (const control of controls) {
-        const container = document.createElement("div");
-        container.style =
-            "display:flex;flex-direction:column;align-items:center;" +
-            "justify-content:center;min-width:0;";
-
-        const label = document.createElement("p");
-        label.style =
-            "text-align:center;margin:0 0 5px 0;font-size:12px;" +
-            "font-weight:bold;width:100%;";
-
-        label.innerHTML = control.name;
-
-        const slider = control.input;
-        slider.type = "range";
-        slider.value = 0;
-        slider.min = 0;
-        slider.max = 100;
-        slider.step = 1;
-        slider.style =
-            "width:100%;margin:0;";
-
-        const value = document.createElement("input");
-        value.type = "number";
-        value.value = 0;
-        value.min = 0;
-        value.max = 100;
-        value.step = 1;
-        value.style =
-            "text-align:center;width:55px;font-size:12px;margin-top:5px;";
-
-        slider.oninput = () => {
-            value.value = Number(slider.value);
-        };
-
-        slider.onchange = slider.oninput;
-
-        value.oninput = () => {
-            let number = Number(value.value);
-
-            if (isNaN(number)) {
-                number = 0;
+    handleBackpackRadioWarning() {
+    return new Promise(resolve => {
+        const menu = this.displayPopup(
+            "Warning!",
+            420,
+            220,
+            "Continue anyway",
+            "Do not continue",
+            () => {
+                resolve(true);
+            },
+            () => {
+                resolve(false);
             }
+        );
 
-            number = Math.max(0, Math.min(100, number));
+        menu.textarea.style =
+            "padding: 20px;display:flex;align-items:center;" +
+            "justify-content:center;text-align:center;";
 
-            slider.value = number;
-            value.value = number;
-        };
+        const warning = document.createElement("p");
 
-        value.onchange = value.oninput;
+        warning.style =
+            "margin:0;font-size:15px;line-height:1.5;font-weight:500;";
 
-        container.append(label);
-        container.append(slider);
-        container.append(value);
+        warning.innerHTML =
+            "The 'Backpack Radio' effect is very distorted. " +
+            "Its intensity and level are too high and can cause " +
+            "eardrum damage. Are you sure you want to apply this " +
+            "effect to it?";
 
-        menu.textarea.append(container);
-    }
-
-    const previewButton = document.createElement("button");
-    previewButton.innerHTML = "Play";
-    previewButton.style =
-        "font-weight:bold;color:white;border-radius:1000px;" +
-        "width:70px;height:42px;border-style:none;" +
-        "background:#76fa02;cursor:pointer;" +
-        "grid-column:1 / span 2;justify-self:center;margin-top:4px;";
-
-    menu.textarea.append(previewButton);
-
-    const properBuffer = audio.createBuffer(
-        1,
-        bufferSelection.samples.length,
-        bufferSelection.sampleRate
-    );
-
-    properBuffer.getChannelData(0).set(bufferSelection.samples);
-
-    let bufferSource = null;
-    let audioPlaying = false;
-
-    const getValue = input => {
-        const value = Number(input.value);
-        if (isNaN(value)) {
-            return 0;
-        }
-        return Math.max(0, Math.min(1, value / 100));
-    };
-
-    const createPreviewGraph = () => {
-        const source = audio.createBufferSource();
-        const output = audio.createGain();
-
-        let node = source;
-
-        const bandpassValue = getValue(bandpass);
-        const distortionValue = getValue(distortion);
-        const echoValue = getValue(echo);
-        const reverbValue = getValue(reverb);
-        const chorusValue = getValue(chorus);
-        const bassValue = getValue(bass);
-        const trebleValue = getValue(treble);
-        const bitCrushValue = getValue(bitCrush);
-        const noiseValue = getValue(noise);
-
-        if (bandpassValue > 0) {
-            const filter = audio.createBiquadFilter();
-            filter.type = "bandpass";
-            filter.frequency.value =
-                300 + (bandpassValue * 5000);
-            filter.Q.value =
-                0.5 + (bandpassValue * 8);
-
-            node.connect(filter);
-            node = filter;
-        }
-
-        if (bassValue > 0) {
-            const filter = audio.createBiquadFilter();
-            filter.type = "lowshelf";
-            filter.frequency.value = 180;
-            filter.gain.value = bassValue * 15;
-
-            node.connect(filter);
-            node = filter;
-        }
-
-        if (trebleValue > 0) {
-            const filter = audio.createBiquadFilter();
-            filter.type = "highshelf";
-            filter.frequency.value = 4000;
-            filter.gain.value = trebleValue * 12;
-
-            node.connect(filter);
-            node = filter;
-        }
-
-        if (distortionValue > 0) {
-            const shaper = audio.createWaveShaper();
-            const curve = new Float32Array(1024);
-            const amount = 1 + distortionValue * 30;
-
-            for (let i = 0; i < curve.length; i++) {
-                const x = (i * 2) / (curve.length - 1) - 1;
-                curve[i] =
-                    ((Math.PI + amount) * x) /
-                    (Math.PI + amount * Math.abs(x));
-            }
-
-            shaper.curve = curve;
-            shaper.oversample = "4x";
-
-            node.connect(shaper);
-            node = shaper;
-        }
-
-        if (bitCrushValue > 0) {
-            const shaper = audio.createWaveShaper();
-            const curve = new Float32Array(1024);
-
-            const steps = Math.max(
-                2,
-                Math.floor(128 - (bitCrushValue * 120))
-            );
-
-            for (let i = 0; i < curve.length; i++) {
-                const x = (i * 2) / (curve.length - 1) - 1;
-                curve[i] =
-                    Math.round(x * steps) / steps;
-            }
-
-            shaper.curve = curve;
-            shaper.oversample = "2x";
-
-            node.connect(shaper);
-            node = shaper;
-        }
-
-        node.connect(output);
-
-        if (chorusValue > 0) {
-            const chorus = audio.createDelay(0.2);
-            const lfo = audio.createOscillator();
-            const depth = audio.createGain();
-
-            chorus.delayTime.value =
-                0.015 + (chorusValue * 0.035);
-
-            lfo.frequency.value =
-                0.5 + (chorusValue * 1.5);
-
-            depth.gain.value =
-                0.002 + (chorusValue * 0.012);
-
-            lfo.connect(depth);
-            depth.connect(chorus.delayTime);
-
-            output.connect(chorus);
-            chorus.connect(audio.destination);
-
-            lfo.start();
-            lfo.stop(
-                Math.max(0.01, properBuffer.duration)
-            );
-        } else {
-            output.connect(audio.destination);
-        }
-
-        if (echoValue > 0) {
-            const delay = audio.createDelay(2);
-            const feedback = audio.createGain();
-            const echoGain = audio.createGain();
-
-            delay.delayTime.value =
-                0.08 + (echoValue * 0.55);
-
-            feedback.gain.value =
-                Math.min(0.75, echoValue * 0.72);
-
-            echoGain.gain.value =
-                echoValue;
-
-            output.connect(echoGain);
-            echoGain.connect(delay);
-            delay.connect(feedback);
-            feedback.connect(delay);
-            delay.connect(audio.destination);
-        }
-
-        if (reverbValue > 0) {
-            const delay = audio.createDelay(2);
-            const feedback = audio.createGain();
-            const reverbGain = audio.createGain();
-
-            delay.delayTime.value =
-                0.12 + (reverbValue * 0.5);
-
-            feedback.gain.value =
-                Math.min(0.7, reverbValue * 0.65);
-
-            reverbGain.gain.value =
-                reverbValue * 0.8;
-
-            output.connect(reverbGain);
-            reverbGain.connect(delay);
-            delay.connect(feedback);
-            feedback.connect(delay);
-            delay.connect(audio.destination);
-        }
-
-        if (noiseValue > 0) {
-            const noiseBuffer =
-                audio.createBuffer(
-                    1,
-                    audio.sampleRate * 2,
-                    audio.sampleRate
-                );
-
-            const noiseData =
-                noiseBuffer.getChannelData(0);
-
-            for (let i = 0; i < noiseData.length; i++) {
-                noiseData[i] =
-                    (Math.random() * 2) - 1;
-            }
-
-            const noiseSource =
-                audio.createBufferSource();
-
-            const noiseGain =
-                audio.createGain();
-
-            noiseSource.buffer = noiseBuffer;
-            noiseSource.loop = true;
-
-            noiseGain.gain.value =
-                noiseValue * 0.15;
-
-            noiseSource.connect(noiseGain);
-            noiseGain.connect(
-                audio.destination
-            );
-
-            noiseSource.start();
-        }
-
-        source.buffer = properBuffer;
-
-        return source;
-    };
-
-    function play() {
-        if (audioPlaying) {
-            return;
-        }
-
-        bufferSource = createPreviewGraph();
-
-        bufferSource.start(0);
-
-        previewButton.innerHTML = "Stop";
-        audioPlaying = true;
-
-        bufferSource.onended = () => {
-            previewButton.innerHTML = "Play";
-            audioPlaying = false;
-        };
-    }
-
-    function stop() {
-        if (!bufferSource) {
-            return;
-        }
-
-        try {
-            bufferSource.stop();
-        } catch (e) {
-            // The source may already have stopped.
-        }
-
-        bufferSource = null;
-        previewButton.innerHTML = "Play";
-        audioPlaying = false;
-    }
-
-    previewButton.onclick = () => {
-        if (audioPlaying) {
-            stop();
-        } else {
-            play();
-        }
-    };
-
-    const stopOnClose = menu.cancel;
-    if (stopOnClose) {
-        stopOnClose.addEventListener("click", stop);
-    }
-
-    controls.forEach(control => {
-        control.input.addEventListener("input", () => {
-            if (audioPlaying) {
-                stop();
-                play();
-            }
-        });
+        menu.textarea.append(warning);
     });
 }
     handleFormatMenu() {
@@ -1320,7 +898,7 @@ class SoundEditor extends React.Component {
                 onLoudBreaths={this.effectFactory(effectTypes.LOUDBREATHS)}
                 onMetalPipes={this.effectFactory(effectTypes.METALPIPES)}
                 onDJWarp={this.effectFactory(effectTypes.DJWARP)}
-                onBackpackRadio={this.effectFactory(effectTypes.BACKPACKRADIO)}
+                onBackpackRadio={this.handleBackpackRadioWarning)}
                 onBAndWTV={this.effectFactory(effectTypes.BANDWTV)}
                 onMicMalfunction={this.effectFactory(effectTypes.MICMALFUNCTION)}
                 onElectroShift={this.effectFactory(effectTypes.ELECTROSHIFT)}
@@ -1331,7 +909,6 @@ class SoundEditor extends React.Component {
                 onFaster={this.effectFactory(effectTypes.FASTER)}
                 onLouder={this.effectFactory(effectTypes.LOUDER)}
                 onModifySound={this.handleModifyMenu}
-                onGenerateEffect={this.handleGenerateEffectMenu}
                 onFormatSound={this.handleFormatMenu}
                 onMute={this.effectFactory(effectTypes.MUTE)}
                 onPaste={this.handlePaste}

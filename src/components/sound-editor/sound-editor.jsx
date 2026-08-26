@@ -56,7 +56,6 @@ import micMalfunctionIcon from './icon--mic-malfunction.svg';
 import electroShiftIcon from './icon--electro-shift.svg';
 import distortedMicIcon from './icon--distorted-mic.svg';
 import normalizeIcon from './icon--normalize.svg';
-import generateEffectIcon from './icon--generate-effect.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -374,12 +373,6 @@ const SoundEditor = props => (
                 />
                 <IconButton
                     className={styles.effectButton}
-                    img={generateEffectIcon}
-                    title={"Generate Effect"}
-                    onClick={props.onGenerateEffect}
-                />
-                <IconButton
-                    className={styles.effectButton}
                     img={fasterIcon}
                     title={<FormattedMessage {...messages.faster} />}
                     onClick={props.onFaster}
@@ -678,7 +671,6 @@ SoundEditor.propTypes = {
     onElectroShift: PropTypes.func.isRequired,
     onDistortedMic: PropTypes.func.isRequired,
     onNormalize: PropTypes.func.isRequired,
-    onGenerateEffect: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
