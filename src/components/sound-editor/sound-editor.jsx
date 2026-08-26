@@ -564,6 +564,3389 @@ const SoundEditor = props => (
                     title={"Normalize"}
                     onClick={props.onNormalize}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={modifyIcon}
+                    title={"Modify"}
+                    onClick={props.onModifySound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fasterIcon}
+                    title={<FormattedMessage {...messages.faster} />}
+                    onClick={props.onFaster}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={slowerIcon}
+                    title={<FormattedMessage {...messages.slower} />}
+                    onClick={props.onSlower}
+                />
+                <IconButton
+                    disabled={props.tooLoud}
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={louderIcon}
+                    title={<FormattedMessage {...messages.louder} />}
+                    onClick={props.onLouder}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={softerIcon}
+                    title={<FormattedMessage {...messages.softer} />}
+                    onClick={props.onSofter}
+                />
+                <IconButton
+                    className={classNames(styles.effectButton, styles.flipInRtl)}
+                    img={muteIcon}
+                    title={<FormattedMessage {...messages.mute} />}
+                    onClick={props.onMute}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeInIcon}
+                    title={<FormattedMessage {...messages.fadeIn} />}
+                    onClick={props.onFadeIn}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={fadeOutIcon}
+                    title={<FormattedMessage {...messages.fadeOut} />}
+                    onClick={props.onFadeOut}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverseIcon}
+                    title={<FormattedMessage {...messages.reverse} />}
+                    onClick={props.onReverse}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={robotIcon}
+                    title={<FormattedMessage {...messages.robot} />}
+                    onClick={props.onRobot}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={telephoneIcon}
+                    title={"Telephone"}
+                    onClick={props.onTelephone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={alienIcon}
+                    title={"Alien"}
+                    onClick={props.onAlien}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={echoIcon}
+                    title={<FormattedMessage {...messages.echo} />}
+                    onClick={props.onEcho}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={reverbIcon}
+                    title={"Reverb"}
+                    onClick={props.onReverb}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortionIcon}
+                    title={"Distortion"}
+                    onClick={props.onDistortion}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowpassIcon}
+                    title={"Low Pass"}
+                    onClick={props.onLowPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={highpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onHighPass}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={formatIcon}
+                    title={"Format"}
+                    onClick={props.onFormatSound}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={megaphoneIcon}
+                    title={"Megaphone"}
+                    onClick={props.onMegaphone}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={trembleIcon}
+                    title={"Tremble"}
+                    onClick={props.onTremble}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={vocoderIcon}
+                    title={"Vocode"}
+                    onClick={props.onVocoder}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={lowBatteryIcon}
+                    title={"Low Battery"}
+                    onClick={props.onLowBattery}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={noiseReductionIcon}
+                    title={"Noise Reduction"}
+                    onClick={props.onNoiseReduction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={flashbackIcon}
+                    title={"Flashback"}
+                    onClick={props.onFlashback}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={loudBreathsIcon}
+                    title={"Loud Breaths"}
+                    onClick={props.onLoudBreaths}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={metalPipesIcon}
+                    title={"Metal Pipes"}
+                    onClick={props.onMetalPipes}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={djWarpIcon}
+                    title={"DJ Warp"}
+                    onClick={props.onDJWarp}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={backpackRadioIcon}
+                    title={"Backpack Radio"}
+                    onClick={props.onBackpackRadio}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bAndWTVIcon}
+                    title={"B&W TV"}
+                    onClick={props.onBAndWTV}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={micMalfunctionIcon}
+                    title={"Mic Malfunction"}
+                    onClick={props.onMicMalfunction}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={electroShiftIcon}
+                    title={"Electro Shift"}
+                    onClick={props.onElectroShift}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={distortedMicIcon}
+                    title={"Distorted Mic"}
+                    onClick={props.onDistortedMic}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={normalizeIcon}
+                    title={"Normalize"}
+                    onClick={props.onNormalize}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
