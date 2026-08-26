@@ -22,6 +22,7 @@ import redoIcon from '!../../lib/tw-recolor/build!./icon--redo.svg';
 import undoIcon from '!../../lib/tw-recolor/build!./icon--undo.svg';
 import modifyIcon from './icon--modify.svg';
 import formatIcon from './icon--format.svg';
+import generateEffectIcon from './icon--generate-effect.svg';
 import fasterIcon from './icon--faster.svg';
 import slowerIcon from './icon--slower.svg';
 import louderIcon from './icon--louder.svg';
@@ -203,430 +204,109 @@ const formatTime = timeSeconds => {
 };
 
 const formatDuration = (playheadPercent, trimStartPercent, trimEndPercent, durationSeconds) => {
-    // If no selection, the trim is the entire sound.
-    trimStartPercent = trimStartPercent === null ? 0 : trimStartPercent;
-    trimEndPercent = trimEndPercent === null ? 1 : trimEndPercent;
-
-    // If the playhead doesn't exist, assume it's at the start of the selection.
-    playheadPercent = playheadPercent === null ? trimStartPercent : playheadPercent;
-
-    // If selection has zero length, treat it as the entire sound being selected.
-    // This happens when the user first clicks to start making a selection.
+    if (trimStartPercent === null) trimStartPercent = 0;
+    if (trimEndPercent === null) trimEndPercent = 1;
+    if (playheadPercent === null) playheadPercent = trimStartPercent;
     const trimSize = (trimEndPercent - trimStartPercent) || 1;
     const trimDuration = trimSize * durationSeconds;
-
     const progressInTrim = (playheadPercent - trimStartPercent) / trimSize;
     const currentTime = progressInTrim * trimDuration;
-
     return `${formatTime(currentTime)} / ${formatTime(trimDuration)} (in seconds: ${trimDuration.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]})`;
 };
 
 const formatSoundSize = bytes => {
-    if (bytes > 1000 * 1000) {
-        return `${(bytes / 1000 / 1000).toFixed(2)}MB`;
-    }
+    if (bytes > 1000 * 1000) return `${(bytes / 1000 / 1000).toFixed(2)}MB`;
     return `${(bytes / 1000).toFixed(2)}KB`;
 };
 
 const SoundEditor = props => (
-    <div
-        className={styles.editorContainer}
-        ref={props.setRef}
-        onMouseDown={props.onContainerClick}
-    >
+    <div className={styles.editorContainer} ref={props.setRef} onMouseDown={props.onContainerClick}>
         <div className={styles.row}>
             <div className={styles.inputGroup}>
                 <Label text={props.intl.formatMessage(messages.sound)}>
-                    <BufferedInput
-                        tabIndex="1"
-                        type="text"
-                        value={props.name}
-                        onSubmit={props.onChangeName}
-                        className={styles.nameInput}
-                    />
+                    <BufferedInput tabIndex="1" type="text" value={props.name} onSubmit={props.onChangeName} className={styles.nameInput} />
                 </Label>
                 <div className={styles.buttonGroup}>
-                    <button
-                        className={styles.button}
-                        disabled={!props.canUndo}
-                        title={props.intl.formatMessage(messages.undo)}
-                        onClick={props.onUndo}
-                    >
-                        <TWRenderRecoloredImage
-                            className={styles.undoIcon}
-                            draggable={false}
-                            src={undoIcon}
-                        />
+                    <button className={styles.button} disabled={!props.canUndo} title={props.intl.formatMessage(messages.undo)} onClick={props.onUndo}>
+                        <TWRenderRecoloredImage className={styles.undoIcon} draggable={false} src={undoIcon} />
                     </button>
-                    <button
-                        className={styles.button}
-                        disabled={!props.canRedo}
-                        title={props.intl.formatMessage(messages.redo)}
-                        onClick={props.onRedo}
-                    >
-                        <TWRenderRecoloredImage
-                            className={styles.redoIcon}
-                            draggable={false}
-                            src={redoIcon}
-                        />
+                    <button className={styles.button} disabled={!props.canRedo} title={props.intl.formatMessage(messages.redo)} onClick={props.onRedo}>
+                        <TWRenderRecoloredImage className={styles.redoIcon} draggable={false} src={redoIcon} />
                     </button>
                 </div>
             </div>
             <div className={styles.inputGroup}>
-                <IconButton
-                    className={styles.toolButton}
-                    img={copyIcon}
-                    title={props.intl.formatMessage(messages.copy)}
-                    onClick={props.onCopy}
-                />
-                <IconButton
-                    className={styles.toolButton}
-                    disabled={props.canPaste === false}
-                    img={pasteIcon}
-                    title={props.intl.formatMessage(messages.paste)}
-                    onClick={props.onPaste}
-                />
-                <IconButton
-                    className={styles.toolButton}
-                    disabled={props.trimStart === null}
-                    img={cutIcon}
-                    title={props.intl.formatMessage(messages.cut)}
-                    onClick={props.onCut}
-                />
-                <IconButton
-                    className={classNames(styles.toolButton, styles.flipInRtl)}
-                    img={copyToNewIcon}
-                    title={props.intl.formatMessage(messages.copyToNew)}
-                    onClick={props.onCopyToNew}
-                />
-                <IconButton
-                    className={classNames(styles.toolButton, styles.flipInRtl)}
-                    disabled={props.trimStart === null}
-                    img={copyToNewIcon}
-                    title={props.intl.formatMessage(messages.cutToNew)}
-                    onClick={props.onCutToNew}
-                />
+                <IconButton className={styles.toolButton} img={copyIcon} title={props.intl.formatMessage(messages.copy)} onClick={props.onCopy} />
+                <IconButton className={styles.toolButton} disabled={props.canPaste === false} img={pasteIcon} title={props.intl.formatMessage(messages.paste)} onClick={props.onPaste} />
+                <IconButton className={styles.toolButton} disabled={props.trimStart === null} img={cutIcon} title={props.intl.formatMessage(messages.cut)} onClick={props.onCut} />
+                <IconButton className={classNames(styles.toolButton, styles.flipInRtl)} img={copyToNewIcon} title={props.intl.formatMessage(messages.copyToNew)} onClick={props.onCopyToNew} />
+                <IconButton className={classNames(styles.toolButton, styles.flipInRtl)} disabled={props.trimStart === null} img={copyToNewIcon} title={props.intl.formatMessage(messages.cutToNew)} onClick={props.onCutToNew} />
             </div>
-            <IconButton
-                className={styles.toolButton}
-                disabled={props.trimStart === null}
-                img={deleteIcon}
-                title={props.intl.formatMessage(messages.delete)}
-                onClick={props.onDelete}
-            />
+            <IconButton className={styles.toolButton} disabled={props.trimStart === null} img={deleteIcon} title={props.intl.formatMessage(messages.delete)} onClick={props.onDelete} />
         </div>
         <div className={styles.row}>
             <div className={styles.waveformContainer}>
-                <Waveform
-                    data={props.chunkLevels}
-                    height={160}
-                    width={600}
-                />
-                <AudioSelector
-                    playhead={props.playhead}
-                    trimEnd={props.trimEnd}
-                    trimStart={props.trimStart}
-                    onPlay={props.onPlay}
-                    onSetTrim={props.onSetTrim}
-                    onStop={props.onStop}
-                />
+                <Waveform data={props.chunkLevels} height={160} width={600} />
+                <AudioSelector playhead={props.playhead} trimEnd={props.trimEnd} trimStart={props.trimStart} onPlay={props.onPlay} onSetTrim={props.onSetTrim} onStop={props.onStop} />
             </div>
         </div>
         <div className={classNames(styles.row, styles.rowReverse)}>
-            <div
-                className={classNames(styles.roundButtonOuter, styles.inputGroup)}
-                style={{
-                    display: 'flex',
-                    gap: '8px'
-                }}
-            >
+            <div className={classNames(styles.roundButtonOuter, styles.inputGroup)} style={{display: 'flex', gap: '8px'}}>
                 {props.playhead ? (
-                    <button
-                        className={classNames(styles.roundButton, styles.stopButtonn)}
-                        title={props.intl.formatMessage(messages.stop)}
-                        onClick={props.onStop}
-                    >
-                        <img
-                            draggable={false}
-                            src={stopIcon}
-                        />
-                    </button>
+                    <button className={classNames(styles.roundButton, styles.stopButtonn)} title={props.intl.formatMessage(messages.stop)} onClick={props.onStop}><img draggable={false} src={stopIcon} /></button>
                 ) : (
-                    <button
-                        className={classNames(styles.roundButton, styles.playButton)}
-                        title={props.intl.formatMessage(messages.play)}
-                        onClick={props.onPlay}
-                    >
-                        <img
-                            draggable={false}
-                            src={playIcon}
-                        />
-                    </button>
+                    <button className={classNames(styles.roundButton, styles.playButton)} title={props.intl.formatMessage(messages.play)} onClick={props.onPlay}><img draggable={false} src={playIcon} /></button>
                 )}
             </div>
             <div className={styles.effects}>
-                <IconButton
-                    className={styles.effectButton}
-                    img={modifyIcon}
-                    title={"Modify"}
-                    onClick={props.onModifySound}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={fasterIcon}
-                    title={<FormattedMessage {...messages.faster} />}
-                    onClick={props.onFaster}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={slowerIcon}
-                    title={<FormattedMessage {...messages.slower} />}
-                    onClick={props.onSlower}
-                />
-                <IconButton
-                    disabled={props.tooLoud}
-                    className={classNames(styles.effectButton, styles.flipInRtl)}
-                    img={louderIcon}
-                    title={<FormattedMessage {...messages.louder} />}
-                    onClick={props.onLouder}
-                />
-                <IconButton
-                    className={classNames(styles.effectButton, styles.flipInRtl)}
-                    img={softerIcon}
-                    title={<FormattedMessage {...messages.softer} />}
-                    onClick={props.onSofter}
-                />
-                <IconButton
-                    className={classNames(styles.effectButton, styles.flipInRtl)}
-                    img={muteIcon}
-                    title={<FormattedMessage {...messages.mute} />}
-                    onClick={props.onMute}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={fadeInIcon}
-                    title={<FormattedMessage {...messages.fadeIn} />}
-                    onClick={props.onFadeIn}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={fadeOutIcon}
-                    title={<FormattedMessage {...messages.fadeOut} />}
-                    onClick={props.onFadeOut}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={reverseIcon}
-                    title={<FormattedMessage {...messages.reverse} />}
-                    onClick={props.onReverse}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={robotIcon}
-                    title={<FormattedMessage {...messages.robot} />}
-                    onClick={props.onRobot}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={telephoneIcon}
-                    title={"Telephone"}
-                    onClick={props.onTelephone}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={alienIcon}
-                    title={"Alien"}
-                    onClick={props.onAlien}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={echoIcon}
-                    title={<FormattedMessage {...messages.echo} />}
-                    onClick={props.onEcho}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={reverbIcon}
-                    title={"Reverb"}
-                    onClick={props.onReverb}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={distortionIcon}
-                    title={"Distortion"}
-                    onClick={props.onDistortion}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={lowpassIcon}
-                    title={"Low Pass"}
-                    onClick={props.onLowPass}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={highpassIcon}
-                    title={"High Pass"}
-                    onClick={props.onHighPass}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={formatIcon}
-                    title={"Format"}
-                    onClick={props.onFormatSound}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={megaphoneIcon}
-                    title={"Megaphone"}
-                    onClick={props.onMegaphone}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={trembleIcon}
-                    title={"Tremble"}
-                    onClick={props.onTremble}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={vocoderIcon}
-                    title={"Vocode"}
-                    onClick={props.onVocoder}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={lowBatteryIcon}
-                    title={"Low Battery"}
-                    onClick={props.onLowBattery}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={noiseReductionIcon}
-                    title={"Noise Reduction"}
-                    onClick={props.onNoiseReduction}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={flashbackIcon}
-                    title={"Flashback"}
-                    onClick={props.onFlashback}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={loudBreathsIcon}
-                    title={"Loud Breaths"}
-                    onClick={props.onLoudBreaths}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={metalPipesIcon}
-                    title={"Metal Pipes"}
-                    onClick={props.onMetalPipes}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={djWarpIcon}
-                    title={"DJ Warp"}
-                    onClick={props.onDJWarp}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={backpackRadioIcon}
-                    title={"Backpack Radio"}
-                    onClick={props.onBackpackRadio}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={bAndWTVIcon}
-                    title={"B&W TV"}
-                    onClick={props.onBAndWTV}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={micMalfunctionIcon}
-                    title={"Mic Malfunction"}
-                    onClick={props.onMicMalfunction}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={electroShiftIcon}
-                    title={"Electro Shift"}
-                    onClick={props.onElectroShift}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={distortedMicIcon}
-                    title={"Distorted Mic"}
-                    onClick={props.onDistortedMic}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={normalizeIcon}
-                    title={"Normalize"}
-                    onClick={props.onNormalize}
-                />
+                <IconButton className={styles.effectButton} img={modifyIcon} title={'Modify'} onClick={props.onModifySound} />
+                <IconButton className={styles.effectButton} img={generateEffectIcon} title={'Generate Effect'} onClick={props.onGenerateEffect} />
+                <IconButton className={styles.effectButton} img={fasterIcon} title={<FormattedMessage {...messages.faster} />} onClick={props.onFaster} />
+                <IconButton className={styles.effectButton} img={slowerIcon} title={<FormattedMessage {...messages.slower} />} onClick={props.onSlower} />
+                <IconButton disabled={props.tooLoud} className={classNames(styles.effectButton, styles.flipInRtl)} img={louderIcon} title={<FormattedMessage {...messages.louder} />} onClick={props.onLouder} />
+                <IconButton className={classNames(styles.effectButton, styles.flipInRtl)} img={softerIcon} title={<FormattedMessage {...messages.softer} />} onClick={props.onSofter} />
+                <IconButton className={classNames(styles.effectButton, styles.flipInRtl)} img={muteIcon} title={<FormattedMessage {...messages.mute} />} onClick={props.onMute} />
+                <IconButton className={styles.effectButton} img={fadeInIcon} title={<FormattedMessage {...messages.fadeIn} />} onClick={props.onFadeIn} />
+                <IconButton className={styles.effectButton} img={fadeOutIcon} title={<FormattedMessage {...messages.fadeOut} />} onClick={props.onFadeOut} />
+                <IconButton className={styles.effectButton} img={reverseIcon} title={<FormattedMessage {...messages.reverse} />} onClick={props.onReverse} />
+                <IconButton className={styles.effectButton} img={robotIcon} title={<FormattedMessage {...messages.robot} />} onClick={props.onRobot} />
+                <IconButton className={styles.effectButton} img={telephoneIcon} title={'Telephone'} onClick={props.onTelephone} />
+                <IconButton className={styles.effectButton} img={alienIcon} title={'Alien'} onClick={props.onAlien} />
+                <IconButton className={styles.effectButton} img={echoIcon} title={<FormattedMessage {...messages.echo} />} onClick={props.onEcho} />
+                <IconButton className={styles.effectButton} img={reverbIcon} title={'Reverb'} onClick={props.onReverb} />
+                <IconButton className={styles.effectButton} img={distortionIcon} title={'Distortion'} onClick={props.onDistortion} />
+                <IconButton className={styles.effectButton} img={lowpassIcon} title={'Low Pass'} onClick={props.onLowPass} />
+                <IconButton className={styles.effectButton} img={highpassIcon} title={'High Pass'} onClick={props.onHighPass} />
+                <IconButton className={styles.effectButton} img={formatIcon} title={'Format'} onClick={props.onFormatSound} />
+                <IconButton className={styles.effectButton} img={megaphoneIcon} title={'Megaphone'} onClick={props.onMegaphone} />
+                <IconButton className={styles.effectButton} img={trembleIcon} title={'Tremble'} onClick={props.onTremble} />
+                <IconButton className={styles.effectButton} img={vocoderIcon} title={'Vocode'} onClick={props.onVocoder} />
+                <IconButton className={styles.effectButton} img={lowBatteryIcon} title={'Low Battery'} onClick={props.onLowBattery} />
+                <IconButton className={styles.effectButton} img={noiseReductionIcon} title={'Noise Reduction'} onClick={props.onNoiseReduction} />
+                <IconButton className={styles.effectButton} img={flashbackIcon} title={'Flashback'} onClick={props.onFlashback} />
+                <IconButton className={styles.effectButton} img={loudBreathsIcon} title={'Loud Breaths'} onClick={props.onLoudBreaths} />
+                <IconButton className={styles.effectButton} img={metalPipesIcon} title={'Metal Pipes'} onClick={props.onMetalPipes} />
+                <IconButton className={styles.effectButton} img={djWarpIcon} title={'DJ Warp'} onClick={props.onDJWarp} />
+                <IconButton className={styles.effectButton} img={backpackRadioIcon} title={'Backpack Radio'} onClick={props.onBackpackRadio} />
+                <IconButton className={styles.effectButton} img={bAndWTVIcon} title={'B&W TV'} onClick={props.onBAndWTV} />
+                <IconButton className={styles.effectButton} img={micMalfunctionIcon} title={'Mic Malfunction'} onClick={props.onMicMalfunction} />
+                <IconButton className={styles.effectButton} img={electroShiftIcon} title={'Electro Shift'} onClick={props.onElectroShift} />
+                <IconButton className={styles.effectButton} img={distortedMicIcon} title={'Distorted Mic'} onClick={props.onDistortedMic} />
+                <IconButton className={styles.effectButton} img={normalizeIcon} title={'Normalize'} onClick={props.onNormalize} />
             </div>
         </div>
         <div className={styles.infoRow}>
-            <div className={styles.duration}>
-                {formatDuration(props.playhead, props.trimStart, props.trimEnd, props.duration)}
-            </div>
+            <div className={styles.duration}>{formatDuration(props.playhead, props.trimStart, props.trimEnd, props.duration)}</div>
             <div className={styles.advancedInfo}>
-                {props.sampleRate}
-                {'Hz '}
-                {`${String(props.dataFormat).toUpperCase()} `}
-                {props.isStereo ? (
-                    <FormattedMessage
-                        defaultMessage="Stereo"
-                        description="Refers to a 'Stereo Sound' (2 channels)"
-                        id="tw.stereo"
-                    />
-                ) : (
-                    <FormattedMessage
-                        defaultMessage="Mono"
-                        description="Refers to a 'Mono Sound' (1 channel)"
-                        id="tw.mono"
-                    />
-                )}
+                {props.sampleRate}{'Hz '}{`${String(props.dataFormat).toUpperCase()} `}
+                {props.isStereo ? <FormattedMessage defaultMessage="Stereo" description="Refers to a 'Stereo Sound' (2 channels)" id="tw.stereo" /> : <FormattedMessage defaultMessage="Mono" description="Refers to a 'Mono Sound' (1 channel)" id="tw.mono" />}
                 {` (${formatSoundSize(props.size)})`}
             </div>
         </div>
-        {/* TODO: don't know whether this should be > or >=. Using >= for now to be safe */}
-        {props.size >= SOUND_BYTE_LIMIT && (
-            <div className={classNames(styles.alert, styles.tooLarge)}>
-                <FormattedMessage
-                    defaultMessage="This sound may be too large to upload to Penguinmod or Scratch."
-                    description="Message that appears when a sound exceeds the PM/SCR sound size limit."
-                    id="tw.tooLarge"
-                />
-            </div>
-        )}
-        {(props.dataFormat === "mp3" || props.dataFormat === "ogg" || props.dataFormat === "flac") && (
-             <div className={classNames(styles.alert, styles.stereo)}>
-                 <FormattedMessage
-                     defaultMessage="Editing this sound will irreversibly convert it to a much larger, WAV format sound."
-                     description="Message that appears when editing an mp3, ogg or flac sound."
-                     id="pm.formatAlert"
-                 />
-             </div>
-        )}
-        {(props.dataFormat === "ogg") && (
-             <div className={classNames(styles.alert, styles.tooLarge)}>
-                 <FormattedMessage
-                     defaultMessage="Users on iOS and MacOS will need to update their browser or device to hear any OGG sounds."
-                     description="Message that appears when editing an ogg sound."
-                     id="pm.oggSafariAlert"
-                 />
-             </div>
-        )}
-        {props.isStereo && (
-            <div className={classNames(styles.alert, styles.stereo)}>
-                <FormattedMessage
-                    defaultMessage="Editing this stereo sound will irreversibly convert it to mono."
-                    description="Message that appears when editing a stereo sound."
-                    id="tw.stereoAlert"
-                />
-            </div>
-        )}
+        {props.size >= SOUND_BYTE_LIMIT && <div className={classNames(styles.alert, styles.tooLarge)}><FormattedMessage defaultMessage="This sound may be too large to upload to Penguinmod or Scratch." description="Message that appears when a sound exceeds the PM/SCR sound size limit." id="tw.tooLarge" /></div>}
+        {(props.dataFormat === "mp3" || props.dataFormat === "ogg" || props.dataFormat === "flac") && <div className={classNames(styles.alert, styles.stereo)}><FormattedMessage defaultMessage="Editing this sound will irreversibly convert it to a much larger, WAV format sound." description="Message that appears when editing an mp3, ogg or flac sound." id="pm.formatAlert" /></div>}
+        {props.dataFormat === "ogg" && <div className={classNames(styles.alert, styles.tooLarge)}><FormattedMessage defaultMessage="Users on iOS and MacOS will need to update their browser or device to hear any OGG sounds." description="Message that appears when editing an ogg sound." id="pm.oggSafariAlert" /></div>}
+        {props.isStereo && <div className={classNames(styles.alert, styles.stereo)}><FormattedMessage defaultMessage="Editing this stereo sound will irreversibly convert it to mono." description="Message that appears when editing a stereo sound." id="tw.stereoAlert" /></div>}
     </div>
 );
 
@@ -678,6 +358,7 @@ SoundEditor.propTypes = {
     onTremble: PropTypes.func.isRequired,
     onFaster: PropTypes.func.isRequired,
     onModifySound: PropTypes.func.isRequired,
+    onGenerateEffect: PropTypes.func.isRequired,
     onFormatSound: PropTypes.func.isRequired,
     onLouder: PropTypes.func.isRequired,
     onMute: PropTypes.func.isRequired,
