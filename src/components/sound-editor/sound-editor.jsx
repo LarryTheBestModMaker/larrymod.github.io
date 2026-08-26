@@ -20,42 +20,15 @@ import pauseIcon from './icon--pause.svg';
 import stopIcon from './icon--stop.svg';
 import redoIcon from '!../../lib/tw-recolor/build!./icon--redo.svg';
 import undoIcon from '!../../lib/tw-recolor/build!./icon--undo.svg';
-import modifyIcon from './icon--modify.svg';
-import formatIcon from './icon--format.svg';
 import fasterIcon from './icon--faster.svg';
 import slowerIcon from './icon--slower.svg';
 import louderIcon from './icon--louder.svg';
 import softerIcon from './icon--softer.svg';
 import robotIcon from './icon--robot.svg';
-import echoIcon from './icon--echo.svg';
-import highpassIcon from './icon--highpass.svg';
-import lowpassIcon from './icon--lowpass.svg';
-import megaphoneIcon from './icon--megaphone.svg';
-import trembleIcon from './icon--tremble.svg';
 import reverseIcon from './icon--reverse.svg';
 import fadeOutIcon from './icon--fade-out.svg';
 import fadeInIcon from './icon--fade-in.svg';
 import muteIcon from './icon--mute.svg';
-import reverbIcon from './icon--reverb.svg';
-import bitcrushIcon from './icon--bit-crush.png';
-import higherPitchIcon from './icon--higher-pitch.svg';
-import lowerPitchIcon from './icon--lower-pitch.svg';
-import telephoneIcon from './icon--telephone.svg';
-import alienIcon from './icon--alien.svg';
-import distortionIcon from './icon--distortion.svg';
-import vocoderIcon from './icon--vocoder.svg';
-import lowBatteryIcon from './icon--low-battery.svg';
-import noiseReductionIcon from './icon--noise-reduction.svg';
-import flashbackIcon from './icon--flashback.svg';
-import loudBreathsIcon from './icon--loud-breaths.svg';
-import metalPipesIcon from './icon--metal-pipes.svg';
-import djWarpIcon from './icon--dj-warp.svg';
-import backpackRadioIcon from './icon--backpack-radio.svg';
-import bAndWTVIcon from './icon--b-and-w-tv.svg';
-import micMalfunctionIcon from './icon--mic-malfunction.svg';
-import electroShiftIcon from './icon--electro-shift.svg';
-import distortedMicIcon from './icon--distorted-mic.svg';
-import normalizeIcon from './icon--normalize.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -367,12 +340,6 @@ const SoundEditor = props => (
             <div className={styles.effects}>
                 <IconButton
                     className={styles.effectButton}
-                    img={modifyIcon}
-                    title={"Modify"}
-                    onClick={props.onModifySound}
-                />
-                <IconButton
-                    className={styles.effectButton}
                     img={fasterIcon}
                     title={<FormattedMessage {...messages.faster} />}
                     onClick={props.onFaster}
@@ -425,144 +392,6 @@ const SoundEditor = props => (
                     img={robotIcon}
                     title={<FormattedMessage {...messages.robot} />}
                     onClick={props.onRobot}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={telephoneIcon}
-                    title={"Telephone"}
-                    onClick={props.onTelephone}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={alienIcon}
-                    title={"Alien"}
-                    onClick={props.onAlien}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={echoIcon}
-                    title={<FormattedMessage {...messages.echo} />}
-                    onClick={props.onEcho}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={reverbIcon}
-                    title={"Reverb"}
-                    onClick={props.onReverb}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={distortionIcon}
-                    title={"Distortion"}
-                    onClick={props.onDistortion}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={lowpassIcon}
-                    title={"Low Pass"}
-                    onClick={props.onLowPass}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={highpassIcon}
-                    title={"High Pass"}
-                    onClick={props.onHighPass}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={formatIcon}
-                    title={"Format"}
-                    onClick={props.onFormatSound}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={megaphoneIcon}
-                    title={"Megaphone"}
-                    onClick={props.onMegaphone}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={trembleIcon}
-                    title={"Tremble"}
-                    onClick={props.onTremble}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={vocoderIcon}
-                    title={"Vocode"}
-                    onClick={props.onVocoder}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={lowBatteryIcon}
-                    title={"Low Battery"}
-                    onClick={props.onLowBattery}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={noiseReductionIcon}
-                    title={"Noise Reduction"}
-                    onClick={props.onNoiseReduction}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={flashbackIcon}
-                    title={"Flashback"}
-                    onClick={props.onFlashback}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={loudBreathsIcon}
-                    title={"Loud Breaths"}
-                    onClick={props.onLoudBreaths}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={metalPipesIcon}
-                    title={"Metal Pipes"}
-                    onClick={props.onMetalPipes}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={djWarpIcon}
-                    title={"DJ Warp"}
-                    onClick={props.onDJWarp}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={backpackRadioIcon}
-                    title={"Backpack Radio"}
-                    onClick={props.onBackpackRadio}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={bAndWTVIcon}
-                    title={"B&W TV"}
-                    onClick={props.onBAndWTV}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={micMalfunctionIcon}
-                    title={"Mic Malfunction"}
-                    onClick={props.onMicMalfunction}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={electroShiftIcon}
-                    title={"Electro Shift"}
-                    onClick={props.onElectroShift}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={distortedMicIcon}
-                    title={"Distorted Mic"}
-                    onClick={props.onDistortedMic}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={normalizeIcon}
-                    title={"Normalize"}
-                    onClick={props.onNormalize}
                 />
             </div>
         </div>
@@ -649,36 +478,9 @@ SoundEditor.propTypes = {
     onCut: PropTypes.func.isRequired,
     onCutToNew: PropTypes.func.isRequired,
     onDelete: PropTypes.func,
-    onEcho: PropTypes.func.isRequired,
-    onLowPass: PropTypes.func.isRequired,
-    onHighPass: PropTypes.func.isRequired,
     onFadeIn: PropTypes.func.isRequired,
     onFadeOut: PropTypes.func.isRequired,
-    onReverb: PropTypes.func.isRequired,
-    onTelephone: PropTypes.func.isRequired,
-    onAlien: PropTypes.func.isRequired,
-    onDistortion: PropTypes.func.isRequired,
-    onVocoder: PropTypes.func.isRequired,
-    onLowBattery: PropTypes.func.isRequired,
-    onNoiseReduction: PropTypes.func.isRequired,
-    onFlashback: PropTypes.func.isRequired,
-    onLoudBreaths: PropTypes.func.isRequired,
-    onMetalPipes: PropTypes.func.isRequired,
-    onDJWarp: PropTypes.func.isRequired,
-    onBackpackRadio: PropTypes.func.isRequired,
-    onBAndWTV: PropTypes.func.isRequired,
-    onMicMalfunction: PropTypes.func.isRequired,
-    onElectroShift: PropTypes.func.isRequired,
-    onDistortedMic: PropTypes.func.isRequired,
-    onNormalize: PropTypes.func.isRequired,
-    onBitCrush: PropTypes.func.isRequired,
-    onHigherPitch: PropTypes.func.isRequired,
-    onLowerPitch: PropTypes.func.isRequired,
-    onMegaphone: PropTypes.func.isRequired,
-    onTremble: PropTypes.func.isRequired,
     onFaster: PropTypes.func.isRequired,
-    onModifySound: PropTypes.func.isRequired,
-    onFormatSound: PropTypes.func.isRequired,
     onLouder: PropTypes.func.isRequired,
     onMute: PropTypes.func.isRequired,
     onPaste: PropTypes.func.isRequired,

@@ -1,30 +1,7 @@
-import EchoEffect from './effects/echo-effect.js';
 import RobotEffect from './effects/robot-effect.js';
 import VolumeEffect from './effects/volume-effect.js';
 import FadeEffect from './effects/fade-effect.js';
 import MuteEffect from './effects/mute-effect.js';
-import LowPassEffect from './effects/lowpass-effect.js';
-import HighPassEffect from './effects/highpass-effect.js';
-import ReverbEffect from './effects/reverb-effect.js';
-import BitCrushEffect from './effects/bit-crush-effect.js';
-import MegaphoneEffect from './effects/megaphone-effect.js';
-import TrembleEffect from './effects/tremble-effect.js';
-import TelephoneEffect from './effects/telephone-effect.js';
-import AlienEffect from './effects/alien-effect.js';
-import DistortionEffect from './effects/distortion-effect.js';
-import VocoderEffect from './effects/vocoder-effect.js';
-import LowBatteryEffect from './effects/low-battery-effect.js';
-import NoiseReductionEffect from './effects/noise-reduction-effect.js';
-import FlashbackEffect from './effects/flashback-effect.js';
-import LoudBreathsEffect from './effects/loud-breaths-effect.js';
-import MetalPipesEffect from './effects/metal-pipes-effect.js';
-import DJWarpEffect from './effects/dj-warp-effect.js';
-import BackpackRadioEffect from './effects/backpack-radio-effect.js';
-import BAndWTVEffect from './effects/b-and-w-tv-effect.js';
-import MicMalfunctionEffect from './effects/mic-malfunction-effect.js';
-import ElectroShiftEffect from './effects/electro-shift-effect.js';
-import DistortedMicEffect from './effects/distorted-mic-effect.js';
-import NormalizeEffect from './effects/normalize-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -33,33 +10,9 @@ const effectTypes = {
     SOFTER: 'lower',
     FASTER: 'faster',
     SLOWER: 'slower',
-    ECHO: 'echo',
     FADEIN: 'fade in',
     FADEOUT: 'fade out',
     MUTE: 'mute',
-    LOWPASS: 'low pass',
-    HIGHPASS: 'high pass',
-    REVERB: 'reverb',
-    LOWPITCH: 'lower pitch',
-    HIGHPITCH: 'higher pitch',
-    MEGAPHONE: 'megaphone',
-    TREMBLE: 'tremble',
-    TELEPHONE: 'telephone',
-    ALIEN: 'alien',
-    DISTORTION: 'distortion',
-    VOCODER: 'vocoder',
-    LOWBATTERY: 'low battery',
-    NOISEREDUCTION: 'noise reduction',
-    FLASHBACK: 'flashback',
-    LOUDBREATHS: 'loud breaths',
-    METALPIPES: 'metal pipes',
-    DJWARP: 'dj warp',
-    BACKPACKRADIO: 'backpack radio',
-    BANDWTV: 'b and w tv',
-    MICMALFUNCTION: 'mic malfunction',
-    ELECTROSHIFT: 'electro shift',
-    DISTORTEDMIC: 'distorted mic',
-    NORMALIZE: 'normalize',
 };
 
 const centsToFrequency = (cents) => {
@@ -88,18 +41,6 @@ class AudioEffects {
         // These affect the sampleCount
         this.playbackRate = 1;
         switch (options.preset) {
-            case effectTypes.ECHO:
-                sampleCount = Math.max(sampleCount,
-                    Math.floor((this.trimEndSeconds + EchoEffect.TAIL_SECONDS) * buffer.sampleRate));
-                break;
-            case effectTypes.REVERB:
-                sampleCount = Math.max(sampleCount,
-                    Math.floor((this.trimEndSeconds + ReverbEffect.TAIL_SECONDS) * buffer.sampleRate));
-                break;
-            case effectTypes.FLASHBACK:
-                sampleCount = Math.max(sampleCount,
-                    Math.floor((this.trimEndSeconds + ReverbEffect.TAIL_SECONDS) * buffer.sampleRate));
-                break;
             case effectTypes.FASTER:
                 this.playbackRate = pitchRatio;
                 adjustedAffectedSampleCount = Math.floor(affectedSampleCount / this.playbackRate);
@@ -245,84 +186,8 @@ class AudioEffects {
                 ({input, output} = new VolumeEffect(this.audioContext, 0.75,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
-            case effectTypes.ECHO:
-                ({input, output} = new EchoEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.TELEPHONE:
-                ({input, output} = new TelephoneEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.ALIEN:
-                ({input, output} = new AlienEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.DISTORTION:
-                ({input, output} = new DistortionEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.VOCODER:
-                ({input, output} = new VocoderEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.LOWBATTERY:
-                ({input, output} = new LowBatteryEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.NOISEREDUCTION:
-                ({input, output} = new NoiseReductionEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.FLASHBACK:
-                ({input, output} = new FlashbackEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.LOUDBREATHS:
-                ({input, output} = new LoudBreathsEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.METALPIPES:
-                ({input, output} = new MetalPipesEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.DJWARP:
-                ({input, output} = new DJWarpEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.BACKPACKRADIO:
-                ({input, output} = new BackpackRadioEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.BANDWTV:
-                ({input, output} = new BAndWTVEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.MICMALFUNCTION:
-                ({input, output} = new MicMalfunctionEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.ELECTROSHIFT:
-                ({input, output} = new ElectroShiftEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.DISTORTEDMIC:
-                ({input, output} = new DistortedMicEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.NORMALIZE:
-                ({input, output} = new NormalizeEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
             case effectTypes.ROBOT:
                 ({input, output} = new RobotEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.LOWPASS:
-                ({input, output} = new LowPassEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.HIGHPASS:
-                ({input, output} = new HighPassEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.FADEIN:
@@ -335,26 +200,6 @@ class AudioEffects {
                 break;
             case effectTypes.MUTE:
                 ({input, output} = new MuteEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.REVERB:
-                ({input, output} = new ReverbEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.LOWPITCH:
-                this.source.detune.setValueAtTime(-50, this.adjustedTrimStartSeconds);
-                this.source.detune.setValueAtTime(0, this.adjustedTrimEndSeconds);
-                break;
-            case effectTypes.HIGHPITCH:
-                this.source.detune.setValueAtTime(50, this.adjustedTrimStartSeconds);
-                this.source.detune.setValueAtTime(0, this.adjustedTrimEndSeconds);
-                break;
-            case effectTypes.MEGAPHONE:
-                ({input, output} = new MegaphoneEffect(this.audioContext,
-                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
-                break;
-            case effectTypes.TREMBLE:
-                ({input, output} = new TrembleEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             default:
