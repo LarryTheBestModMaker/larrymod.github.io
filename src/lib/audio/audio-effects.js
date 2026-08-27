@@ -115,7 +115,7 @@ class AudioEffects {
                 break;
             default:
                 if (Object.prototype.hasOwnProperty.call(opts, "pitch")) {
-                    this.playbackRate = centsToFrequency(options.pitch);
+                    this.playbackRate = centsToFrequency(opts.pitch);
                     adjustedAffectedSampleCount = Math.floor(affectedSampleCount / this.playbackRate);
                     sampleCount = unaffectedSampleCount + adjustedAffectedSampleCount;
                 }
@@ -131,7 +131,7 @@ class AudioEffects {
         let audioContextSampleRate = buffer.sampleRate;
         let audioContextSampleCount = sampleCount;
         if (Object.prototype.hasOwnProperty.call(opts, "sampleRateEnforced")) {
-            const newSampleRate = options.sampleRateEnforced;
+            const newSampleRate = opts.sampleRateEnforced;
             audioContextSampleRate = newSampleRate;
             audioContextSampleCount = Math.floor((sampleCount / buffer.sampleRate) * newSampleRate);
         }
@@ -141,14 +141,19 @@ class AudioEffects {
              */
             this.audioContext = new window.OfflineAudioContext(
                 buffer.numberOfChannels,
-                sampleCount * (conversionRatio ** 2),
-                targetSampleRate
+                audioContextSampleCount,
+                audioContextSampleRate
             );
         } else {
             // Need to use webkitOfflineAudioContext, which doesn't support all sample rates.
             // Resample by adjusting sample count to make room and set offline context to desired sample rate.
-            const sampleScale = 44100 / targetSampleRate;
-            this.audioContext = new window.webkitOfflineAudioContext(2, sampleScale * sampleCount, 44100);
+            const sampleScale = audioContextSampleRate / 44100;
+
+            this.audioContext = new window.webkitOfflineAudioContext(
+            buffer.numberOfChannels,
+            Math.ceil(audioContextSampleCount * sampleScale),
+            44100
+        );
         }
 
         // All effects not seen below use the original buffer because it is not modified.
@@ -157,7 +162,7 @@ class AudioEffects {
         // For the reverse effect we need to manually reverse the data into a new audio buffer
         // to prevent overwriting the original, so that the undo stack works correctly.
         // Doing buffer.reverse() would mutate the original data.
-        if (options.preset === effectTypes.REVERSE) {
+        if (opts.preset === effectTypes.REVERSE) {
             const buffer = this.buffer;
             const originalBufferData = buffer.getChannelData(0);
             const originalBufferData2 = buffer.getChannelData(buffer.numberOfChannels - 1);
@@ -201,7 +206,7 @@ class AudioEffects {
             }
             this.buffer = newBuffer;
         }
-        if (Object.prototype.hasOwnProperty.call(options, "sampleRate")) {
+        if (Object.prototype.hasOwnProperty.call(opts, "sampleRate")) {
             // We can't overwrite the original buffer so we make a clone.
             const buffer = this.buffer;
             const originalBufferData = buffer.getChannelData(0);
@@ -210,7 +215,7 @@ class AudioEffects {
             const bufferLength = buffer.length;
 
             // Our clone from earlier also needs to keep the original buffer's sample rate, so we need to make yet another buffer.
-            const sampleRateBuffer = this.makeSampleRateBuffer(buffer, durationSeconds, options.sampleRate);
+            const sampleRateBuffer = this.makeSampleRateBuffer(buffer, durationSeconds, opts.sampleRate);
             const sampleRateBufferData = sampleRateBuffer.getChannelData(0);
 
             const startSamples = Math.floor(this.trimStartSeconds * buffer.sampleRate);
