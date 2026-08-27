@@ -73,7 +73,7 @@ class AudioEffects {
     static get effectTypes () {
         return effectTypes;
     }
-    constructor (buffer, name, trimStart, trimEnd, trimChannel, opts) {
+    constructor (buffer, name, trimStart, trimEnd, trimChannel, options) {
         this.trimStartSeconds = (trimStart * buffer.length) / buffer.sampleRate;
         this.trimEndSeconds = (trimEnd * buffer.length) / buffer.sampleRate;
         this.adjustedTrimStartSeconds = this.trimStartSeconds;
@@ -90,7 +90,7 @@ class AudioEffects {
 
         // These affect the sampleCount
         this.playbackRate = 1;
-        switch (opts.preset) {
+        switch (options.preset) {
             case effectTypes.ECHO:
                 sampleCount = Math.max(sampleCount,
                     Math.floor((this.trimEndSeconds + EchoEffect.TAIL_SECONDS) * buffer.sampleRate));
@@ -114,8 +114,8 @@ class AudioEffects {
                 sampleCount = unaffectedSampleCount + adjustedAffectedSampleCount;
                 break;
             default:
-                if (Object.prototype.hasOwnProperty.call(opts, "pitch")) {
-                    this.playbackRate = centsToFrequency(opts.pitch);
+                if (Object.prototype.hasOwnProperty.call(options, "pitch")) {
+                    this.playbackRate = centsToFrequency(options.pitch);
                     adjustedAffectedSampleCount = Math.floor(affectedSampleCount / this.playbackRate);
                     sampleCount = unaffectedSampleCount + adjustedAffectedSampleCount;
                 }
@@ -130,8 +130,8 @@ class AudioEffects {
 
         let audioContextSampleRate = buffer.sampleRate;
         let audioContextSampleCount = sampleCount;
-        if (Object.prototype.hasOwnProperty.call(opts, "sampleRateEnforced")) {
-            const newSampleRate = opts.sampleRateEnforced;
+        if (Object.prototype.hasOwnProperty.call(options, "sampleRateEnforced")) {
+            const newSampleRate = options.sampleRateEnforced;
             audioContextSampleRate = newSampleRate;
             audioContextSampleCount = Math.floor((sampleCount / buffer.sampleRate) * newSampleRate);
         }
@@ -162,7 +162,7 @@ class AudioEffects {
         // For the reverse effect we need to manually reverse the data into a new audio buffer
         // to prevent overwriting the original, so that the undo stack works correctly.
         // Doing buffer.reverse() would mutate the original data.
-        if (opts.preset === effectTypes.REVERSE) {
+        if (options.preset === effectTypes.REVERSE) {
             const buffer = this.buffer;
             const originalBufferData = buffer.getChannelData(0);
             const originalBufferData2 = buffer.getChannelData(buffer.numberOfChannels - 1);
@@ -206,7 +206,7 @@ class AudioEffects {
             }
             this.buffer = newBuffer;
         }
-        if (Object.prototype.hasOwnProperty.call(opts, "sampleRate")) {
+        if (Object.prototype.hasOwnProperty.call(options, "sampleRate")) {
             // We can't overwrite the original buffer so we make a clone.
             const buffer = this.buffer;
             const originalBufferData = buffer.getChannelData(0);
@@ -215,7 +215,7 @@ class AudioEffects {
             const bufferLength = buffer.length;
 
             // Our clone from earlier also needs to keep the original buffer's sample rate, so we need to make yet another buffer.
-            const sampleRateBuffer = this.makeSampleRateBuffer(buffer, durationSeconds, opts.sampleRate);
+            const sampleRateBuffer = this.makeSampleRateBuffer(buffer, durationSeconds, options.sampleRate);
             const sampleRateBufferData = sampleRateBuffer.getChannelData(0);
 
             const startSamples = Math.floor(this.trimStartSeconds * buffer.sampleRate);
@@ -243,7 +243,7 @@ class AudioEffects {
         this.source = this.audioContext.createBufferSource();
         this.source.buffer = this.buffer;
         this.options = options;
-        this.opts = opts;
+        this.options = options;
 
         // Matches [false, true] and [true, false]. We only need to split the channels if just one channel is modified.
         if (trimChannel[0] !== trimChannel[1]) {
