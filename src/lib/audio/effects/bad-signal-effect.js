@@ -4,47 +4,57 @@ class BadSignalEffect {
 
         this.input = audioContext.createGain();
         this.output = audioContext.createGain();
-        
-            // Narrow radio/phone frequency range
-            const highpass = ctx.createBiquadFilter();
-            highpass.type = "highpass";
-            highpass.frequency.value = 500;
-            highpass.Q.value = 0.8;
 
-            const lowpass = ctx.createBiquadFilter();
-            lowpass.type = "lowpass";
-            lowpass.frequency.value = 3000;
-            lowpass.Q.value = 0.8;
+        // Narrow radio/phone frequency range
+        this.highpass = audioContext.createBiquadFilter();
+        this.highpass.type = "highpass";
+        this.highpass.frequency.value = 500;
+        this.highpass.Q.value = 0.8;
 
-            // Mild signal distortion
-            const distortion = ctx.createWaveShaper();
-            distortion.curve = makeCurve(4);
-            distortion.oversample = "2x";
+        this.lowpass = audioContext.createBiquadFilter();
+        this.lowpass.type = "lowpass";
+        this.lowpass.frequency.value = 3000;
+        this.lowpass.Q.value = 0.8;
 
-            // Subtle unstable signal modulation
-            const tremolo = ctx.createGain();
-            tremolo.gain.value = 0.85;
+        // Mild signal distortion
+        this.distortion = audioContext.createWaveShaper();
+        this.distortion.curve = this.createCurve(4);
+        this.distortion.oversample = "2x";
 
-            const lfo = ctx.createOscillator();
-            const lfoGain = ctx.createGain();
+        // Subtle unstable signal modulation
+        this.tremolo = audioContext.createGain();
+        this.tremolo.gain.value = 0.85;
 
-            lfo.frequency.value = 7;
-            lfoGain.gain.value = 0.12;
+        this.lfo = audioContext.createOscillator();
+        this.lfoGain = audioContext.createGain();
 
-            lfo.connect(lfoGain);
-            lfoGain.connect(tremolo.gain);
-            lfo.start();
+        this.lfo.frequency.value = 7;
+        this.lfoGain.gain.value = 0.12;
 
-            // Signal chain
-            input.connect(highpass);
-            highpass.connect(lowpass);
-            lowpass.connect(distortion);
-            distortion.connect(tremolo);
-            tremolo.connect(output);
+        this.lfo.connect(this.lfoGain);
+        this.lfoGain.connect(this.tremolo.gain);
 
-            // Keep the LFO alive with the effect
-            this.lfo = lfo;
-        };
+        this.lfo.start();
+
+        // Wiring
+        this.input.connect(this.highpass);
+        this.highpass.connect(this.lowpass);
+        this.lowpass.connect(this.distortion);
+        this.distortion.connect(this.tremolo);
+        this.tremolo.connect(this.output);
     }
+
+    createCurve(amount) {
+        const samples = 44100;
+        const curve = new Float32Array(samples);
+
+        for (let i = 0; i < samples; i++) {
+            const x = (i * 2) / samples - 1;
+            curve[i] = Math.tanh(amount * x) / Math.tanh(amount);
+        }
+
+        return curve;
+    }
+}
 
 export default BadSignalEffect;
