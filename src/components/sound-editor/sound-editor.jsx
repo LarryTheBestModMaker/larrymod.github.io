@@ -72,7 +72,7 @@ const BufferedInput = BufferedInputHOC(Input);
 
 const urlParams = new URLSearchParams(location.search);
 
-const IsLiveTests = urlParams.has('livetests')
+const IsLiveTests = urlParams.has('livetests');
 
 const messages = defineMessages({
     sound: {
@@ -218,21 +218,13 @@ const formatTime = timeSeconds => {
 };
 
 const formatDuration = (playheadPercent, trimStartPercent, trimEndPercent, durationSeconds) => {
-    // If no selection, the trim is the entire sound.
     trimStartPercent = trimStartPercent === null ? 0 : trimStartPercent;
     trimEndPercent = trimEndPercent === null ? 1 : trimEndPercent;
-
-    // If the playhead doesn't exist, assume it's at the start of the selection.
     playheadPercent = playheadPercent === null ? trimStartPercent : playheadPercent;
-
-    // If selection has zero length, treat it as the entire sound being selected.
-    // This happens when the user first clicks to start making a selection.
     const trimSize = (trimEndPercent - trimStartPercent) || 1;
     const trimDuration = trimSize * durationSeconds;
-
     const progressInTrim = (playheadPercent - trimStartPercent) / trimSize;
     const currentTime = progressInTrim * trimDuration;
-
     return `${formatTime(currentTime)} / ${formatTime(trimDuration)} (in seconds: ${trimDuration.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]})`;
 };
 
@@ -413,9 +405,31 @@ const SoundEditor = props => (
                             <div
                                 className={styles.waveformShadow}
                                 style={{
-                                    // This logic makes my brain hurt but if it's not broken don't fix it
-                                    // eslint-disable-next-line max-len
-                                    background: `linear-gradient(90deg, ${Math.min(props.playhead, props.trimEnd ?? props.playhead) > 0 ? `var(--page-background) 0%, var(--page-background) ${Math.min(props.playhead, props.trimEnd ?? props.playhead) * 100}%, transparent ${Math.min(props.playhead, props.trimEnd ?? props.playhead) * 100}%` : 'transparent'}${props.trimStart || props.trimEnd ? `, transparent ${Math.max(props.playhead, props.trimStart, props.trimEnd) * 100}%, var(--page-background) ${Math.max(props.playhead, props.trimStart, props.trimEnd) * 100}%` : ''})`
+                                    background: 'linear-gradient(90deg, ' +
+                                        (Math.min(
+                                            props.playhead,
+                                            props.trimEnd === null ? props.playhead : props.trimEnd
+                                        ) > 0 ?
+                                            'var(--page-background) 0%, var(--page-background) ' +
+                                            (Math.min(
+                                                props.playhead,
+                                                props.trimEnd === null ? props.playhead : props.trimEnd
+                                            ) * 100) +
+                                            '%, transparent ' +
+                                            (Math.min(
+                                                props.playhead,
+                                                props.trimEnd === null ? props.playhead : props.trimEnd
+                                            ) * 100) +
+                                            '%' :
+                                            'transparent') +
+                                        (props.trimStart || props.trimEnd ?
+                                            ', transparent ' +
+                                            (Math.max(props.playhead, props.trimStart, props.trimEnd) * 100) +
+                                            '%, var(--page-background) ' +
+                                            (Math.max(props.playhead, props.trimStart, props.trimEnd) * 100) +
+                                            '%' :
+                                            '') +
+                                        ')'
                                 }}
                             />
                         </div>
@@ -713,7 +727,6 @@ const SoundEditor = props => (
                 {` (${formatSoundSize(props.size)})`}
             </div>
         </div>
-        {/* TODO: don't know whether this should be > or >=. Using >= for now to be safe */}
         {props.size >= SOUND_BYTE_LIMIT && (
             <div className={classNames(styles.alert, styles.tooLarge)}>
                 <FormattedMessage
@@ -723,32 +736,32 @@ const SoundEditor = props => (
                 />
             </div>
         )}
-        {props.size > SOUND_BYTE_LIMIT &&
-                        <div className={classNames(styles.alert, styles.stereo)}>
-                            <FormattedMessage
-                                defaultMessage="Editing this sound will irreversibly lower its quality."
-                                description="Message that appears when editing a large sound."
-                                id="nb.sizeAlert"
-                            />
-                        </div>
-                    }
+        {props.size > SOUND_BYTE_LIMIT && (
+            <div className={classNames(styles.alert, styles.stereo)}>
+                <FormattedMessage
+                    defaultMessage="Editing this sound will irreversibly lower its quality."
+                    description="Message that appears when editing a large sound."
+                    id="nb.sizeAlert"
+                />
+            </div>
+        )}
         {(props.dataFormat === "mp3" || props.dataFormat === "ogg" || props.dataFormat === "flac") && (
-             <div className={classNames(styles.alert, styles.stereo)}>
-                 <FormattedMessage
-                     defaultMessage="Editing this sound will irreversibly convert it to a much larger, WAV format sound."
-                     description="Message that appears when editing an mp3, ogg or flac sound."
-                     id="pm.formatAlert"
-                 />
-             </div>
+            <div className={classNames(styles.alert, styles.stereo)}>
+                <FormattedMessage
+                    defaultMessage="Editing this sound will irreversibly convert it to a much larger, WAV format sound."
+                    description="Message that appears when editing an mp3, ogg or flac sound."
+                    id="pm.formatAlert"
+                />
+            </div>
         )}
         {(props.dataFormat === "ogg") && (
-             <div className={classNames(styles.alert, styles.tooLarge)}>
-                 <FormattedMessage
-                     defaultMessage="Users on iOS and MacOS will need to update their browser or device to hear any OGG sounds."
-                     description="Message that appears when editing an ogg sound."
-                     id="pm.oggSafariAlert"
-                 />
-             </div>
+            <div className={classNames(styles.alert, styles.tooLarge)}>
+                <FormattedMessage
+                    defaultMessage="Users on iOS and MacOS will need to update their browser or device to hear any OGG sounds."
+                    description="Message that appears when editing an ogg sound."
+                    id="pm.oggSafariAlert"
+                />
+            </div>
         )}
         {props.isStereo && (
             <div className={classNames(styles.alert, styles.stereo)}>
