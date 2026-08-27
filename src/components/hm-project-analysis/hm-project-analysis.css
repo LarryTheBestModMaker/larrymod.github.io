@@ -7,7 +7,7 @@
 }
 
 .body {
-    background: $ui-modal-background;
+    background: $ui-white;
     padding: 1.5rem 2rem 2rem;
 }
 
@@ -17,7 +17,7 @@
     gap: 0.5rem;
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid $ui-modal-background;
+    border-bottom: 2px solid $ui-black-transparent;
 }
 
 .tabButton {
@@ -35,12 +35,12 @@
 }
 
 .tabButton:hover {
-    background: $ui-modal-background;
+    background: $ui-white;
     color: $text-primary;
 }
 
 .tabActive {
-    background: $ui-modal-background;
+    background: $ui-white;
     color: $text-primary;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .tabContent::-webkit-scrollbar-thumb {
-    background: $ui-modal-background;
+    background: $ui-white;
     border-radius: 4px;
 }
 
@@ -174,7 +174,7 @@
     border-radius: 6px;
     padding: 0.6rem 0.4rem;
     text-align: center;
-    border: 1px solid $ui-modal-background;
+    border: 1px solid $ui-white;
 }
 
 .statValue {
@@ -239,7 +239,7 @@
     border-radius: 6px;
     padding: 0.3rem 0.75rem;
     font-size: 0.85rem;
-    border: 1px solid $ui-modal-background;
+    border: 1px solid $ui-white;
     gap: 0.6rem;
     min-height: 2.2rem;
 }
@@ -255,7 +255,7 @@
 }
 
 .categoryCount {
-    background: $ui-modal-background;
+    background: $ui-white;
     border-radius: 4px;
     padding: 0 0.5rem;
     font-size: 0.75rem;
@@ -271,7 +271,7 @@
     flex: 1;
     min-width: 60px;
     height: 10px;
-    background: $ui-modal-background;
+    background: $ui-white;
     border-radius: 99px;
     overflow: hidden;
 }
@@ -318,7 +318,7 @@
     border-radius: 6px;
     font-size: 0.85rem;
     color: $text-primary;
-    border: 1px solid $ui-modal-background;
+    border: 1px solid $ui-white;
     word-break: break-word;
 }
 
@@ -330,7 +330,7 @@
 .settingsSection {
     margin-bottom: 1.25rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $ui-modal-background;
+    border-bottom: 1px solid $ui-white;
 }
 
 .settingsSection:last-child {
@@ -379,9 +379,9 @@
 }
 
 .resetButton {
-    background: $ui-modal-background;
+    background: $ui-white;
     color: $text-primary;
-    border: 1px solid $ui-modal-background;
+    border: 1px solid $ui-white;
     border-radius: 6px;
     padding: 0.5rem 1.25rem;
     font-weight: 500;
@@ -392,7 +392,7 @@
 }
 
 .resetButton:hover {
-    background: $ui-modal-background;
+    background: $ui-white;
     opacity: 0.8;
 }
 
