@@ -68,7 +68,6 @@ import trimIcon from '!../../lib/tw-recolor/build!./icon--trim-action.svg';
 import {SOUND_BYTE_LIMIT} from '../../lib/audio/audio-util.js';
 import Box from '../box/box.jsx';
 import Meter from '../meter/meter.jsx';
-import {DefaultOpts} from '../../lib/audio/default-audio-effect-opts.js';
 
 const BufferedInput = BufferedInputHOC(Input);
 
