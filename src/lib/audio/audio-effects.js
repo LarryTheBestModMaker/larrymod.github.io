@@ -25,6 +25,7 @@ import MicMalfunctionEffect from './effects/mic-malfunction-effect.js';
 import ElectroShiftEffect from './effects/electro-shift-effect.js';
 import DistortedMicEffect from './effects/distorted-mic-effect.js';
 import NormalizeEffect from './effects/normalize-effect.js';
+import BadSignalEffect from './effects/bad-signal-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -60,6 +61,7 @@ const effectTypes = {
     ELECTROSHIFT: 'electro shift',
     DISTORTEDMIC: 'distorted mic',
     NORMALIZE: 'normalize',
+    BADSIGNAL: 'bad signal',
 };
 
 const centsToFrequency = (cents) => {
@@ -311,6 +313,10 @@ class AudioEffects {
                 break;
             case effectTypes.NORMALIZE:
                 ({input, output} = new NormalizeEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.BADSIGNAL:
+                ({input, output} = new BadSignalEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:
