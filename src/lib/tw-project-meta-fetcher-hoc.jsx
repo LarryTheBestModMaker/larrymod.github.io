@@ -59,8 +59,6 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
         }
         componentDidUpdate() {
             // project title resetting is handled in titled-hoc.jsx
-            if (this.props.vm.runtime.renderer.setPrivateSkinAccess)
-                this.props.vm.runtime.renderer.setPrivateSkinAccess(true);
             this.props.onSetAuthor('', '');
             this.props.onSetDescription('', '');
             this.props.onSetRemixedProjectInfo(false, '', '');
