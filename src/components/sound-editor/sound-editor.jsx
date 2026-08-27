@@ -765,8 +765,8 @@ const SoundEditor = props => (
 SoundEditor.propTypes = {
     isStereo: PropTypes.bool.isRequired,
     duration: PropTypes.number.isRequired,
-    dataFormat: PropTypes.number.isRequired,
-    size: PropTypes.bool.isRequired,
+    dataFormat: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
     sampleRate: PropTypes.number.isRequired,
     canPaste: PropTypes.bool.isRequired,
     canRedo: PropTypes.bool.isRequired,
