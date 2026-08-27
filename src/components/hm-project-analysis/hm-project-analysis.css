@@ -52,7 +52,7 @@
     transform: translateX(-50%);
     width: 60%;
     height: 2px;
-    background: $looks-secondary;
+    background: $ui-white
     border-radius: 2px;
 }
 
@@ -120,7 +120,7 @@
     font-size: clamp(1.1rem, 5vw, 1.45rem);
     font-weight: 700;
     color: $text-primary;
-    border-left: 6px solid $looks-secondary;
+    border-left: 6px solid $ui-white
     padding-left: 12px;
     margin-bottom: 1rem; 
     word-break: break-word;
@@ -170,7 +170,7 @@
 }
 
 .statItem {
-    background: $input-background;
+    background: $ui-white;
     border-radius: 6px;
     padding: 0.6rem 0.4rem;
     text-align: center;
@@ -205,7 +205,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: $text-primary-transparent;
-    background: $input-background;
+    background: $ui-white;
     border-radius: 4px;
     margin-bottom: 0.4rem;
     letter-spacing: 0.5px;
@@ -235,7 +235,7 @@
 .categoryItem {
     display: flex;
     align-items: center;
-    background: $input-background;
+    background: $ui-white;
     border-radius: 6px;
     padding: 0.3rem 0.75rem;
     font-size: 0.85rem;
@@ -313,7 +313,7 @@
 
 /* ===== Extension Info ===== */
 .extensionInfo {
-    background: $input-background;
+    background: $ui-white;
     padding: 0.5rem 0.75rem;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -431,7 +431,7 @@
     gap: 0.6rem;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
-    background: $input-background;
+    background: $ui-white;
     border: 1px solid #fecaca;
     font-size: 0.8rem;
 }
