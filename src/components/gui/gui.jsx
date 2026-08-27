@@ -675,10 +675,8 @@ const GUIComponent = props => {
                                     /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
-                                    {soundsTabVisible ? <SoundTab
-                                        vm={vm}
-                                        preferences={props.preferences}
-                                    /> : null}
+                                    {soundsTabVisible ? <SoundTab vm={vm} preferences={props.preferences} /> : null}
+                                </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     {assetsTabVisible ? <AssetTab vm={vm} /> : null}
                                 </TabPanel>
