@@ -44,6 +44,6 @@ class BadSignalEffect {
 
             // Keep the LFO alive with the effect
             this.lfo = lfo;
-        }));
+        };
     }
 }
