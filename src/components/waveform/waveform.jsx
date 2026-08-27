@@ -51,7 +51,7 @@ class Waveform extends React.PureComponent {
                     className={styles.container}
                     viewBox={`0 0 ${width} ${height}`}
                 >
-                    {preferences['waveform-color'] === 'volume' &&
+                    {preferences['waveform'] === 'volume' &&
                         <defs>
                             <linearGradient id={'sound'.concat(randomId)}>
                                 {data.map((value, i) => (
@@ -75,7 +75,7 @@ class Waveform extends React.PureComponent {
                     }
                     <g transform={`scale(1, -1) translate(0, -${height / 2})`}>
                         <path
-                            className={preferences['waveform-color'] === 'volume' ? null : styles.waveformPath}
+                            className={preferences['waveform'] === 'volume' ? null : styles.waveformPath}
                             d={`M0 0${pathComponents.join(' ')}Z`}
                             strokeLinejoin={'round'}
                             strokeWidth={1}
