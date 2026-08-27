@@ -43,5 +43,3 @@ class BadSignalEffect {
         }));
     }
 }
-
-export default BadSignalEffect;
