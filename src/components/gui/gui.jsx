@@ -41,7 +41,6 @@ import TWUsernameModal from '../../containers/tw-username-modal.jsx';
 import TWSettingsModal from '../../containers/tw-settings-modal.jsx';
 import TWSecurityManager from '../../containers/tw-security-manager.jsx';
 import TWCustomExtensionModal from '../../containers/tw-custom-extension-modal.jsx';
-import NBEditorSettingsModal from '../../containers/nb-editor-settings-modal.jsx';
 import TWRestorePointManager from '../../containers/tw-restore-point-manager.jsx';
 import TWFontsModal from '../../containers/tw-fonts-modal.jsx';
 
@@ -184,7 +183,6 @@ const GUIComponent = props => {
         usernameModalVisible,
         settingsModalVisible,
         customAccentModalVisible,
-        editorSettingsModalVisible,
         customExtensionModalVisible,
         fontsModalVisible,
         isPlayground,
@@ -404,7 +402,6 @@ const GUIComponent = props => {
                 {customExtensionModalVisible && <TWCustomExtensionModal />}
                 {fontsModalVisible && <TWFontsModal />}
                 {customAccentModalVisible && <DMCustomAccentModal />}
-                {editorSettingsModalVisible && <NBEditorSettingsModal />}
             </React.Fragment>
         );
 
@@ -786,7 +783,6 @@ GUIComponent.propTypes = {
     settingsModalVisible: PropTypes.bool,
     customExtensionModalVisible: PropTypes.bool,
     customAccentModalVisible: PropTypes.bool,
-    editorSettingsModalVisible: PropTypes.bool,
     fontsModalVisible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
 };
