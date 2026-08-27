@@ -723,15 +723,15 @@ const SoundEditor = props => (
                 />
             </div>
         )}
-        {props.size > SOUND_BYTE_LIMIT &&
-                        <div className={classNames(styles.alert, styles.stereo)}>
-                            <FormattedMessage
-                                defaultMessage="Editing this sound will irreversibly lower its quality."
-                                description="Message that appears when editing a large sound."
-                                id="nb.sizeAlert"
-                            />
-                        </div>
-                    }
+        {props.size > SOUND_BYTE_LIMIT && (
+    <div className={classNames(styles.alert, styles.stereo)}>
+        <FormattedMessage
+            defaultMessage="Editing this sound will irreversibly lower its quality."
+            description="Message that appears when editing a large sound."
+            id="nb.sizeAlert"
+        />
+    </div>
+)}
         {(props.dataFormat === "mp3" || props.dataFormat === "ogg" || props.dataFormat === "flac") && (
              <div className={classNames(styles.alert, styles.stereo)}>
                  <FormattedMessage
