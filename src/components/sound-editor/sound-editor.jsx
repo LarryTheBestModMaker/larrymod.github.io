@@ -442,7 +442,7 @@ const SoundEditor = props => (
                     gap: '8px'
                 }}
             >
-                {props.playhead ? (
+                {props.playing ? (
                     <button
                             className={classNames(styles.roundButton, styles.playButton)}
                             title={props.intl.formatMessage(messages.pause)}
@@ -810,6 +810,7 @@ SoundEditor.propTypes = {
     onMute: PropTypes.func.isRequired,
     onPaste: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
+    onPause: PropTypes.func.isRequired,
     onRedo: PropTypes.func.isRequired,
     onReverse: PropTypes.func.isRequired,
     onRobot: PropTypes.func.isRequired,
