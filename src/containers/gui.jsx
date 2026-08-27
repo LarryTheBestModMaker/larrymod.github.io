@@ -92,7 +92,6 @@ class GUI extends React.Component {
             <React.Fragment>
                 <GUIComponent
                     loading={fetchingProject || isLoading || loadingStateVisible}
-                    loaderExiting={this.state.loaderExiting}
                     {...componentProps}
                 >
                     {children}
