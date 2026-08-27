@@ -51,6 +51,7 @@ class SoundEditor extends React.Component {
             'resampleBufferToRate',
             'handleModifyMenu',
             'handleBackpackRadioWarning',
+            'handleDistortedMicWarning',
             'handleFormatMenu',
             'handleBitCrushMenu',
             'getSelectionBuffer'
@@ -560,7 +561,44 @@ class SoundEditor extends React.Component {
         "font-weight:500;";
 
     warning.innerHTML =
-        "The 'Backpack Radio' effect is very distorted. " +
+        "The 'Backpack Radio' effect is very distorted and loud. " +
+        "Its intensity and level are too high and can cause " +
+        "eardrum damage. Are you sure you want to apply this " +
+        "effect to it?";
+
+    menu.textarea.append(warning);
+}
+    handleDistortedMicWarning() {
+    const menu = this.displayPopup(
+        "Warning!",
+        420,
+        240,
+        "Continue anyway",
+        "Do not continue",
+        () => {
+            // Apply Distorted Mic only after the user confirms.
+            this.handleEffect({
+                preset: AudioEffects.effectTypes.DISTORTEDMIC
+            });
+        },
+        () => {
+            // User chose not to continue.
+            return;
+        }
+    );
+
+    menu.textarea.style =
+        "padding: 20px;display:flex;align-items:center;" +
+        "justify-content:center;text-align:center;";
+
+    const warning = document.createElement("p");
+
+    warning.style =
+        "margin:0;font-size:15px;line-height:1.5;" +
+        "font-weight:500;";
+
+    warning.innerHTML =
+        "The 'Distorted Mic' effect is very distorted and loud. " +
         "Its intensity and level are too high and can cause " +
         "eardrum damage. Are you sure you want to apply this " +
         "effect to it?";
@@ -905,7 +943,7 @@ class SoundEditor extends React.Component {
                 onBAndWTV={this.effectFactory(effectTypes.BANDWTV)}
                 onMicMalfunction={this.effectFactory(effectTypes.MICMALFUNCTION)}
                 onElectroShift={this.effectFactory(effectTypes.ELECTROSHIFT)}
-                onDistortedMic={this.effectFactory(effectTypes.DISTORTEDMIC)}
+                onDistortedMic={this.handleDistortedMicWarning}
                 onNormalize={this.effectFactory(effectTypes.NORMALIZE)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
