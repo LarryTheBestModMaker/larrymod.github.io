@@ -46,4 +46,5 @@ class BadSignalEffect {
             this.lfo = lfo;
         };
     }
-}
+
+export default BadSignalEffect;
