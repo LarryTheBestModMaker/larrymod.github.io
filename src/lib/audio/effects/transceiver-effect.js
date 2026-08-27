@@ -1,4 +1,4 @@
-class BadSignalEffect {
+class TransceiverEffect {
     constructor(audioContext) {
         this.audioContext = audioContext;
 
@@ -57,4 +57,4 @@ class BadSignalEffect {
     }
 }
 
-export default BadSignalEffect;
+export default TransceiverEffect;

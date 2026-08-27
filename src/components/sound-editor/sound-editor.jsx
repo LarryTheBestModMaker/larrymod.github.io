@@ -56,7 +56,7 @@ import micMalfunctionIcon from './icon--mic-malfunction.svg';
 import electroShiftIcon from './icon--electro-shift.svg';
 import distortedMicIcon from './icon--distorted-mic.svg';
 import normalizeIcon from './icon--normalize.svg';
-import badSignalIcon from './icon--bad-signal.svg';
+import transceiverIcon from './icon--transceiver.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -567,9 +567,9 @@ const SoundEditor = props => (
                 />
                 <IconButton
                     className={styles.effectButton}
-                    img={badSignalIcon}
-                    title={"Bad Signal"}
-                    onClick={props.onBadSignal}
+                    img={transceiverIcon}
+                    title={"Transceiver"}
+                    onClick={props.onTransceiver}
                 />
             </div>
         </div>
@@ -678,7 +678,7 @@ SoundEditor.propTypes = {
     onElectroShift: PropTypes.func.isRequired,
     onDistortedMic: PropTypes.func.isRequired,
     onNormalize: PropTypes.func.isRequired,
-    onBadSignal: PropTypes.func.isRequired,
+    onTransceiver: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
