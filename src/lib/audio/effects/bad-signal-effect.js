@@ -1,6 +1,10 @@
 class BadSignalEffect {
-    constructor(ctx) {
-        Object.assign(this, createEffect(ctx, (ctx, input, output) => {
+    constructor(audioContext) {
+        this.audioContext = audioContext;
+
+        this.input = audioContext.createGain();
+        this.output = audioContext.createGain();
+        
             // Narrow radio/phone frequency range
             const highpass = ctx.createBiquadFilter();
             highpass.type = "highpass";
