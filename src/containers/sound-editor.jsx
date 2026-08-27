@@ -328,7 +328,7 @@ class SoundEditor extends React.Component {
             return;
         }
 
-        const effects = new AudioEffects(this.audioBufferPlayer.buffer, name, trimStart, trimEnd, trimChannel, opts);
+        const effects = new AudioEffects(this.audioBufferPlayer.buffer, null, trimStart, trimEnd, trimChannel, options);
         effects.process((renderedBuffer, adjustedTrimStart, adjustedTrimEnd) => {
             const channel1Samples = renderedBuffer.getChannelData(0);
             const channel2Samples = renderedBuffer.numberOfChannels > 1 ? renderedBuffer.getChannelData(1) : null;
@@ -1136,6 +1136,7 @@ class SoundEditor extends React.Component {
                 onMute={this.effectFactory(effectTypes.MUTE)}
                 onPaste={this.handlePaste}
                 onPlay={this.handlePlay}
+                onPause={this.handlePause}
                 onRedo={this.handleRedo}
                 onReverse={this.effectFactory(effectTypes.REVERSE)}
                 onRobot={this.effectFactory(effectTypes.ROBOT)}

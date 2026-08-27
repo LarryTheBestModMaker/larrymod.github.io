@@ -90,7 +90,7 @@ class AudioEffects {
 
         // These affect the sampleCount
         this.playbackRate = 1;
-        switch (options.preset) {
+        switch (opts.preset) {
             case effectTypes.ECHO:
                 sampleCount = Math.max(sampleCount,
                     Math.floor((this.trimEndSeconds + EchoEffect.TAIL_SECONDS) * buffer.sampleRate));
@@ -114,7 +114,7 @@ class AudioEffects {
                 sampleCount = unaffectedSampleCount + adjustedAffectedSampleCount;
                 break;
             default:
-                if (Object.prototype.hasOwnProperty.call(options, "pitch")) {
+                if (Object.prototype.hasOwnProperty.call(opts, "pitch")) {
                     this.playbackRate = centsToFrequency(options.pitch);
                     adjustedAffectedSampleCount = Math.floor(affectedSampleCount / this.playbackRate);
                     sampleCount = unaffectedSampleCount + adjustedAffectedSampleCount;
@@ -130,7 +130,7 @@ class AudioEffects {
 
         let audioContextSampleRate = buffer.sampleRate;
         let audioContextSampleCount = sampleCount;
-        if (Object.prototype.hasOwnProperty.call(options, "sampleRateEnforced")) {
+        if (Object.prototype.hasOwnProperty.call(opts, "sampleRateEnforced")) {
             const newSampleRate = options.sampleRateEnforced;
             audioContextSampleRate = newSampleRate;
             audioContextSampleCount = Math.floor((sampleCount / buffer.sampleRate) * newSampleRate);
