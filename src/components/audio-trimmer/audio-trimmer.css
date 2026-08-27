@@ -27,7 +27,7 @@ $hover-scale: 1.25;
 .trim-background-mask {
     opacity: 0.5;
 
-    background-color: $page-background;
+    background-color: $ui-white;
 }
 
 .start-trim-background .trim-background-mask {
