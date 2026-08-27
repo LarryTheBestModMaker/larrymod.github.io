@@ -29,6 +29,7 @@ import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import LanguageMenu from './language-menu.jsx';
+import {openProjectAnalysisModal} from '../../reducers/hm-project-analysis.js';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
 import ChangeUsername from '../../containers/tw-change-username.jsx';
@@ -213,6 +214,7 @@ class MenuBar extends React.Component {
             'handleClickSaveAsCopy',
             'handleClickPackager',
             'handleClickRestorePoints',
+            'handleClickViewProjectAnalysis',
             'handleClickSeeCommunity',
             'handleClickDownloadLogs',
             'handleClickShare',
@@ -268,6 +270,10 @@ class MenuBar extends React.Component {
         this.props.onClickRestorePoints();
         this.props.onRequestCloseFile();
     }
+    handleClickViewProjectAnalysis () {
+    this.props.onClickViewProjectAnalysis();
+    this.props.onRequestCloseFile();
+}
     handleClickSeeCommunity (waitForUpdate) {
         if (this.props.shouldSaveBeforeTransition()) {
             this.props.autoUpdateProject(); // save before transitioning to project page
@@ -518,7 +524,10 @@ class MenuBar extends React.Component {
                                     />
                                 </div>
                                 <MenuBarMenu
-                                    className={classNames(styles.menuBarMenu)}
+                                    className={classNames(styles.menuBarMenu, {
+                                        [styles.visible]: this.props.errorsMenuOpen,
+                                        [styles.hidden]: !this.props.errorsMenuOpen
+                                    })}
                                     open={this.props.errorsMenuOpen}
                                     place={this.props.isRtl ? 'left' : 'right'}
                                     onRequestClose={this.props.onRequestCloseErrors}
@@ -600,7 +609,10 @@ class MenuBar extends React.Component {
                                     id="gui.menuBar.file"
                                 />
                                 <MenuBarMenu
-                                    className={classNames(styles.menuBarMenu)}
+                                    className={classNames(styles.menuBarMenu, {
+                                        [styles.visible]: this.props.fileMenuOpen,
+                                        [styles.hidden]: !this.props.fileMenuOpen
+                                    })}
                                     open={this.props.fileMenuOpen}
                                     place={this.props.isRtl ? 'left' : 'right'}
                                     onRequestClose={this.props.onRequestCloseFile}
@@ -739,6 +751,15 @@ class MenuBar extends React.Component {
                                                 defaultMessage="Restore points"
                                                 description="Menu bar item to manage restore points"
                                                 id="tw.menuBar.restorePoints"
+                                            />
+                                        </MenuItem>
+                                    </MenuSection>
+                                    <MenuSection>
+                                        <MenuItem onClick={this.handleClickViewProjectAnalysis}>
+                                            <FormattedMessage
+                                                defaultMessage="View project analysis"
+                                                description="Menu bar item to view project analysis"
+                                                id="hm.menuBar.viewProjectAnalysis"
                                             />
                                         </MenuItem>
                                     </MenuSection>
@@ -1020,6 +1041,7 @@ MenuBar.propTypes = {
     onClickTheme: PropTypes.func,
     onClickPackager: PropTypes.func,
     onClickRestorePoints: PropTypes.func,
+    onClickViewProjectAnalysis: PropTypes.func,
     onClickEdit: PropTypes.func,
     onClickFile: PropTypes.func,
     onClickLanguage: PropTypes.func,
@@ -1126,6 +1148,10 @@ const mapDispatchToProps = dispatch => ({
     onClickSave: () => dispatch(manualUpdateProject()),
     onClickSaveAsCopy: () => dispatch(saveProjectAsCopy()),
     onClickRestorePoints: () => dispatch(openRestorePointModal()),
+    onClickViewProjectAnalysis: () => {
+        dispatch(openProjectAnalysisModal());
+        dispatch(closeFileMenu());
+    },
     onClickSettings: () => {
         dispatch(openSettingsModal());
         dispatch(closeEditMenu());
