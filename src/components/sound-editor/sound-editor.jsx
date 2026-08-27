@@ -72,7 +72,7 @@ const BufferedInput = BufferedInputHOC(Input);
 
 const urlParams = new URLSearchParams(location.search);
 
-const IsLiveTests = urlParams.has('livetests')
+const IsLiveTests = urlParams.has('livetests');
 
 const messages = defineMessages({
     sound: {
@@ -433,6 +433,7 @@ const SoundEditor = props => (
                         />
                     </div>
                 </div>
+            </div>
         <div className={classNames(styles.row, styles.rowReverse)}>
             <div
                 className={classNames(styles.roundButtonOuter, styles.inputGroup)}
