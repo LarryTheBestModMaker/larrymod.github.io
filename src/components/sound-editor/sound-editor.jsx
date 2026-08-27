@@ -763,7 +763,7 @@ const SoundEditor = props => (
 );
 
 SoundEditor.propTypes = {
-    isStereo: PropTypes.bool.isRequired,
+    isStereo} PropTypes.bool.isRequired,
     duration: PropTypes.number.isRequired,
     dataFormat: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired,
