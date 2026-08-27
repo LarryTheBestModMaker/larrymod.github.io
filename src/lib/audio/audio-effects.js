@@ -27,8 +27,6 @@ import DistortedMicEffect from './effects/distorted-mic-effect.js';
 import NormalizeEffect from './effects/normalize-effect.js';
 import TransceiverEffect from './effects/transceiver-effect.js';
 
-import {DefaultOpts} from './default-audio-effect-opts.js';
-
 const effectTypes = {
     FLIP: 'flip',
     ROBOT: 'robot',
