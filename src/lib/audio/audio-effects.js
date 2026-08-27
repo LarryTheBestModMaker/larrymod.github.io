@@ -243,7 +243,6 @@ class AudioEffects {
         this.source = this.audioContext.createBufferSource();
         this.source.buffer = this.buffer;
         this.options = options;
-        this.options = options;
 
         // Matches [false, true] and [true, false]. We only need to split the channels if just one channel is modified.
         if (trimChannel[0] !== trimChannel[1]) {
