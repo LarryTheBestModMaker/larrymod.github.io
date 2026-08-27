@@ -52,7 +52,7 @@
     transform: translateX(-50%);
     width: 60%;
     height: 2px;
-    background: $ui-white
+    background: $ui-white;
     border-radius: 2px;
 }
 
@@ -120,7 +120,7 @@
     font-size: clamp(1.1rem, 5vw, 1.45rem);
     font-weight: 700;
     color: $text-primary;
-    border-left: 6px solid $ui-white
+    border-left: 6px solid $ui-white;
     padding-left: 12px;
     margin-bottom: 1rem; 
     word-break: break-word;
