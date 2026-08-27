@@ -50,7 +50,7 @@
 }
 
 .playing-text {
-    color: $motion-primary;
+    color: $red-primary;
 }
 
 .recording-text {
@@ -59,7 +59,7 @@
 
 .main-button-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 15px;
 }
 
@@ -68,6 +68,7 @@
     border-radius: 0.25rem;
     background: transparent;
     border: none;
+    width: 10rem;
 }
 
 .main-button-row button:disabled {

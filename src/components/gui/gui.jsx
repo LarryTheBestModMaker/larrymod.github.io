@@ -595,6 +595,19 @@ const GUIComponent = props => {
                                                 />
                                             </div>
                                         </MenuItem>}
+                                        {!tabOrder.includes('asset') && <MenuItem onClick={() => addTabToEditor('asset')}>
+                                            <div className={styles.tabAdditionItem}>
+                                                <img
+                                                    draggable={false}
+                                                    src={assetsIcon}
+                                                />
+                                                <FormattedMessage
+                                                    defaultMessage="Assets"
+                                                    description="Button to get to the assets panel"
+                                                    id="gui.gui.assetsTab"
+                                                />
+                                            </div>
+                                        </MenuItem>}
                                         {!tabOrder.includes('variable') && <MenuItem onClick={() => addTabToEditor('variable')}>
                                             <div className={styles.tabAdditionItem}>
                                                 <img
@@ -662,8 +675,10 @@ const GUIComponent = props => {
                                     /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
-                                    {soundsTabVisible ? <SoundTab vm={vm} /> : null}
-                                </TabPanel>
+                                    {soundsTabVisible ? <SoundTab
+                                        vm={vm}
+                                        preferences={props.preferences}
+                                    /> : null}
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     {assetsTabVisible ? <AssetTab vm={vm} /> : null}
                                 </TabPanel>
