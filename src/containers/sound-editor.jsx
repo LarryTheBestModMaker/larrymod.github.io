@@ -36,6 +36,7 @@ class SoundEditor extends React.Component {
             'handleStopPlaying',
             'handleUpdatePlayhead',
             'handleDelete',
+            'handleDeleteInverse',
             'handleUpdateTrim',
             'handleEffect',
             'handleUndo',
@@ -928,6 +929,7 @@ class SoundEditor extends React.Component {
                 onCut={this.handleCut}
                 onCutToNew={this.handleCutToNew}
                 onDelete={this.handleDelete}
+                onDeleteInverse={this.handleDeleteInverse}
                 onEcho={this.effectFactory(effectTypes.ECHO)}
                 onTelephone={this.effectFactory(effectTypes.TELEPHONE)}
                 onAlien={this.effectFactory(effectTypes.ALIEN)}
