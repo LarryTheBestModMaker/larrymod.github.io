@@ -56,7 +56,6 @@ const PlaybackStep = props => (
                     height={150}
                     level={0}
                     width={480}
-                    preferences={props.preferences}
                 />
                 <AudioTrimmer
                     playhead={props.playhead}
@@ -124,8 +123,7 @@ PlaybackStep.propTypes = {
     playhead: PropTypes.number,
     playing: PropTypes.bool.isRequired,
     trimEnd: PropTypes.number.isRequired,
-    trimStart: PropTypes.number.isRequired,
-    preferences: PropTypes.object
+    trimStart: PropTypes.number.isRequired
 };
 
 export default injectIntl(PlaybackStep);

@@ -7,8 +7,6 @@ import Waveform from '../waveform/waveform.jsx';
 
 import styles from './record-modal.css';
 import stopIcon from './icon--stop-recording.svg';
-import pauseIcon from './icon--pause-recording.svg';
-import playIcon from './icon--play.svg';
 
 const messages = defineMessages({
     beginRecord: {
@@ -25,16 +23,6 @@ const messages = defineMessages({
         defaultMessage: 'Stop recording',
         description: 'Stop recording button label',
         id: 'gui.recordingStep.stop'
-    },
-    pause: {
-        defaultMessage: 'Pause recording',
-        description: 'Pause recording button label',
-        id: 'gui.recordingStep.pause'
-    },
-    resume: {
-        defaultMessage: 'Resume recording',
-        description: 'Resume recording button label',
-        id: 'gui.recordingStep.resume'
     },
     record: {
         defaultMessage: 'Record',
@@ -60,7 +48,6 @@ const RecordingStep = props => (
                         height={150}
                         level={0}
                         width={440}
-                        preferences={props.preferences}
                     />
                 ) : (
                     <span className={styles.helpText}>
@@ -74,27 +61,12 @@ const RecordingStep = props => (
             </Box>
         </Box>
         <Box className={styles.mainButtonRow}>
-            {(props.recording || props.paused) && (
-                <button
-                    onClick={props.paused ? props.onResumeRecording : props.onPauseRecording}
-                >
-                    <img
-                        draggable={false}
-                        src={props.paused ? playIcon : pauseIcon}
-                    />
-                    <div className={styles.helpText}>
-                        <span className={styles.recordingText}>
-                            {props.intl.formatMessage(props.paused ? messages.resume : messages.pause)}
-                        </span>
-                    </div>
-                </button>
-            )}
             <button
                 className={styles.mainButton}
                 disabled={!props.listening}
-                onClick={props.recording || props.paused ? props.onStopRecording : props.onRecord}
+                onClick={props.recording ? props.onStopRecording : props.onRecord}
             >
-                {props.recording || props.paused ? (
+                {props.recording ? (
                     <img
                         draggable={false}
                         src={stopIcon}
@@ -122,7 +94,7 @@ const RecordingStep = props => (
                 <div className={styles.helpText}>
                     <span className={styles.recordingText}>
                         {
-                            props.recording || props.paused ?
+                            props.recording ?
                                 props.intl.formatMessage(messages.stop) :
                                 props.intl.formatMessage(messages.record)
                         }
@@ -141,11 +113,7 @@ RecordingStep.propTypes = {
     listening: PropTypes.bool,
     onRecord: PropTypes.func.isRequired,
     onStopRecording: PropTypes.func.isRequired,
-    onPauseRecording: PropTypes.func.isRequired,
-    onResumeRecording: PropTypes.func.isRequired,
-    recording: PropTypes.bool,
-    paused: PropTypes.bool,
-    preferences: PropTypes.object
+    recording: PropTypes.bool
 };
 
 export default injectIntl(RecordingStep);
