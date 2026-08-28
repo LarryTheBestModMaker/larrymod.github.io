@@ -376,10 +376,7 @@ class SoundTab extends React.Component {
             >
                 {sprite.sounds && sprite.sounds[this.state.selectedSoundIndex] ? (
                     isSupported ? (
-                        <SoundEditor
-                            soundIndex={this.state.selectedSoundIndex}
-                            preferences={this.props.preferences}
-                        />
+                        <SoundEditor soundIndex={this.state.selectedSoundIndex} />
                     ) : (
                         <SoundEditorNotSupported />
                     )
@@ -395,7 +392,6 @@ class SoundTab extends React.Component {
                 {this.props.soundRecorderVisible ? (
                     <RecordModal
                         onNewSound={this.handleNewSound}
-                        preferences={this.props.preferences}
                     />
                 ) : null}
                 {this.props.soundLibraryVisible ? (
@@ -436,7 +432,6 @@ SoundTab.propTypes = {
             name: PropTypes.string.isRequired
         }))
     }),
-    preferences: PropTypes.object,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 

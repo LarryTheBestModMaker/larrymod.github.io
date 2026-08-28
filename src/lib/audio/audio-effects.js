@@ -28,7 +28,6 @@ import NormalizeEffect from './effects/normalize-effect.js';
 import TransceiverEffect from './effects/transceiver-effect.js';
 
 const effectTypes = {
-    FLIP: 'flip',
     ROBOT: 'robot',
     REVERSE: 'reverse',
     LOUDER: 'higher',
@@ -73,7 +72,7 @@ class AudioEffects {
     static get effectTypes () {
         return effectTypes;
     }
-    constructor (buffer, name, trimStart, trimEnd, trimChannel, options) {
+    constructor (buffer, options, trimStart, trimEnd) {
         this.trimStartSeconds = (trimStart * buffer.length) / buffer.sampleRate;
         this.trimEndSeconds = (trimEnd * buffer.length) / buffer.sampleRate;
         this.adjustedTrimStartSeconds = this.trimStartSeconds;
@@ -136,24 +135,12 @@ class AudioEffects {
             audioContextSampleCount = Math.floor((sampleCount / buffer.sampleRate) * newSampleRate);
         }
         if (window.OfflineAudioContext) {
-            /**
-             * @type {OfflineAudioContext}
-             */
-            this.audioContext = new window.OfflineAudioContext(
-                buffer.numberOfChannels,
-                audioContextSampleCount,
-                audioContextSampleRate
-            );
+            this.audioContext = new window.OfflineAudioContext(1, audioContextSampleCount, audioContextSampleRate);
         } else {
             // Need to use webkitOfflineAudioContext, which doesn't support all sample rates.
             // Resample by adjusting sample count to make room and set offline context to desired sample rate.
-            const sampleScale = audioContextSampleRate / 44100;
-
-            this.audioContext = new window.webkitOfflineAudioContext(
-            buffer.numberOfChannels,
-            Math.ceil(audioContextSampleCount * sampleScale),
-            44100
-        );
+            const sampleScale = 44100 / audioContextSampleRate;
+            this.audioContext = new window.webkitOfflineAudioContext(1, sampleScale * audioContextSampleCount, 44100);
         }
 
         // All effects not seen below use the original buffer because it is not modified.
@@ -165,10 +152,8 @@ class AudioEffects {
         if (options.preset === effectTypes.REVERSE) {
             const buffer = this.buffer;
             const originalBufferData = buffer.getChannelData(0);
-            const originalBufferData2 = buffer.getChannelData(buffer.numberOfChannels - 1);
-            const newBuffer = this.audioContext.createBuffer(2, buffer.length, buffer.sampleRate);
+            const newBuffer = this.audioContext.createBuffer(1, buffer.length, buffer.sampleRate);
             const newBufferData = newBuffer.getChannelData(0);
-            const newBufferData2 = newBuffer.getChannelData(1);
             const bufferLength = buffer.length;
 
             const startSamples = Math.floor(this.trimStartSeconds * buffer.sampleRate);
@@ -177,31 +162,9 @@ class AudioEffects {
             for (let i = 0; i < bufferLength; i++) {
                 if (i >= startSamples && i < endSamples) {
                     newBufferData[i] = originalBufferData[endSamples - counter - 1];
-                    newBufferData2[i] = originalBufferData2[endSamples - counter - 1];
                     counter++;
                 } else {
                     newBufferData[i] = originalBufferData[i];
-                    newBufferData2[i] = originalBufferData2[i];
-                }
-            }
-            this.buffer = newBuffer;
-        } else if (name === effectTypes.FLIP) {
-            const originalBufferData = buffer.getChannelData(0);
-            const originalBufferData2 = buffer.getChannelData(buffer.numberOfChannels - 1);
-            const newBuffer = this.audioContext.createBuffer(2, buffer.length, buffer.sampleRate);
-            const newBufferData = newBuffer.getChannelData(0);
-            const newBufferData2 = newBuffer.getChannelData(1);
-            const bufferLength = buffer.length;
-
-            const startSamples = Math.floor(this.trimStartSeconds * buffer.sampleRate);
-            const endSamples = Math.floor(this.trimEndSeconds * buffer.sampleRate);
-            for (let i = 0; i < bufferLength; i++) {
-                if (i >= startSamples && i < endSamples) {
-                    newBufferData[i] = originalBufferData2[i];
-                    newBufferData2[i] = originalBufferData[i];
-                } else {
-                    newBufferData[i] = originalBufferData[i];
-                    newBufferData2[i] = originalBufferData2[i];
                 }
             }
             this.buffer = newBuffer;
@@ -243,13 +206,6 @@ class AudioEffects {
         this.source = this.audioContext.createBufferSource();
         this.source.buffer = this.buffer;
         this.options = options;
-
-        // Matches [false, true] and [true, false]. We only need to split the channels if just one channel is modified.
-        if (trimChannel[0] !== trimChannel[1]) {
-            this.splitter = this.audioContext.createChannelSplitter(2);
-            this.merger = this.audioContext.createChannelMerger(2);
-            this.selectedChannel = 0 + trimChannel[1];
-        }
     }
     makeSampleRateBuffer(buffer, durationSeconds, newSampleRate) {
         const originalBufferData = buffer.getChannelData(0);
@@ -429,16 +385,8 @@ class AudioEffects {
         }
 
         if (input && output) {
-            if (this.splitter) {
-                this.source.connect(this.splitter);
-                this.splitter.connect(input, this.selectedChannel);
-                output.connect(this.merger, 0, this.selectedChannel);
-                this.splitter.connect(this.merger, 1 - this.selectedChannel, 1 - this.selectedChannel);
-                this.merger.connect(this.audioContext.destination);
-            } else {
-                this.source.connect(input);
-                output.connect(this.audioContext.destination);
-            }
+            this.source.connect(input);
+            output.connect(this.audioContext.destination);
         } else {
             // No effects nodes are needed, wire directly to the output
             this.source.connect(this.audioContext.destination);

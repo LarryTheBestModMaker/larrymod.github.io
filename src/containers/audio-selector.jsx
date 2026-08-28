@@ -5,7 +5,8 @@ import AudioSelectorComponent from '../components/audio-trimmer/audio-selector.j
 import { getEventXY } from '../lib/touch-utils';
 import DragRecognizer from '../lib/drag-recognizer';
 
-const MIN_LENGTH = 0.005;
+const MIN_LENGTH = 0.01;
+const MIN_DURATION = 500;
 
 class AudioSelector extends React.Component {
     constructor(props) {
@@ -27,8 +28,6 @@ class AudioSelector extends React.Component {
         };
 
         this.clickStartTime = 0;
-        
-        this.playheadAttached = false;
 
         this.trimStartDragRecognizer = new DragRecognizer({
             onDrag: this.handleTrimStartMouseMove,
@@ -55,20 +54,10 @@ class AudioSelector extends React.Component {
         this.props.onSetTrim(null, null);
     }
     handleNewSelectionMouseDown(e) {
-        const {width, height, left, top} = this.containerElement.getBoundingClientRect();
-        const {x, y} = getEventXY(e);
-        const yPos = y - top;
-        this.initialTrimEnd = (x - left) / width;
+        const { width, left } = this.containerElement.getBoundingClientRect();
+        this.initialTrimEnd = (getEventXY(e).x - left) / width;
         this.initialTrimStart = this.initialTrimEnd;
         this.props.onSetTrim(this.initialTrimStart, this.initialTrimEnd);
-        this.props.onUpdatePlayhead(this.initialTrimStart);
-        this.props.onSetTrimChannel(this.props.channelCount === 1 ? [
-            false,
-            false
-        ] : [
-            yPos < height / 3,
-            yPos > height * (2 / 3)
-        ]);
 
         this.clickStartTime = Date.now();
 
@@ -80,10 +69,6 @@ class AudioSelector extends React.Component {
     handleTrimStartMouseMove(currentOffset, initialOffset) {
         const dx = (currentOffset.x - initialOffset.x) / this.containerSize;
         const newTrim = Math.max(0, Math.min(1, this.initialTrimStart + dx));
-        this.props.onSetTrim(newTrim, this.initialTrimEnd);
-        if (this.playheadAttached || newTrim > this.props.playhead) {
-            this.props.onUpdatePlayhead(Math.min(newTrim, this.initialTrimEnd));
-        }
         if (newTrim > this.initialTrimEnd) {
             this.setState({
                 trimStart: this.initialTrimEnd,
@@ -99,12 +84,6 @@ class AudioSelector extends React.Component {
     handleTrimEndMouseMove(currentOffset, initialOffset) {
         const dx = (currentOffset.x - initialOffset.x) / this.containerSize;
         const newTrim = Math.min(1, Math.max(0, this.initialTrimEnd + dx));
-        this.props.onSetTrim(this.initialTrimStart, newTrim);
-        if (newTrim < this.initialTrimStart) {
-            this.props.onUpdatePlayhead(newTrim);
-        } else if (this.props.playhead < this.initialTrimStart) {
-            this.props.onUpdatePlayhead(this.initialTrimStart);
-        }
         if (newTrim < this.initialTrimStart) {
             this.setState({
                 trimStart: newTrim,
@@ -121,11 +100,14 @@ class AudioSelector extends React.Component {
         this.props.onSetTrim(this.state.trimStart, this.state.trimEnd);
     }
     handleTrimEndMouseUp() {
+        // If the selection was made quickly (tooFast) and is small (tooShort),
+        // deselect instead. This allows click-to-deselect even if you drag
+        // a little bit by accident. It also allows very quickly making a
+        // selection, as long as it is above a minimum length.
+        const tooFast = (Date.now() - this.clickStartTime) < MIN_DURATION;
         const tooShort = (this.state.trimEnd - this.state.trimStart) < MIN_LENGTH;
-        if (tooShort) {
+        if (tooFast && tooShort) {
             this.clearSelection();
-        } else if (this.state.trimStart > this.state.trimEnd) {
-            this.props.onSetTrim(this.state.trimEnd, this.state.trimStart);
         } else {
             this.props.onSetTrim(this.state.trimStart, this.state.trimEnd);
         }
@@ -135,9 +117,8 @@ class AudioSelector extends React.Component {
         this.trimStartDragRecognizer.start(e);
         this.initialTrimStart = this.props.trimStart;
         this.initialTrimEnd = this.props.trimEnd;
-        // account for a miniscule amount of error. i don't trust such long decimals
-        this.playheadAttached = Math.abs(this.props.trimStart - this.props.playhead) < 0.001;
         e.stopPropagation();
+        e.preventDefault();
     }
     handleTrimEndMouseDown(e) {
         this.containerSize = this.containerElement.getBoundingClientRect().width;
@@ -145,6 +126,7 @@ class AudioSelector extends React.Component {
         this.initialTrimEnd = this.props.trimEnd;
         this.initialTrimStart = this.props.trimStart;
         e.stopPropagation();
+        e.preventDefault();
     }
     storeRef(el) {
         this.containerElement = el;
@@ -156,8 +138,6 @@ class AudioSelector extends React.Component {
                 playhead={this.props.playhead}
                 trimEnd={this.state.trimEnd}
                 trimStart={this.state.trimStart}
-                trimChannel={this.props.trimChannel}
-                channelCount={this.props.channelCount}
                 onNewSelectionMouseDown={this.handleNewSelectionMouseDown}
                 onTrimEndMouseDown={this.handleTrimEndMouseDown}
                 onTrimStartMouseDown={this.handleTrimStartMouseDown}
@@ -170,11 +150,7 @@ AudioSelector.propTypes = {
     onSetTrim: PropTypes.func,
     playhead: PropTypes.number,
     trimEnd: PropTypes.number,
-    trimStart: PropTypes.number,
-    trimChannel: PropTypes.arrayOf(PropTypes.number),
-    onSetTrimChannel: PropTypes.func,
-    channelCount: PropTypes.number,
-    onUpdatePlayhead: PropTypes.func
+    trimStart: PropTypes.number
 };
 
 export default AudioSelector;

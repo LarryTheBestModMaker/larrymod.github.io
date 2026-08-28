@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
 
@@ -36,7 +36,6 @@ import reverseIcon from './icon--reverse.svg';
 import fadeOutIcon from './icon--fade-out.svg';
 import fadeInIcon from './icon--fade-in.svg';
 import muteIcon from './icon--mute.svg';
-import flipIcon from './icon--flip.svg';
 import reverbIcon from './icon--reverb.svg';
 import bitcrushIcon from './icon--bit-crush.png';
 import higherPitchIcon from './icon--higher-pitch.svg';
@@ -64,15 +63,12 @@ import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
 import pasteIcon from '!../../lib/tw-recolor/build!./icon--paste.svg';
 import cutIcon from '!../../lib/tw-recolor/build!./icon--cut.svg';
 import copyToNewIcon from '!../../lib/tw-recolor/build!./icon--copy-to-new.svg';
-import trimIcon from '!../../lib/tw-recolor/build!./icon--trim-action.svg';
-import Box from '../box/box.jsx';
-import Meter from '../meter/meter.jsx';
 
 const BufferedInput = BufferedInputHOC(Input);
 
 const urlParams = new URLSearchParams(location.search);
 
-const IsLiveTests = urlParams.has('livetests');
+const IsLiveTests = urlParams.has('livetests')
 
 const messages = defineMessages({
     sound: {
@@ -129,11 +125,6 @@ const messages = defineMessages({
         id: 'gui.soundEditor.delete',
         description: 'Title of the button to delete the sound',
         defaultMessage: 'Delete'
-    },
-    trim: {
-        id: 'gui.soundEditor.trim',
-        description: 'Title of the button to trim the sound',
-        defaultMessage: 'Trim'
     },
     save: {
         id: 'gui.soundEditor.save',
@@ -199,11 +190,6 @@ const messages = defineMessages({
         id: 'gui.soundEditor.mute',
         description: 'Title of the button to apply the mute effect',
         defaultMessage: 'Mute'
-    },
-    flip: {
-        id: 'gui.soundEditor.flip',
-        description: 'Title of the button to apply the flip effect',
-        defaultMessage: 'Flip L&R'
     }
 });
 
@@ -329,111 +315,24 @@ const SoundEditor = props => (
                 title={props.intl.formatMessage(messages.delete)}
                 onClick={props.onDelete}
             />
-            <IconButton
-                className={styles.toolButton}
-                disabled={props.trimStart === null}
-                img={trimIcon}
-                title={props.intl.formatMessage(messages.trim)}
-                onClick={props.onDeleteInverse}
-            />
         </div>
-        <div
-                className={styles.row}
-                style={{
-                    alignItems: 'stretch'
-                }}
-            >
-                <Box className={styles.meterContainer}>
-                    <Meter
-                        height={172}
-                        level={props.playing * Math.max(
-                            props.chunkLevels[0][Math.floor(props.playhead * props.chunkLevels[0].length)],
-                            props.chunkLevels[props.chunkLevels.length - 1][
-                                Math.floor(props.playhead * props.chunkLevels[props.chunkLevels.length - 1].length)
-                            ]
-                        )}
-                        width={20}
-                    />
-                </Box>
-                <div className={classNames(styles.audioContainer)}>
-                    <div
-                        className={styles.timeSteps}
-                        ref={props.setTimeStepRef}
-                        onMouseDown={props.onTimeStepMouseDown}
-                    >
-                        {Array.from({length: props.timeStepCount}).map((_, i) => (
-                            <div
-                                key={i}
-                                className={styles.timeStep}
-                                style={{
-                                    translate: `${props.timeStepWidth * i}px 0`
-                                }}
-                            >
-                                {(i % 2 === 0 || props.timeStepWidth > 65) && (
-                                    <span>{formatTime(props.timeStepTime * i)}</span>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.waveformContainer}>
-                        <div className={styles.waveformInsideContainer}>
-                            {props.chunkLevels.map((data, i) => (
-                                <div
-                                    className={styles.waveform}
-                                    key={i}
-                                >
-                                    <Waveform
-                                        data={data}
-                                        height={(140 / props.chunkLevels.length) + (props.chunkLevels.length * 20)}
-                                        width={600}
-                                        preferences={props.preferences}
-                                    />
-                                    {props.chunkLevels.length > 1 && (
-                                        <>
-                                            <div className={styles.waveformLabel}>
-                                                {[
-                                                    <FormattedMessage
-                                                        defaultMessage="Left Channel"
-                                                        description="Label for left waveform"
-                                                        id="nb.leftChannel"
-                                                        key="0"
-                                                    />,
-                                                    <FormattedMessage
-                                                        defaultMessage="Right Channel"
-                                                        description="Label for right waveform"
-                                                        id="nb.rightChannel"
-                                                        key="1"
-                                                    />
-                                                ][i]}
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
-                            ))}
-                            <div
-                                className={styles.waveformShadow}
-                                style={{
-                                    // This logic makes my brain hurt but if it's not broken don't fix it
-                                    // eslint-disable-next-line max-len
-                                    background: `linear-gradient(90deg, ${Math.min(props.playhead, props.trimEnd ?? props.playhead) > 0 ? `var(--page-background) 0%, var(--page-background) ${Math.min(props.playhead, props.trimEnd ?? props.playhead) * 100}%, transparent ${Math.min(props.playhead, props.trimEnd ?? props.playhead) * 100}%` : 'transparent'}${props.trimStart || props.trimEnd ? `, transparent ${Math.max(props.playhead, props.trimStart, props.trimEnd) * 100}%, var(--page-background) ${Math.max(props.playhead, props.trimStart, props.trimEnd) * 100}%` : ''})`
-                                }}
-                            />
-                        </div>
-                        <AudioSelector
-                            playhead={props.playhead}
-                            onUpdatePlayhead={props.onUpdatePlayhead}
-                            trimEnd={props.trimEnd}
-                            trimStart={props.trimStart}
-                            trimChannel={props.trimChannel}
-                            onSetTrimChannel={props.onSetTrimChannel}
-                            channelCount={props.chunkLevels.length}
-                            onPlay={props.onPlay}
-                            onSetTrim={props.onSetTrim}
-                            onStop={props.onStop}
-                        />
-                    </div>
-                </div>
+        <div className={styles.row}>
+            <div className={styles.waveformContainer}>
+                <Waveform
+                    data={props.chunkLevels}
+                    height={160}
+                    width={600}
+                />
+                <AudioSelector
+                    playhead={props.playhead}
+                    trimEnd={props.trimEnd}
+                    trimStart={props.trimStart}
+                    onPlay={props.onPlay}
+                    onSetTrim={props.onSetTrim}
+                    onStop={props.onStop}
+                />
             </div>
+        </div>
         <div className={classNames(styles.row, styles.rowReverse)}>
             <div
                 className={classNames(styles.roundButtonOuter, styles.inputGroup)}
@@ -442,31 +341,9 @@ const SoundEditor = props => (
                     gap: '8px'
                 }}
             >
-                {props.playing ? (
+                {props.playhead ? (
                     <button
-                            className={classNames(styles.roundButton, styles.playButton)}
-                            title={props.intl.formatMessage(messages.pause)}
-                            onClick={props.onPause}
-                        >
-                            <img
-                                draggable={false}
-                                src={pauseIcon}
-                            />
-                        </button>
-                ) : (
-                        <button
-                            className={classNames(styles.roundButton, styles.playButton)}
-                            title={props.intl.formatMessage(messages.play)}
-                            onClick={props.onPlay}
-                        >
-                            <img
-                                draggable={false}
-                                src={playIcon}
-                            />
-                        </button>
-                    )}
-                    <button
-                        className={classNames(styles.roundButton, styles.stopButton)}
+                        className={classNames(styles.roundButton, styles.stopButtonn)}
                         title={props.intl.formatMessage(messages.stop)}
                         onClick={props.onStop}
                     >
@@ -475,6 +352,18 @@ const SoundEditor = props => (
                             src={stopIcon}
                         />
                     </button>
+                ) : (
+                    <button
+                        className={classNames(styles.roundButton, styles.playButton)}
+                        title={props.intl.formatMessage(messages.play)}
+                        onClick={props.onPlay}
+                    >
+                        <img
+                            draggable={false}
+                            src={playIcon}
+                        />
+                    </button>
+                )}
             </div>
             <div className={styles.effects}>
                 <IconButton
@@ -482,12 +371,6 @@ const SoundEditor = props => (
                     img={modifyIcon}
                     title={"Modify"}
                     onClick={props.onModifySound}
-                />
-                <IconButton
-                    className={styles.effectButton}
-                    img={flipIcon}
-                    title={<FormattedMessage {...messages.flip} />}
-                    onClick={props.onFlip}
                 />
                 <IconButton
                     className={styles.effectButton}
@@ -757,8 +640,8 @@ const SoundEditor = props => (
 SoundEditor.propTypes = {
     isStereo: PropTypes.bool.isRequired,
     duration: PropTypes.number.isRequired,
-    dataFormat: PropTypes.string.isRequired,
-    size: PropTypes.number.isRequired,
+    dataFormat: PropTypes.number.isRequired,
+    size: PropTypes.bool.isRequired,
     sampleRate: PropTypes.number.isRequired,
     canPaste: PropTypes.bool.isRequired,
     canRedo: PropTypes.bool.isRequired,
@@ -773,13 +656,11 @@ SoundEditor.propTypes = {
     onCut: PropTypes.func.isRequired,
     onCutToNew: PropTypes.func.isRequired,
     onDelete: PropTypes.func,
-    onDeleteInverse: PropTypes.func,
     onEcho: PropTypes.func.isRequired,
     onLowPass: PropTypes.func.isRequired,
     onHighPass: PropTypes.func.isRequired,
     onFadeIn: PropTypes.func.isRequired,
     onFadeOut: PropTypes.func.isRequired,
-    onFlip: PropTypes.func.isRequired,
     onReverb: PropTypes.func.isRequired,
     onTelephone: PropTypes.func.isRequired,
     onAlien: PropTypes.func.isRequired,
@@ -810,7 +691,6 @@ SoundEditor.propTypes = {
     onMute: PropTypes.func.isRequired,
     onPaste: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
-    onPause: PropTypes.func.isRequired,
     onRedo: PropTypes.func.isRequired,
     onReverse: PropTypes.func.isRequired,
     onRobot: PropTypes.func.isRequired,
@@ -819,21 +699,11 @@ SoundEditor.propTypes = {
     onSofter: PropTypes.func.isRequired,
     onStop: PropTypes.func.isRequired,
     onUndo: PropTypes.func.isRequired,
-    onUpdatePlayhead: PropTypes.func.isRequired,
-    onTimeStepMouseDown: PropTypes.func,
     playhead: PropTypes.number,
-    playing: PropTypes.bool.isRequired,
     setRef: PropTypes.func,
-    setTimeStepRef: PropTypes.func.isRequired,
-    timeStepCount: PropTypes.number,
-    timeStepWidth: PropTypes.number,
-    timeStepTime: PropTypes.number,
     tooLoud: PropTypes.bool.isRequired,
     trimEnd: PropTypes.number,
-    trimStart: PropTypes.number,
-    onSetTrimChannel: PropTypes.func,
-    trimChannel: PropTypes.arrayOf(PropTypes.bool),
-    preferences: PropTypes.object
+    trimStart: PropTypes.number
 };
 
 export default injectIntl(SoundEditor);

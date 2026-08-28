@@ -19,16 +19,18 @@ const Meter = props => {
     const barRounding = 3;
     const barHeight = (height - (barSpacing * (nBars + 1))) / nBars;
 
-    const nBarsToMask = Math.max(0, nBars - Math.floor(level * nBars));
+    const nBarsToMask = nBars - Math.floor(level * nBars);
     const scale = ((nBarsToMask * (barHeight + barSpacing)) + (barSpacing / 2)) / height;
 
     return (
         <div
             className={styles.maskContainer}
+            style={{height: `${height}px`}}
         >
             <svg
                 className={styles.container}
-                viewBox={`0 0 ${width} ${height}`}
+                height={height}
+                width={width}
             >
                 {Array(nBars).fill(0)
                     .map((value, index) => (
