@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {FormattedMessage} from 'react-intl';
 
 import {MenuItem, Submenu} from '../menu/menu.jsx';
 
