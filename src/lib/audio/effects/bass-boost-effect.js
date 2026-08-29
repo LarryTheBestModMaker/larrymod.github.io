@@ -1,5 +1,5 @@
 class BassBoostEffect {
-    constructor (audioContext) {
+    constructor(audioContext) {
         this.audioContext = audioContext;
 
         this.input = this.audioContext.createGain();
