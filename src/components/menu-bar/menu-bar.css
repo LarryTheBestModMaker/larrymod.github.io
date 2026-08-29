@@ -116,6 +116,7 @@
 
 .menu-bar-menu {
     margin-top: $menu-bar-height;
+    position: relative;
     z-index: $z-index-menu-bar;
 }
 
