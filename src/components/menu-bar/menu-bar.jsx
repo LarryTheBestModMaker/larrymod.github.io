@@ -610,7 +610,9 @@ class MenuBar extends React.Component {
                                             id="dm.menuBar.placeHolder"
                                         />
                                     </MenuItem>*/}
-                                    {this.props.canChangeColorOfTheIceCube && <ColorOfTheIceCubeMenu onRequestCloseSettings={this.props.onRequestCloseSettings} />}
+                                </MenuSection>
+                                </MenuSection>
+                                {this.props.canChangeColorOfTheIceCube && <ColorOfTheIceCubeMenu onRequestCloseSettings={this.props.onRequestCloseSettings} />}
                                 </MenuSection>
                             </MenuBarMenu>
                         </div>
