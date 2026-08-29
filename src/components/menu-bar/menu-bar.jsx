@@ -16,6 +16,7 @@ import ShareButton from './share-button.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
 import Divider from '../divider/divider.jsx';
 import LanguageSelector from '../../containers/language-selector.jsx';
+import ColorOfTheIceCubeSelector from '../../containers/color-of-the-ice-cube-selector.jsx';
 import ProjectWatcher from '../../containers/project-watcher.jsx';
 import MenuBarMenu from './menu-bar-menu.jsx';
 import {MenuItem, MenuSection} from '../menu/menu.jsx';
@@ -29,6 +30,7 @@ import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import LanguageMenu from './language-menu.jsx';
+import ColorOfTheIceCubeMenu from './color-of-the-ice-cube-menu.jsx';
 import {openProjectAnalysisModal} from '../../reducers/hm-project-analysis.js';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
@@ -69,6 +71,9 @@ import {
     openLanguageMenu,
     closeLanguageMenu,
     languageMenuOpen,
+    openColorOfTheIceCubeMenu,
+    closeColorOfTheIceCubeMenu,
+    colorOfTheIceCubeMenuOpen,
     openLoginMenu,
     closeLoginMenu,
     loginMenuOpen
@@ -82,6 +87,7 @@ import styles from './menu-bar.css';
 import remixIcon from './icon--remix.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
+import colorOfTheIceCubeIcon from '../color-of-the-ice-cube-selector/color-of-the-ice-cube-icon.svg';
 import aboutIcon from './icon--about.svg';
 import errorIcon from './tw-error.svg';
 import themeIcon from './tw-moon.svg';
@@ -100,6 +106,11 @@ const ariaMessages = defineMessages({
         id: 'gui.menuBar.LanguageSelector',
         defaultMessage: 'language selector',
         description: 'accessibility text for the language selection menu'
+    },
+    colorOfTheIceCube: {
+        id: 'gui.menuBar.ColorOfTheIceCubeSelector',
+        defaultMessage: 'color of the ice cube selector',
+        description: 'accessibility text for the color of the ice cube selection menu'
     },
     tutorials: {
         id: 'gui.menuBar.tutorialsLibrary',
@@ -220,6 +231,7 @@ class MenuBar extends React.Component {
             'handleClickShare',
             'handleKeyPress',
             'handleLanguageMouseUp',
+            'handleColorOfTheIceCubeMouseUp',
             'handleRestoreOption',
             'getSaveToComputerHandler',
             'restoreOptionMessage'
@@ -321,6 +333,11 @@ class MenuBar extends React.Component {
     handleLanguageMouseUp (e) {
         if (!this.props.languageMenuOpen) {
             this.props.onClickLanguage(e);
+        }
+    }
+    handleColorOfTheIceCubeMouseUp (e) {
+        if (!this.props.colorOfTheIceCubeMenuOpen) {
+            this.props.onClickColorOfTheIceCube(e);
         }
     }
     restoreOptionMessage (deletedItem) {
@@ -593,6 +610,7 @@ class MenuBar extends React.Component {
                                             id="dm.menuBar.placeHolder"
                                         />
                                     </MenuItem>*/}
+                                    {this.props.canChangeColorOfTheIceCube && <ColorOfTheIceCubeMenu onRequestCloseSettings={this.props.onRequestCloseSettings} />}
                                 </MenuSection>
                             </MenuBarMenu>
                         </div>
@@ -997,6 +1015,7 @@ MenuBar.propTypes = {
     authorUsername: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     autoUpdateProject: PropTypes.func,
     canChangeLanguage: PropTypes.bool,
+    canChangeColorOfTheIceCube: PropTypes.bool,
     canCreateCopy: PropTypes.bool,
     canCreateNew: PropTypes.bool,
     canEditTitle: PropTypes.bool,
@@ -1024,6 +1043,7 @@ MenuBar.propTypes = {
     isShowingProject: PropTypes.bool,
     isUpdating: PropTypes.bool,
     languageMenuOpen: PropTypes.bool,
+    colorOfTheIceCubeMenuOpen: PropTypes.bool,
     locale: PropTypes.string.isRequired,
     loginMenuOpen: PropTypes.bool,
     logo: PropTypes.string,
@@ -1045,6 +1065,7 @@ MenuBar.propTypes = {
     onClickEdit: PropTypes.func,
     onClickFile: PropTypes.func,
     onClickLanguage: PropTypes.func,
+    onClickColorOfTheIceCube: PropTypes.func,
     onClickLogin: PropTypes.func,
     onClickLogo: PropTypes.func,
     onClickNew: PropTypes.func,
@@ -1067,6 +1088,7 @@ MenuBar.propTypes = {
     onRequestCloseEdit: PropTypes.func,
     onRequestCloseFile: PropTypes.func,
     onRequestCloseLanguage: PropTypes.func,
+    onRequestCloseColorOfTheIceCube: PropTypes.func,
     onRequestCloseLogin: PropTypes.func,
     onSeeCommunity: PropTypes.func,
     onShare: PropTypes.func,
@@ -1107,6 +1129,7 @@ const mapStateToProps = (state, ownProps) => {
         isUpdating: getIsUpdating(loadingState),
         isShowingProject: getIsShowingProject(loadingState),
         languageMenuOpen: languageMenuOpen(state),
+        colorOfTheIceCubeMenuOpen: colorOfTheIceCubeMenuOpen(state),
         locale: state.locales.locale,
         loginMenuOpen: loginMenuOpen(state),
         projectId: state.scratchGui.projectState.projectId,
@@ -1134,6 +1157,8 @@ const mapDispatchToProps = dispatch => ({
     onRequestCloseEdit: () => dispatch(closeEditMenu()),
     onClickLanguage: () => dispatch(openLanguageMenu()),
     onRequestCloseLanguage: () => dispatch(closeLanguageMenu()),
+    onClickColorOfTheIceCube: () => dispatch(openColorOfTheIceCubeMenu()),
+    onRequestCloseColorOfTheIceCube: () => dispatch(closeColorOfTheIceCubeMenu()),
     onClickLogin: () => dispatch(openLoginMenu()),
     onRequestCloseLogin: () => dispatch(closeLoginMenu()),
     onClickErrors: () => dispatch(openErrorsMenu()),

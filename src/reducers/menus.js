@@ -8,6 +8,7 @@ const MENU_ACCENT = 'accentMenu';
 const MENU_FILE = 'fileMenu';
 const MENU_EDIT = 'editMenu';
 const MENU_LANGUAGE = 'languageMenu';
+const MENU_COLOROFTHEICECUBE = 'colorOfTheIceCubeMenu';
 const MENU_LOGIN = 'loginMenu';
 const MENU_ERRORS = 'errorMenu';
 
@@ -20,6 +21,7 @@ const initialState = {
     [MENU_FILE]: false,
     [MENU_EDIT]: false,
     [MENU_LANGUAGE]: false,
+    [MENU_COLOROFTHEICECUBE]: false,
     [MENU_LOGIN]: false,
     [MENU_ERRORS]: false
 };
@@ -137,6 +139,10 @@ const openLanguageMenu = () => openMenu(MENU_LANGUAGE);
 const closeLanguageMenu = () => closeMenu(MENU_LANGUAGE);
 const languageMenuOpen = state => state.scratchGui.menus[MENU_LANGUAGE];
 
+const openColorOfTheIceCubeMenu = () => openMenu(MENU_COLOROFTHEICECUBE);
+const closeColorOfTheIceCubeMenu = () => closeMenu(MENU_COLOROFTHEICECUBE);
+const colorOfTheIceCubeMenuOpen = state => state.scratchGui.menus[MENU_COLOROFTHEICECUBE];
+
 const openLoginMenu = () => openMenu(MENU_LOGIN);
 const closeLoginMenu = () => closeMenu(MENU_LOGIN);
 const loginMenuOpen = state => state.scratchGui.menus[MENU_LOGIN];
@@ -169,6 +175,9 @@ export {
     openLanguageMenu,
     closeLanguageMenu,
     languageMenuOpen,
+    openColorOfTheIceCubeMenu,
+    closeColorOfTheIceCubeMenu,
+    colorOfTheIceCubeMenuOpen,
     openLoginMenu,
     closeLoginMenu,
     loginMenuOpen,

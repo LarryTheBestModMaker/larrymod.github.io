@@ -1,0 +1,35 @@
+@import "../../css/colors.css";
+@import "../../css/units.css";
+
+/* Position the language select over the language icon, and make it transparent */
+.color-of-the-ice-cube-select {
+    position: absolute;
+    width: $color-of-the-ice-cube-selector-width;
+    height: $menu-bar-height;
+    opacity: 0;
+    user-select: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: .875rem;
+    color: $text-primary-light;
+    background: $ui-white;
+}
+[theme="dark"] .color-of-the-ice-cube-select {
+    color: $ui-white;
+    background: $ui-primary;
+}
+
+[dir="ltr"] .color-of-the-ice-cube-select {
+    right: 0;
+}
+
+[dir="rtl"] .color-of-the-ice-cube-select {
+    left: 0;
+}
+
+.color-of-the-ice-cube-select option {
+    opacity: 1;
+}
+
+.color-of-the-ice-cube-select:focus {
+    border: 1px solid white;
+}
