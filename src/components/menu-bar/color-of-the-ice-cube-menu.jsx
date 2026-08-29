@@ -15,7 +15,6 @@ import {
 } from '../../reducers/menus.js';
 import {iceCubeColor, setIceCubeColor} from '../../reducers/ice-cube-color.js';
 import iceCubeColors from '../../lib/ice-cube-colors.js';
-import GoToModMenu from './go-to-mod-menu.jsx';
 
 import styles from './settings-menu.css';
 
@@ -92,67 +91,62 @@ class ColorOfTheIceCubeMenu extends React.PureComponent {
 
     render () {
         return (
-            <React.Fragment>
-                <MenuItem
-                    expanded={this.props.menuOpen}
+            <MenuItem
+                expanded={this.props.menuOpen}
+            >
+                <div
+                    className={styles.option}
+                    onClick={this.props.onRequestOpen}
+                    onMouseOver={this.handleMouseOver}
                 >
-                    <div
-                        className={styles.option}
-                        onClick={this.props.onRequestOpen}
-                        onMouseOver={this.handleMouseOver}
-                    >
-                        <img
-                            className={styles.icon}
-                            src={colorOfTheIceCubeIcon}
-                            draggable={false}
+                    <img
+                        className={styles.icon}
+                        src={colorOfTheIceCubeIcon}
+                        draggable={false}
+                    />
+                    <span className={styles.submenuLabel}>
+                        <FormattedMessage
+                            defaultMessage="The Color of the Ice Cube"
+                            description="The color of the ice cube sub-menu"
+                            id="gui.menuBar.colorOfTheIceCube"
                         />
-                        <span className={styles.submenuLabel}>
-                            <FormattedMessage
-                                defaultMessage="The Color of the Ice Cube"
-                                description="The color of the ice cube sub-menu"
-                                id="gui.menuBar.colorOfTheIceCube"
-                            />
-                        </span>
-                        <img
-                            className={styles.expandCaret}
-                            src={dropdownCaret}
-                            draggable={false}
-                        />
-                    </div>
-                    <Submenu
-                        className={styles.colorOfTheIceCubeSubmenu}
-                        place={this.props.isRtl ? 'left' : 'right'}
-                    >
-                        {
-                            iceCubeColors.map(color => (
-                                <MenuItem
-                                    key={color.value}
-                                    className={styles.colorOfTheIceCubeMenuItem}
-                                    // eslint-disable-next-line react/jsx-no-bind
-                                    onClick={() => this.handleChangeColor(color.value)}
-                                >
-                                    <span
-                                        className={styles.iceCubeColorSwatch}
-                                        style={{backgroundColor: color.value}}
-                                    />
-                                    <img
-                                        className={classNames(styles.check, {
-                                            [styles.selected]: this.props.currentColor === color.value
-                                        })}
-                                        src={check}
-                                        draggable={false}
-                                        {...(this.props.currentColor === color.value && {ref: this.setRef})}
-                                    />
-                                    {color.name}
-                                </MenuItem>
-                            ))
-                        }
-                    </Submenu>
-                </MenuItem>
-                <GoToModMenu
-                    onRequestCloseSettings={this.props.onRequestCloseSettings}
-                />
-            </React.Fragment>
+                    </span>
+                    <img
+                        className={styles.expandCaret}
+                        src={dropdownCaret}
+                        draggable={false}
+                    />
+                </div>
+                <Submenu
+                    className={styles.colorOfTheIceCubeSubmenu}
+                    place={this.props.isRtl ? 'left' : 'right'}
+                >
+                    {
+                        iceCubeColors.map(color => (
+                            <MenuItem
+                                key={color.value}
+                                className={styles.colorOfTheIceCubeMenuItem}
+                                // eslint-disable-next-line react/jsx-no-bind
+                                onClick={() => this.handleChangeColor(color.value)}
+                            >
+                                <span
+                                    className={styles.iceCubeColorSwatch}
+                                    style={{backgroundColor: color.value}}
+                                />
+                                <img
+                                    className={classNames(styles.check, {
+                                        [styles.selected]: this.props.currentColor === color.value
+                                    })}
+                                    src={check}
+                                    draggable={false}
+                                    {...(this.props.currentColor === color.value && {ref: this.setRef})}
+                                />
+                                {color.name}
+                            </MenuItem>
+                        ))
+                    }
+                </Submenu>
+            </MenuItem>
         );
     }
 }
