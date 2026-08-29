@@ -15,6 +15,7 @@ import {SOUND_BYTE_LIMIT} from '../../lib/audio/audio-util.js';
 import Dropdown from '../dropdown/dropdown.jsx';
 import InputGroup from '../input-group/input-group.jsx';
 import LabeledIconButton from '../labeled-icon-button/labeled-icon-button.jsx';
+import { hideLabel } from '../../lib/hide-label';
 
 import styles from './sound-editor.css';
 
