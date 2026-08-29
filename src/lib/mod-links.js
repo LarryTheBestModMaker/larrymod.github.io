@@ -29,7 +29,7 @@ import nitroBoltIcon from '../components/menu-bar/mod-icons/nitro-bolt.png';
             {
                 name: 'TurboWarp',
                 url: 'https://turbowarp.org/',
-                icon: turboWarpIcon
+                icon: turbowarpIcon
             },
 
             {
