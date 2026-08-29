@@ -53,6 +53,7 @@ class SoundEditor extends React.Component {
             'handleModifyMenu',
             'handleBackpackRadioWarning',
             'handleDistortedMicWarning',
+            'handleBassBoostWarning',
             'handleFormatMenu',
             'handleBitCrushMenu',
             'getSelectionBuffer'
