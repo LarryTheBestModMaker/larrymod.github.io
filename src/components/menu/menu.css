@@ -56,8 +56,9 @@
     top: -1px;
     min-width: 186px;
     height: max-content;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 8px;
+    z-index: 1000;
 }
 
 .submenu.right {
