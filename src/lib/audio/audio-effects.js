@@ -26,6 +26,12 @@ import ElectroShiftEffect from './effects/electro-shift-effect.js';
 import DistortedMicEffect from './effects/distorted-mic-effect.js';
 import NormalizeEffect from './effects/normalize-effect.js';
 import TransceiverEffect from './effects/transceiver-effect.js';
+import BassBoostEffect from './effects/bass-boost-effect.js';
+import HipHopEffect from './effects/hip-hop-effect.js';
+import RAndBEffect from './effects/r-and-b-effect.js';
+import ReggaeEffect from './effects/reggae-effect.js';
+import JazzEffect from './effects/jazz-effect.js';
+import FolkEffect from './effects/folk-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -62,6 +68,12 @@ const effectTypes = {
     DISTORTEDMIC: 'distorted mic',
     NORMALIZE: 'normalize',
     TRANSCEIVER: 'transceiver',
+    BASSBOOST: 'bass boost',
+    HIPHOP: 'hip hop',
+    RANDB: 'r and b',
+    REGGAE: 'reggae',
+    JAZZ: 'jazz',
+    FOLK: 'folk',
 };
 
 const centsToFrequency = (cents) => {
@@ -317,6 +329,30 @@ class AudioEffects {
                 break;
             case effectTypes.TRANSCEIVER:
                 ({input, output} = new TransceiverEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.BASSBOOST:
+                ({input, output} = new BassBoostEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.HIPHOP:
+                ({input, output} = new HipHopEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.RANDB:
+                ({input, output} = new RAndBEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.REGGAE:
+                ({input, output} = new ReggaeEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.JAZZ:
+                ({input, output} = new JazzEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.FOLK:
+                ({input, output} = new FolkEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

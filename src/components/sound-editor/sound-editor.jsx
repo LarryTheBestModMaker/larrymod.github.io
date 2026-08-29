@@ -57,6 +57,8 @@ import electroShiftIcon from './icon--electro-shift.svg';
 import distortedMicIcon from './icon--distorted-mic.svg';
 import normalizeIcon from './icon--normalize.svg';
 import transceiverIcon from './icon--transceiver.svg';
+import bassBoostIcon from './icon--bass-boost.svg';
+import musicIcon from './icon--music.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -146,6 +148,11 @@ const messages = defineMessages({
         id: 'gui.soundEditor.redo',
         description: 'Title of the button to redo',
         defaultMessage: 'Redo'
+    },
+    speechToSong: {
+        id: 'gui.soundEditor.speechToSong',
+        description: 'Title of the dropdown to make a speech a song',
+        defaultMessage: 'Speech to Song'
     },
     faster: {
         id: 'gui.soundEditor.faster',
@@ -328,6 +335,49 @@ const SoundEditor = props => (
                 title={props.intl.formatMessage(messages.trim)}
                 onClick={props.onDeleteInverse}
             />
+                        <Dropdown
+                            className={styles.modUnselect}
+                            enterExitTransitionDurationMs={20}
+                            popoverContent={
+                                <InputGroup
+                                    className={styles.modContextMenu}
+                                >
+                                    <LabeledIconButton
+                                        hideLabel={hideLabel(props.intl.locale)}
+                                        imgSrc={musicIcon}
+                                        title={'Hip Hop'}
+                                        onClick={props.onHipHop}
+                                    />
+                                    <LabeledIconButton
+                                        hideLabel={hideLabel(props.intl.locale)}
+                                        imgSrc={musicIcon}
+                                        title={'R&B'}
+                                        onClick={props.onRAndB}
+                                    />
+                                    <LabeledIconButton
+                                        hideLabel={hideLabel(props.intl.locale)}
+                                        imgSrc={musicIcon}
+                                        title={'Reggae'}
+                                        onClick={props.onReggae}
+                                    />
+                                    <LabeledIconButton
+                                        hideLabel={hideLabel(props.intl.locale)}
+                                        imgSrc={musicIcon}
+                                        title={'Jazz'}
+                                        onClick={props.onJazz}
+                                    />
+                                    <LabeledIconButton
+                                        hideLabel={hideLabel(props.intl.locale)}
+                                        imgSrc={musicIcon}
+                                        title={'Folk'}
+                                        onClick={props.onFolk}
+                                    />
+                                </InputGroup>
+                            }
+                            tipSize={.01}
+                        >
+                            {props.intl.formatMessage(messages.speechToSong)}
+                        </Dropdown>
         </div>
         <div className={styles.row}>
             <div className={styles.waveformContainer}>
@@ -584,6 +634,12 @@ const SoundEditor = props => (
                     title={"Transceiver"}
                     onClick={props.onTransceiver}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bassBoostIcon}
+                    title={"Bass Boost"}
+                    onClick={props.onBassBoost}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
@@ -693,6 +749,12 @@ SoundEditor.propTypes = {
     onDistortedMic: PropTypes.func.isRequired,
     onNormalize: PropTypes.func.isRequired,
     onTransceiver: PropTypes.func.isRequired,
+    onBassBoost: PropTypes.func.isRequired,
+    onHipHop: PropTypes.func.isRequired,
+    onRAndB: PropTypes.func.isRequired,
+    onReggae: PropTypes.func.isRequired,
+    onJazz: PropTypes.func.isRequired,
+    onFolk: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,

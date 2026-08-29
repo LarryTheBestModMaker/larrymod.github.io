@@ -606,6 +606,43 @@ class SoundEditor extends React.Component {
 
     menu.textarea.append(warning);
 }
+    handleBassBoostWarning() {
+    const menu = this.displayPopup(
+        "Warning!",
+        420,
+        240,
+        "Continue anyway",
+        "Do not continue",
+        () => {
+            // Apply Bass Boost only after the user confirms.
+            this.handleEffect({
+                preset: AudioEffects.effectTypes.BASSBOOST
+            });
+        },
+        () => {
+            // User chose not to continue.
+            return;
+        }
+    );
+
+    menu.textarea.style =
+        "padding: 20px;display:flex;align-items:center;" +
+        "justify-content:center;text-align:center;";
+
+    const warning = document.createElement("p");
+
+    warning.style =
+        "margin:0;font-size:15px;line-height:1.5;" +
+        "font-weight:500;";
+
+    warning.innerHTML =
+        "The 'Bass Boost' effect is very distorted and loud. " +
+        "Its intensity and level are too high and can cause " +
+        "eardrum damage. Are you sure you want to apply this " +
+        "effect to it?";
+
+    menu.textarea.append(warning);
+}
     handleFormatMenu() {
         const sampleRates = [
             3000, 4000, 8000, 11025, 16000, 22050, 32000, 44100,
@@ -948,6 +985,12 @@ class SoundEditor extends React.Component {
                 onDistortedMic={this.handleDistortedMicWarning}
                 onNormalize={this.effectFactory(effectTypes.NORMALIZE)}
                 onTransceiver={this.effectFactory(effectTypes.TRANSCEIVER)}
+                onBassBoost={this.handleBassBoostWarning}
+                onHipHop={this.effectFactory(effectTypes.HIPHOP)}
+                onRAndB={this.effectFactory(effectTypes.RANDB)}
+                onReggae={this.effectFactory(effectTypes.REGGAE)}
+                onJazz={this.effectFactory(effectTypes.JAZZ)}
+                onFolk={this.effectFactory(effectTypes.FOLK)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
                 onFaster={this.effectFactory(effectTypes.FASTER)}
