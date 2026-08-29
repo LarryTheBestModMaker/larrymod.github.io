@@ -32,6 +32,7 @@ import vmStatusReducer, {vmStatusInitialState} from './vm-status';
 import workspaceMetricsReducer, {workspaceMetricsInitialState} from './workspace-metrics';
 import throttle from 'redux-throttle';
 import projectAnalysisReducer, {projectAnalysisInitialState} from './hm-project-analysis.js';
+import iceCubeColorReducer, {iceCubeColorInitialState} from './ice-cube-color';
 
 import decks from '../lib/libraries/decks/index.jsx';
 
@@ -59,6 +60,7 @@ const guiInitialState = {
     projectState: projectStateInitialState,
     projectTitle: projectTitleInitialState,
     projectAnalysis: projectAnalysisInitialState,
+    iceCubeColor: iceCubeColorInitialState,
     fontsLoaded: fontsLoadedInitialState,
     restoreDeletion: restoreDeletionInitialState,
     spriteInfoDisabled: spriteInfoDisabledInitialState,
@@ -166,6 +168,7 @@ const guiReducer = combineReducers({
     projectChanged: projectChangedReducer,
     projectState: projectStateReducer,
     projectTitle: projectTitleReducer,
+    iceCubeColor: iceCubeColorReducer,
     fontsLoaded: fontsLoadedReducer,
     restoreDeletion: restoreDeletionReducer,
     spriteInfoDisabled: spriteInfoDisabledReducer,
