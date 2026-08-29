@@ -12,7 +12,6 @@ const MENU_COLOROFTHEICECUBE = 'colorOfTheIceCubeMenu';
 const MENU_LOGIN = 'loginMenu';
 const MENU_ERRORS = 'errorMenu';
 
-
 const initialState = {
     [MENU_ABOUT]: false,
     [MENU_ACCOUNT]: false,
@@ -67,10 +66,10 @@ const rootMenu = new Menu('root')
     .addChild(
         new Menu(MENU_SETTINGS)
             .addChild(new Menu(MENU_ACCENT))
+            .addChild(new Menu(MENU_COLOROFTHEICECUBE))
     )
     .addChild(new Menu(MENU_FILE))
     .addChild(new Menu(MENU_EDIT))
-    .addChild(new Menu(MENU_SETTINGS))
     .addChild(new Menu(MENU_LOGIN))
     .addChild(new Menu(MENU_ACCOUNT))
     .addChild(new Menu(MENU_ABOUT));
@@ -80,7 +79,7 @@ const reducer = function (state, action) {
     switch (action.type) {
     case OPEN_MENU: {
         const menu = rootMenu.findById(action.menu);
-        // Close siblings when opening a menu
+        if (!menu) return state;
         const toClose = menu.siblings().flatMap(sibling => [sibling, ...sibling.descendants()]);
 
         return {
@@ -91,7 +90,7 @@ const reducer = function (state, action) {
     }
     case CLOSE_MENU: {
         const menu = rootMenu.findById(action.menu);
-        // Close this menu and any submenus
+        if (!menu) return state;
         const toClose = [menu, ...menu.descendants()];
 
         return {
