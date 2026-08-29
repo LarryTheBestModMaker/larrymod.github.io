@@ -10,12 +10,6 @@ class BassBoostEffect {
         this.effect.frequency.value = 200;
         this.effect.gain.value = 12;
 
-        this.effect.gain.setValueAtTime(0, startSeconds);
-        this.effect.gain.setValueAtTime(12, endSeconds);
-
-        this.input.gain.value = 1.4;
-        this.output.gain.value = 1.25;
-
         this.input.connect(this.effect);
         this.effect.connect(this.output);
     }
