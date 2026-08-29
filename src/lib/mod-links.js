@@ -21,117 +21,117 @@ import nitroBoltIcon from './mod-icons/nitro-bolt.png';
 
         const mods = [
             {
-                name="Scratch"
-                url="https://scratch.mit.edu/"
-                icon={scratchIcon}
+                name: 'Scratch',
+                url: 'https://scratch.mit.edu/',
+                icon: scratchIcon
             },
 
             {
-                name="TurboWarp"
-                url="https://turbowarp.org/"
-                icon={turboWarpIcon}
+                name: 'TurboWarp',
+                url: 'https://turbowarp.org/',
+                icon: turboWarpIcon
             },
 
             {
-                name="PenguinMod"
-                url="https://studio.penguinmod.com/"
-                icon={penguinModIcon}
+                name: 'PenguinMod',
+                url: 'https://studio.penguinmod.com/',
+                icon: penguinModIcon
             },
 
             {
-                name="AstraEditor"
-                url="https://editors.astras.top/"
-                icon={astraEditorIcon}
+                name: 'AstraEditor',
+                url: 'https://editors.astras.top/',
+                icon: astraEditorIcon
             },
 
             {
-                name="02 Engine"
-                url="https://editor.02engine.org/index.html"
-                icon={zeroTwoEngineIcon}
+                name: '02 Engine',
+                url: 'https://editor.02engine.org/index.html',
+                icon: zeroTwoEngineIcon
             },
 
             {
-                name="Adacraft"
-                url="https://www.adacraft.org/studio/"
-                icon={adaCraftIcon}
+                name: 'Adacraft',
+                url: 'https://www.adacraft.org/studio/',
+                icon: adaCraftIcon
             },
 
             {
-                name="OmniBlocks"
-                url="https://omniblocks.github.io/"
-                icon={omniBlocksIcon}
+                name: 'OmniBlocks',
+                url: 'https://omniblocks.github.io/',
+                icon: omniBlocksIcon
             },
 
             {
-                name="ElectraMod"
-                url="https://electramod.vercel.app/"
-                icon={electraModIcon}
+                name: 'ElectraMod',
+                url: 'https://electramod.vercel.app/',
+                icon: electraModIcon
             },
 
             {
-                name="Ark IDE"
-                url="https://studio.arkide.site/"
-                icon={arkIDEIcon}
+                name: 'Ark IDE',
+                url: 'https://studio.arkide.site/',
+                icon: arkIDEIcon
             },
 
             {
-                name="Cocrea World"
-                url="https://www.cocrea.world/"
-                icon={cocreaWorldIcon}
+                name: 'Cocrea World',
+                url: 'https://www.cocrea.world/',
+                icon: cocreaWorldIcon
             },
 
             {
-                name="Snail IDE"
-                url="http://snail-ide.js.org/"
-                icon={snailIDEIcon}
+                name: 'Snail IDE',
+                url: 'http://snail-ide.js.org/',
+                icon: snailIDEIcon
             },
 
             {
-                name="AmpMod"
-                url="https://ampmod.codeberg.page/"
-                icon={ampModIcon}
+                name: 'AmpMod',
+                url: 'https://ampmod.codeberg.page/',
+                icon: ampModIcon
             },
 
             {
-                name="DinosaurMod"
-                url="https://dinosaurmod.github.io/"
-                icon={dinosaurModIcon}
+                name: 'DinosaurMod',
+                url: 'https://dinosaurmod.github.io/',
+                icon: dinosaurModIcon
             },
             
             {
-                name="Dash"
-                url="https://dashblocks.org/"
-                icon={dashIcon}
+                name: 'Dash',
+                url: 'https://dashblocks.org/',
+                icon: dashIcon
             },
 
             {
-                name="Bilup"
-                url="https://editor.bilup.org/"
-                icon={bilupIcon}
+                name: 'Bilup',
+                url: 'https://editor.bilup.org/',
+                icon: bilupIcon
             },
 
             {
-                name="ScratchBox"
-                url="https://editor.scratchbox.dev/"
-                icon={scratchBoxIcon}
+                name: 'ScratchBox',
+                url: 'https://editor.scratchbox.dev/',
+                icon: scratchBoxIcon
             },
 
             {
-                name="LibreKitten"
-                url="https://librekitten.org/"
-                icon={libreKittenIcon}
+                name: 'LibreKitten',
+                url: 'https://librekitten.org/',
+                icon: libreKittenIcon
             },
 
             {
-                name="MistWarp"
-                url="https://warp.mistium.com/"
-                icon={mistWarpIcon}
+                name: 'MistWarp',
+                url: 'https://warp.mistium.com/',
+                icon: mistWarpIcon
             },
 
             {
-                name="Nitro-Bolt"
-                url="https://nitrobolt.org/"
-                icon={nitroBoltIcon}
+                name: 'Nitro-Bolt',
+                url: 'https://nitrobolt.org/',
+                icon: nitroBoltIcon
             },
         ];
 
