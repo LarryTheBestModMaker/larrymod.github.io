@@ -9,7 +9,10 @@ import locales from '@turbowarp/scratch-l10n';
 import check from './check.svg';
 import {MenuItem, Submenu} from '../menu/menu.jsx';
 import colorOfTheIceCubeIcon from '../color-of-the-ice-cube-selector/color-of-the-ice-cube-icon.svg';
-import {colorOfTheIceCubeMenuOpen, opencolorOfTheIceCubeMenu} from '../../reducers/menus.js';
+import {
+    colorOfTheIceCubeMenuOpen,
+    openColorOfTheIceCubeMenu
+} from '../../reducers/menus.js';
 import {selectLocale} from '../../reducers/locales.js';
 
 import styles from './settings-menu.css';

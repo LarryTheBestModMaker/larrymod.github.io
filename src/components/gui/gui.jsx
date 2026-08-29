@@ -496,6 +496,7 @@ const GUIComponent = props => {
                         authorThumbnailUrl={authorThumbnailUrl}
                         authorUsername={authorUsername}
                         canChangeLanguage={canChangeLanguage}
+                        canChangeColorOfTheIceCube={true}
                         canCreateCopy={canCreateCopy}
                         canCreateNew={canCreateNew}
                         canEditTitle={canEditTitle}
