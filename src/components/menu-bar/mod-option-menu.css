@@ -1,0 +1,31 @@
+.mod-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.mod-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.mod-name {
+    flex: 1;
+    min-width: 0;
+}
+
+.mod-caret {
+    width: 8px;
+    height: 5px;
+    margin-left: 8px;
+    transform: rotate(-90deg);
+    flex: 0 0 auto;
+}
+
+.action-submenu {
+    min-width: 180px;
+}

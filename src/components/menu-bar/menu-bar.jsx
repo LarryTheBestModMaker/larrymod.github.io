@@ -31,6 +31,7 @@ import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import LanguageMenu from './language-menu.jsx';
 import ColorOfTheIceCubeMenu from './color-of-the-ice-cube-menu.jsx';
+import GoToModMenu from './go-to-mod-menu.jsx';
 import {openProjectAnalysisModal} from '../../reducers/hm-project-analysis.js';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
@@ -610,6 +611,11 @@ class MenuBar extends React.Component {
                                             id="dm.menuBar.placeHolder"
                                         />
                                     </MenuItem>*/}
+                                    {this.props.canUseGoToMod && (
+                                    <GoToModMenu
+                                        onRequestCloseSettings={this.props.onRequestCloseSettings}
+                                    />
+                                )}
                                 </MenuSection>
                                 {this.props.canChangeColorOfTheIceCube && <ColorOfTheIceCubeMenu onRequestCloseSettings={this.props.onRequestCloseSettings} />}
                             </MenuBarMenu>
@@ -1016,6 +1022,7 @@ MenuBar.propTypes = {
     autoUpdateProject: PropTypes.func,
     canChangeLanguage: PropTypes.bool,
     canChangeColorOfTheIceCube: PropTypes.bool,
+    canUseGoToMod: PropTypes.bool,
     canCreateCopy: PropTypes.bool,
     canCreateNew: PropTypes.bool,
     canEditTitle: PropTypes.bool,

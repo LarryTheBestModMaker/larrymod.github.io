@@ -1,0 +1,29 @@
+.menu-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.menu-label {
+    flex: 1;
+    min-width: 0;
+}
+
+.caret {
+    margin-left: 8px;
+    font-size: 10px;
+    flex: 0 0 auto;
+}
+
+.mod-submenu {
+    min-width: 220px;
+}
