@@ -17,6 +17,7 @@ import scratchBoxIcon from '../components/menu-bar/mod-icons/scratch-box.png';
 import libreKittenIcon from '../components/menu-bar/mod-icons/libre-kitten.png';
 import mistWarpIcon from '../components/menu-bar/mod-icons/mist-warp.png';
 import nitroBoltIcon from '../components/menu-bar/mod-icons/nitro-bolt.png';
+import gaiaModIcon from '../components/menu-bar/mod-icons/gaia-mod.png';
 
 
         const mods = [
@@ -132,6 +133,11 @@ import nitroBoltIcon from '../components/menu-bar/mod-icons/nitro-bolt.png';
                 name: 'Nitro-Bolt',
                 url: 'https://nitrobolt.org/',
                 icon: nitroBoltIcon
+            },
+            {
+                name: 'GaiaMod',
+                url: 'https://gaiamod-main.github.io/',
+                icon: gaiaModIcon
             },
         ];
 
