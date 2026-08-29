@@ -12,6 +12,7 @@ import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
 import AudioSelector from '../../containers/audio-selector.jsx';
 import IconButton from '../icon-button/icon-button.jsx';
 import {SOUND_BYTE_LIMIT} from '../../lib/audio/audio-util.js';
+import Dropdown from '../dropdown/dropdown.jsx';
 
 import styles from './sound-editor.css';
 
