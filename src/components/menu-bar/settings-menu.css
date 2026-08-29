@@ -49,17 +49,35 @@
 
 /* Extra padding to deal with scrollbar overlapping options in Firefox */
 
-[dir="ltr"] .language-menu-item {
+[dir="ltr"] .language-menu-item,
+[dir="ltr"] .color-of-the-ice-cube-menu-item {
     padding-right: 1rem;
 }
 
-[dir="rtl"] .language-menu-item {
+[dir="rtl"] .language-menu-item,
+[dir="rtl"] .color-of-the-ice-cube-menu-item {
     padding-left: 1rem;
 }
 
-.language-submenu > ul {
+.language-submenu > ul,
+.color-of-the-ice-cube-submenu > ul {
     max-height: calc(100vh - 5rem); /* Fallback if dvh not supported */
     max-height: calc(100dvh - 5rem);
+}
+
+.ice-cube-color-swatch {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 1rem;
+    margin-right: .5rem;
+    border-radius: 50%;
+    border: 1px solid $ui-black-transparent;
+    box-sizing: border-box;
+}
+
+[dir="rtl"] .ice-cube-color-swatch {
+    margin-right: 0;
+    margin-left: .5rem;
 }
 
 @media only screen and (max-width: 1124px) {
