@@ -2,6 +2,7 @@
 e.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */
 
 $space: 0.5rem;
+$grid-unit: .25rem;
 
 $sprites-per-row: 5;
 
@@ -19,6 +20,7 @@ $stage-full-screen-border-width: 0.1875rem;
 $stage-full-screen-stage-padding: 0.1875rem;
 
 $form-radius: calc($space / 2);
+$border-radius: calc($space / 2);
 
 /* layout contants from `layout-constants.js` */
 $full-size: 1095px;
