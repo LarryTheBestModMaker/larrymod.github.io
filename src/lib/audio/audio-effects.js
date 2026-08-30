@@ -33,6 +33,8 @@ import ReggaeEffect from './effects/reggae-effect.js';
 import JazzEffect from './effects/jazz-effect.js';
 import FolkEffect from './effects/folk-effect.js';
 import ConsoleHeadsetEffect from './effects/console-headset-effect.js';
+import DroneSpeakerEffect from './effects/drone-speaker-effect.js';
+import TubeTVEffect from './effects/tube-tv-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -76,6 +78,8 @@ const effectTypes = {
     JAZZ: 'jazz',
     FOLK: 'folk',
     CONSOLEHEADSET: 'console headset',
+    DRONESPEAKER: 'drone speaker',
+    TUBETV: 'tube tv',
 };
 
 const centsToFrequency = (cents) => {
@@ -359,6 +363,14 @@ class AudioEffects {
                 break;
             case effectTypes.CONSOLEHEADSET:
                 ({input, output} = new ConsoleHeadsetEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.DRONESPEAKER:
+                ({input, output} = new DroneSpeakerEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.TUBETV:
+                ({input, output} = new TubeTVEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

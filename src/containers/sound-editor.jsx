@@ -955,6 +955,8 @@ class SoundEditor extends React.Component {
                 onJazz={this.effectFactory(effectTypes.JAZZ)}
                 onFolk={this.effectFactory(effectTypes.FOLK)}
                 onConsoleHeadset={this.effectFactory(effectTypes.CONSOLEHEADSET)}
+                onDroneSpeaker={this.effectFactory(effectTypes.DRONESPEAKER)}
+                onTubeTV={this.effectFactory(effectTypes.TUBETV)}
                 onFadeIn={this.effectFactory(effectTypes.FADEIN)}
                 onFadeOut={this.effectFactory(effectTypes.FADEOUT)}
                 onFaster={this.effectFactory(effectTypes.FASTER)}

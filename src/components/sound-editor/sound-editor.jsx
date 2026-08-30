@@ -55,7 +55,7 @@ import loudBreathsIcon from './icon--loud-breaths.svg';
 import metalPipesIcon from './icon--metal-pipes.svg';
 import djWarpIcon from './icon--dj-warp.svg';
 import backpackRadioIcon from './icon--backpack-radio.svg';
-import bAndWTVIcon from './icon--b-and-w-tv.svg';
+import bAndWTVIcon from './icon--tv.svg';
 import micMalfunctionIcon from './icon--mic-malfunction.svg';
 import electroShiftIcon from './icon--electro-shift.svg';
 import distortedMicIcon from './icon--distorted-mic.svg';
@@ -64,6 +64,8 @@ import transceiverIcon from './icon--transceiver.svg';
 import bassBoostIcon from './icon--bass-boost.svg';
 import musicIcon from './icon--music.svg';
 import consoleHeadsetIcon from './icon--console-headset.svg';
+import droneSpeakerIcon from './icon--drone-speaker.svg';
+import tubeTVIcon from './icon--tv.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -651,6 +653,18 @@ const SoundEditor = props => (
                     title={"Console Headset"}
                     onClick={props.onConsoleHeadset}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={droneSpeakerIcon}
+                    title={"Drone Speaker"}
+                    onClick={props.onDroneSpeaker}
+                />
+                <IconButton
+                    className={styles.effectButton}
+                    img={tubeTVIcon}
+                    title={"Tube TV"}
+                    onClick={props.onTubeTV}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
@@ -767,6 +781,8 @@ SoundEditor.propTypes = {
     onJazz: PropTypes.func.isRequired,
     onFolk: PropTypes.func.isRequired,
     onConsoleHeadset: PropTypes.func.isRequired,
+    onDroneSpeaker: PropTypes.func.isRequired,
+    onTubeTV: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
