@@ -32,6 +32,7 @@ import RAndBEffect from './effects/r-and-b-effect.js';
 import ReggaeEffect from './effects/reggae-effect.js';
 import JazzEffect from './effects/jazz-effect.js';
 import FolkEffect from './effects/folk-effect.js';
+import ConsoleHeadsetEffect from './effects/console-headset-effect.js';
 
 const effectTypes = {
     ROBOT: 'robot',
@@ -74,6 +75,7 @@ const effectTypes = {
     REGGAE: 'reggae',
     JAZZ: 'jazz',
     FOLK: 'folk',
+    CONSOLEHEADSET: 'console headset',
 };
 
 const centsToFrequency = (cents) => {
@@ -353,6 +355,10 @@ class AudioEffects {
                 break;
             case effectTypes.FOLK:
                 ({input, output} = new FolkEffect(this.audioContext,
+                    this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
+                break;
+            case effectTypes.CONSOLEHEADSET:
+                ({input, output} = new ConsoleHeadsetEffect(this.audioContext,
                     this.adjustedTrimStartSeconds, this.adjustedTrimEndSeconds));
                 break;
             case effectTypes.ROBOT:

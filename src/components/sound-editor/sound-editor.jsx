@@ -63,6 +63,7 @@ import normalizeIcon from './icon--normalize.svg';
 import transceiverIcon from './icon--transceiver.svg';
 import bassBoostIcon from './icon--bass-boost.svg';
 import musicIcon from './icon--music.svg';
+import consoleHeadsetIcon from './icon--console-headset.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
@@ -644,6 +645,12 @@ const SoundEditor = props => (
                     title={"Bass Boost"}
                     onClick={props.onBassBoost}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={consoleHeadsetIcon}
+                    title={"Console Headset"}
+                    onClick={props.onConsoleHeadset}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
@@ -759,6 +766,7 @@ SoundEditor.propTypes = {
     onReggae: PropTypes.func.isRequired,
     onJazz: PropTypes.func.isRequired,
     onFolk: PropTypes.func.isRequired,
+    onConsoleHeadset: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
