@@ -161,6 +161,11 @@ const messages = defineMessages({
         description: 'Title of the dropdown to make a speech a song',
         defaultMessage: 'Speech to Song'
     },
+    audioTranslator: {
+        id: 'gui.soundEditor.audioTranslator',
+        description: 'Title of the dropdown to translate words in a sound to a different language',
+        defaultMessage: 'Audio Translator'
+    },
     faster: {
         id: 'gui.soundEditor.faster',
         description: 'Title of the button to apply the faster effect',
@@ -384,6 +389,1513 @@ const SoundEditor = props => (
                             tipSize={.01}
                         >
                             {props.intl.formatMessage(messages.speechToSong)}
+                        </Dropdown>
+                        <Dropdown
+                            className={styles.modUnselect}
+                            enterExitTransitionDurationMs={20}
+                            popoverContent={
+                                <InputGroup
+                                    className={styles.modContextMenu}
+                                >
+                                    <LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Abkhaz'}
+    onClick={props.onAbkhaz}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Acehnese'}
+    onClick={props.onAcehnese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Acholi'}
+    onClick={props.onAcholi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Afar'}
+    onClick={props.onAfar}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Afrikaans'}
+    onClick={props.onAfrikaans}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Albanian'}
+    onClick={props.onAlbanian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Alur'}
+    onClick={props.onAlur}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Amharic'}
+    onClick={props.onAmharic}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Arabic'}
+    onClick={props.onArabic}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Armenian'}
+    onClick={props.onArmenian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Assamese'}
+    onClick={props.onAssamese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Avar'}
+    onClick={props.onAvar}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Awadhi'}
+    onClick={props.onAwadhi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Aymara'}
+    onClick={props.onAymara}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Azerbaijani'}
+    onClick={props.onAzerbaijani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Balinese'}
+    onClick={props.onBalinese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Baluchi'}
+    onClick={props.onBaluchi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bambara'}
+    onClick={props.onBambara}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Baoulé'}
+    onClick={props.onBaoule}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bashkir'}
+    onClick={props.onBashkir}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Basque'}
+    onClick={props.onBasque}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Batak Karo'}
+    onClick={props.onBatakKaro}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Batak Simalungun'}
+    onClick={props.onBatakSimalungun}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Batak Toba'}
+    onClick={props.onBatakToba}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Belarusian'}
+    onClick={props.onBelarusian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bemba'}
+    onClick={props.onBemba}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bengali'}
+    onClick={props.onBengali}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Betawi'}
+    onClick={props.onBetawi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bhojpuri'}
+    onClick={props.onBhojpuri}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bikol'}
+    onClick={props.onBikol}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bosnian'}
+    onClick={props.onBosnian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Breton'}
+    onClick={props.onBreton}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Bulgarian'}
+    onClick={props.onBulgarian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Buryat'}
+    onClick={props.onBuryat}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Cantonese'}
+    onClick={props.onCantonese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Catalan'}
+    onClick={props.onCatalan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Cebuano'}
+    onClick={props.onCebuano}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chamorro'}
+    onClick={props.onChamorro}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chechen'}
+    onClick={props.onChechen}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chichewa'}
+    onClick={props.onChichewa}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chinese (Simplified)'}
+    onClick={props.onChineseSimplified}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chinese (Traditional)'}
+    onClick={props.onChineseTraditional}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chuukese'}
+    onClick={props.onChuukese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Chuvash'}
+    onClick={props.onChuvash}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Corsican'}
+    onClick={props.onCorsican}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Crimean Tatar (Cyrillic)'}
+    onClick={props.onCrimeanTatarCyrillic}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Crimean Tatar (Latin)'}
+    onClick={props.onCrimeanTatarLatin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Croatian'}
+    onClick={props.onCroatian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Czech'}
+    onClick={props.onCzech}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Danish'}
+    onClick={props.onDanish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dari'}
+    onClick={props.onDari}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dhivehi'}
+    onClick={props.onDhivehi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dinka'}
+    onClick={props.onDinka}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dogri'}
+    onClick={props.onDogri}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dombe'}
+    onClick={props.onDombe}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dutch'}
+    onClick={props.onDutch}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dyula'}
+    onClick={props.onDyula}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Dzongkha'}
+    onClick={props.onDzongkha}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'English'}
+    onClick={props.onEnglish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Esperanto'}
+    onClick={props.onEsperanto}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Estonian'}
+    onClick={props.onEstonian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ewe'}
+    onClick={props.onEwe}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Faroese'}
+    onClick={props.onFaroese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Fijian'}
+    onClick={props.onFijian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Filipino'}
+    onClick={props.onFilipino}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Finnish'}
+    onClick={props.onFinnish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Fon'}
+    onClick={props.onFon}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'French'}
+    onClick={props.onFrench}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'French (Canada)'}
+    onClick={props.onFrenchCanada}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Frisian'}
+    onClick={props.onFrisian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Friulian'}
+    onClick={props.onFriulian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Fulani'}
+    onClick={props.onFulani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ga'}
+    onClick={props.onGa}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Galician'}
+    onClick={props.onGalician}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Georgian'}
+    onClick={props.onGeorgian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'German'}
+    onClick={props.onGerman}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Greek'}
+    onClick={props.onGreek}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Guarani'}
+    onClick={props.onGuarani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Gujarati'}
+    onClick={props.onGujarati}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Haitian Creole'}
+    onClick={props.onHaitianCreole}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hakha Chin'}
+    onClick={props.onHakhaChin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hausa'}
+    onClick={props.onHausa}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hawaiian'}
+    onClick={props.onHawaiian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hebrew'}
+    onClick={props.onHebrew}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hiligaynon'}
+    onClick={props.onHiligaynon}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hindi'}
+    onClick={props.onHindi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hmong'}
+    onClick={props.onHmong}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hungarian'}
+    onClick={props.onHungarian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Hunsrik'}
+    onClick={props.onHunsrik}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Iban'}
+    onClick={props.onIban}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Icelandic'}
+    onClick={props.onIcelandic}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Igbo'}
+    onClick={props.onIgbo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ilocano'}
+    onClick={props.onIlocano}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Indonesian'}
+    onClick={props.onIndonesian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Inuktut (Latin)'}
+    onClick={props.onInuktutLatin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Inuktut (Syllabics)'}
+    onClick={props.onInuktutSyllabics}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Irish'}
+    onClick={props.onIrish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Italian'}
+    onClick={props.onItalian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Jamaican Patois'}
+    onClick={props.onJamaicanPatois}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Japanese'}
+    onClick={props.onJapanese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Javanese'}
+    onClick={props.onJavanese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Jingpo'}
+    onClick={props.onJingpo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kalaallisut'}
+    onClick={props.onKalaallisut}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kannada'}
+    onClick={props.onKannada}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kanuri'}
+    onClick={props.onKanuri}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kapampangan'}
+    onClick={props.onKapampangan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kazakh'}
+    onClick={props.onKazakh}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Khasi'}
+    onClick={props.onKhasi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Khmer'}
+    onClick={props.onKhmer}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kiga'}
+    onClick={props.onKiga}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kikongo'}
+    onClick={props.onKikongo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kinyarwanda'}
+    onClick={props.onKinyarwanda}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kituba'}
+    onClick={props.onKituba}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kokborok'}
+    onClick={props.onKokborok}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Komi'}
+    onClick={props.onKomi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Konkani'}
+    onClick={props.onKonkani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Korean'}
+    onClick={props.onKorean}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Krio'}
+    onClick={props.onKrio}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kurdish (Kurmanji)'}
+    onClick={props.onKurdishKurmanji}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kurdish (Sorani)'}
+    onClick={props.onKurdishSorani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Kyrgyz'}
+    onClick={props.onKyrgyz}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Lao'}
+    onClick={props.onLao}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Latgalian'}
+    onClick={props.onLatgalian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Latin'}
+    onClick={props.onLatin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Latvian'}
+    onClick={props.onLatvian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ligurian'}
+    onClick={props.onLigurian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Limburgish'}
+    onClick={props.onLimburgish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Lingala'}
+    onClick={props.onLingala}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Lithuanian'}
+    onClick={props.onLithuanian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Lombard'}
+    onClick={props.onLombard}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Luganda'}
+    onClick={props.onLuganda}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Luo'}
+    onClick={props.onLuo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Luxembourgish'}
+    onClick={props.onLuxembourgish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Macedonian'}
+    onClick={props.onMacedonian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Madurese'}
+    onClick={props.onMadurese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Maithili'}
+    onClick={props.onMaithili}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Makassar'}
+    onClick={props.onMakassar}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Malagasy'}
+    onClick={props.onMalagasy}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Malay'}
+    onClick={props.onMalay}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Malay (Jawi)'}
+    onClick={props.onMalayJawi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Malayalam'}
+    onClick={props.onMalayalam}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Maltese'}
+    onClick={props.onMaltese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Mam'}
+    onClick={props.onMam}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Manx'}
+    onClick={props.onManx}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Maori'}
+    onClick={props.onMaori}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Marathi'}
+    onClick={props.onMarathi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Marshallese'}
+    onClick={props.onMarshallese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Marwadi'}
+    onClick={props.onMarwadi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Mauritian Creole'}
+    onClick={props.onMauritianCreole}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Meadow Mari'}
+    onClick={props.onMeadowMari}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Meiteilon (Manipuri)'}
+    onClick={props.onMeiteilonManipuri}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Minang'}
+    onClick={props.onMinang}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Mizo'}
+    onClick={props.onMizo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Mongolian'}
+    onClick={props.onMongolian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Myanmar (Burmese)'}
+    onClick={props.onMyanmarBurmese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Nahuatl (Eastern Huasteca)'}
+    onClick={props.onNahuatlEasternHuasteca}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ndau'}
+    onClick={props.onNdau}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ndebele (South)'}
+    onClick={props.onNdebeleSouth}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Nepalbhasa (Newari)'}
+    onClick={props.onNepalbhasaNewari}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Nepali'}
+    onClick={props.onNepali}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'NKo'}
+    onClick={props.onNKo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Norwegian'}
+    onClick={props.onNorwegian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Nuer'}
+    onClick={props.onNuer}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Occitan'}
+    onClick={props.onOccitan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Odia (Oriya)'}
+    onClick={props.onOdiaOriya}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Oromo'}
+    onClick={props.onOromo}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ossetian'}
+    onClick={props.onOssetian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Pangasinan'}
+    onClick={props.onPangasinan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Papiamento'}
+    onClick={props.onPapiamento}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Pashto'}
+    onClick={props.onPashto}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Persian'}
+    onClick={props.onPersian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Polish'}
+    onClick={props.onPolish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Portuguese (Brazil)'}
+    onClick={props.onPortugueseBrazil}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Portuguese (Portugal)'}
+    onClick={props.onPortuguesePortugal}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Punjabi (Gurmukhi)'}
+    onClick={props.onPunjabiGurmukhi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Punjabi (Shahmukhi)'}
+    onClick={props.onPunjabiShahmukhi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Quechua'}
+    onClick={props.onQuechua}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Qʼeqchiʼ'}
+    onClick={props.onQeqchi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Romani'}
+    onClick={props.onRomani}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Romanian'}
+    onClick={props.onRomanian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Rundi'}
+    onClick={props.onRundi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Russian'}
+    onClick={props.onRussian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sami (North)'}
+    onClick={props.onSamiNorth}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Samoan'}
+    onClick={props.onSamoan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sango'}
+    onClick={props.onSango}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sanskrit'}
+    onClick={props.onSanskrit}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Santali (Latin)'}
+    onClick={props.onSantaliLatin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Santali (Ol Chiki)'}
+    onClick={props.onSantaliOlChiki}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Scots Gaelic'}
+    onClick={props.onScotsGaelic}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sepedi'}
+    onClick={props.onSepedi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Serbian'}
+    onClick={props.onSerbian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sesotho'}
+    onClick={props.onSesotho}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Seychellois Creole'}
+    onClick={props.onSeychelloisCreole}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Shan'}
+    onClick={props.onShan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Shona'}
+    onClick={props.onShona}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sicilian'}
+    onClick={props.onSicilian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Silesian'}
+    onClick={props.onSilesian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sindhi'}
+    onClick={props.onSindhi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sinhala'}
+    onClick={props.onSinhala}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Slovak'}
+    onClick={props.onSlovak}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Slovenian'}
+    onClick={props.onSlovenian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Somali'}
+    onClick={props.onSomali}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Spanish'}
+    onClick={props.onSpanish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Sundanese'}
+    onClick={props.onSundanese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Susu'}
+    onClick={props.onSusu}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Swahili'}
+    onClick={props.onSwahili}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Swati'}
+    onClick={props.onSwati}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Swedish'}
+    onClick={props.onSwedish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tahitian'}
+    onClick={props.onTahitian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tajik'}
+    onClick={props.onTajik}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tamazight'}
+    onClick={props.onTamazight}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tamazight (Tifinagh)'}
+    onClick={props.onTamazightTifinagh}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tamil'}
+    onClick={props.onTamil}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tatar'}
+    onClick={props.onTatar}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Telugu'}
+    onClick={props.onTelugu}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tetum'}
+    onClick={props.onTetum}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Thai'}
+    onClick={props.onThai}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tibetan'}
+    onClick={props.onTibetan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tigrinya'}
+    onClick={props.onTigrinya}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tiv'}
+    onClick={props.onTiv}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tok Pisin'}
+    onClick={props.onTokPisin}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tongan'}
+    onClick={props.onTongan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tshiluba'}
+    onClick={props.onTshiluba}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tsonga'}
+    onClick={props.onTsonga}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tswana'}
+    onClick={props.onTswana}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tulu'}
+    onClick={props.onTulu}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tumbuka'}
+    onClick={props.onTumbuka}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Turkish'}
+    onClick={props.onTurkish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Turkmen'}
+    onClick={props.onTurkmen}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Tuvan'}
+    onClick={props.onTuvan}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Twi'}
+    onClick={props.onTwi}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Udmurt'}
+    onClick={props.onUdmurt}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Ukrainian'}
+    onClick={props.onUkrainian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Urdu'}
+    onClick={props.onUrdu}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Uyghur'}
+    onClick={props.onUyghur}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Uzbek'}
+    onClick={props.onUzbek}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Venda'}
+    onClick={props.onVenda}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Venetian'}
+    onClick={props.onVenetian}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Vietnamese'}
+    onClick={props.onVietnamese}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Waray'}
+    onClick={props.onWaray}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Welsh'}
+    onClick={props.onWelsh}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Wolof'}
+    onClick={props.onWolof}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Xhosa'}
+    onClick={props.onXhosa}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Yakut'}
+    onClick={props.onYakut}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Yiddish'}
+    onClick={props.onYiddish}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Yoruba'}
+    onClick={props.onYoruba}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Yucatec Maya'}
+    onClick={props.onYucatecMaya}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Zapotec'}
+    onClick={props.onZapotec}
+/>
+<LabeledIconButton
+    hideLabel={hideLabel(props.intl.locale)}
+    imgSrc={translateIcon}
+    title={'Zulu'}
+    onClick={props.onZulu}
+/>
+</InputGroup>
+                            }
+                            tipSize={.01}
+                        >
+                            {props.intl.formatMessage(messages.audioTranslator)}
                         </Dropdown>
         </div>
         <div className={styles.row}>
@@ -783,6 +2295,255 @@ SoundEditor.propTypes = {
     onConsoleHeadset: PropTypes.func.isRequired,
     onDroneSpeaker: PropTypes.func.isRequired,
     onTubeTV: PropTypes.func.isRequired,
+    onAbkhaz: PropTypes.func.isRequired,
+onAcehnese: PropTypes.func.isRequired,
+onAcholi: PropTypes.func.isRequired,
+onAfar: PropTypes.func.isRequired,
+onAfrikaans: PropTypes.func.isRequired,
+onAlbanian: PropTypes.func.isRequired,
+onAlur: PropTypes.func.isRequired,
+onAmharic: PropTypes.func.isRequired,
+onArabic: PropTypes.func.isRequired,
+onArmenian: PropTypes.func.isRequired,
+onAssamese: PropTypes.func.isRequired,
+onAvar: PropTypes.func.isRequired,
+onAwadhi: PropTypes.func.isRequired,
+onAymara: PropTypes.func.isRequired,
+onAzerbaijani: PropTypes.func.isRequired,
+onBalinese: PropTypes.func.isRequired,
+onBaluchi: PropTypes.func.isRequired,
+onBambara: PropTypes.func.isRequired,
+onBaoule: PropTypes.func.isRequired,
+onBashkir: PropTypes.func.isRequired,
+onBasque: PropTypes.func.isRequired,
+onBatakKaro: PropTypes.func.isRequired,
+onBatakSimalungun: PropTypes.func.isRequired,
+onBatakToba: PropTypes.func.isRequired,
+onBelarusian: PropTypes.func.isRequired,
+onBemba: PropTypes.func.isRequired,
+onBengali: PropTypes.func.isRequired,
+onBetawi: PropTypes.func.isRequired,
+onBhojpuri: PropTypes.func.isRequired,
+onBikol: PropTypes.func.isRequired,
+onBosnian: PropTypes.func.isRequired,
+onBreton: PropTypes.func.isRequired,
+onBulgarian: PropTypes.func.isRequired,
+onBuryat: PropTypes.func.isRequired,
+onCantonese: PropTypes.func.isRequired,
+onCatalan: PropTypes.func.isRequired,
+onCebuano: PropTypes.func.isRequired,
+onChamorro: PropTypes.func.isRequired,
+onChechen: PropTypes.func.isRequired,
+onChichewa: PropTypes.func.isRequired,
+onChineseSimplified: PropTypes.func.isRequired,
+onChineseTraditional: PropTypes.func.isRequired,
+onChuukese: PropTypes.func.isRequired,
+onChuvash: PropTypes.func.isRequired,
+onCorsican: PropTypes.func.isRequired,
+onCrimeanTatarCyrillic: PropTypes.func.isRequired,
+onCrimeanTatarLatin: PropTypes.func.isRequired,
+onCroatian: PropTypes.func.isRequired,
+onCzech: PropTypes.func.isRequired,
+onDanish: PropTypes.func.isRequired,
+onDari: PropTypes.func.isRequired,
+onDhivehi: PropTypes.func.isRequired,
+onDinka: PropTypes.func.isRequired,
+onDogri: PropTypes.func.isRequired,
+onDombe: PropTypes.func.isRequired,
+onDutch: PropTypes.func.isRequired,
+onDyula: PropTypes.func.isRequired,
+onDzongkha: PropTypes.func.isRequired,
+onEnglish: PropTypes.func.isRequired,
+onEsperanto: PropTypes.func.isRequired,
+onEstonian: PropTypes.func.isRequired,
+onEwe: PropTypes.func.isRequired,
+onFaroese: PropTypes.func.isRequired,
+onFijian: PropTypes.func.isRequired,
+onFilipino: PropTypes.func.isRequired,
+onFinnish: PropTypes.func.isRequired,
+onFon: PropTypes.func.isRequired,
+onFrench: PropTypes.func.isRequired,
+onFrenchCanada: PropTypes.func.isRequired,
+onFrisian: PropTypes.func.isRequired,
+onFriulian: PropTypes.func.isRequired,
+onFulani: PropTypes.func.isRequired,
+onGa: PropTypes.func.isRequired,
+onGalician: PropTypes.func.isRequired,
+onGeorgian: PropTypes.func.isRequired,
+onGerman: PropTypes.func.isRequired,
+onGreek: PropTypes.func.isRequired,
+onGuarani: PropTypes.func.isRequired,
+onGujarati: PropTypes.func.isRequired,
+onHaitianCreole: PropTypes.func.isRequired,
+onHakhaChin: PropTypes.func.isRequired,
+onHausa: PropTypes.func.isRequired,
+onHawaiian: PropTypes.func.isRequired,
+onHebrew: PropTypes.func.isRequired,
+onHiligaynon: PropTypes.func.isRequired,
+onHindi: PropTypes.func.isRequired,
+onHmong: PropTypes.func.isRequired,
+onHungarian: PropTypes.func.isRequired,
+onHunsrik: PropTypes.func.isRequired,
+onIban: PropTypes.func.isRequired,
+onIcelandic: PropTypes.func.isRequired,
+onIgbo: PropTypes.func.isRequired,
+onIlocano: PropTypes.func.isRequired,
+onIndonesian: PropTypes.func.isRequired,
+onInuktutLatin: PropTypes.func.isRequired,
+onInuktutSyllabics: PropTypes.func.isRequired,
+onIrish: PropTypes.func.isRequired,
+onItalian: PropTypes.func.isRequired,
+onJamaicanPatois: PropTypes.func.isRequired,
+onJapanese: PropTypes.func.isRequired,
+onJavanese: PropTypes.func.isRequired,
+onJingpo: PropTypes.func.isRequired,
+onKalaallisut: PropTypes.func.isRequired,
+onKannada: PropTypes.func.isRequired,
+onKanuri: PropTypes.func.isRequired,
+onKapampangan: PropTypes.func.isRequired,
+onKazakh: PropTypes.func.isRequired,
+onKhasi: PropTypes.func.isRequired,
+onKhmer: PropTypes.func.isRequired,
+onKiga: PropTypes.func.isRequired,
+onKikongo: PropTypes.func.isRequired,
+onKinyarwanda: PropTypes.func.isRequired,
+onKituba: PropTypes.func.isRequired,
+onKokborok: PropTypes.func.isRequired,
+onKomi: PropTypes.func.isRequired,
+onKonkani: PropTypes.func.isRequired,
+onKorean: PropTypes.func.isRequired,
+onKrio: PropTypes.func.isRequired,
+onKurdishKurmanji: PropTypes.func.isRequired,
+onKurdishSorani: PropTypes.func.isRequired,
+onKyrgyz: PropTypes.func.isRequired,
+onLao: PropTypes.func.isRequired,
+onLatgalian: PropTypes.func.isRequired,
+onLatin: PropTypes.func.isRequired,
+onLatvian: PropTypes.func.isRequired,
+onLigurian: PropTypes.func.isRequired,
+onLimburgish: PropTypes.func.isRequired,
+onLingala: PropTypes.func.isRequired,
+onLithuanian: PropTypes.func.isRequired,
+onLombard: PropTypes.func.isRequired,
+onLuganda: PropTypes.func.isRequired,
+onLuo: PropTypes.func.isRequired,
+onLuxembourgish: PropTypes.func.isRequired,
+onMacedonian: PropTypes.func.isRequired,
+onMadurese: PropTypes.func.isRequired,
+onMaithili: PropTypes.func.isRequired,
+onMakassar: PropTypes.func.isRequired,
+onMalagasy: PropTypes.func.isRequired,
+onMalay: PropTypes.func.isRequired,
+onMalayJawi: PropTypes.func.isRequired,
+onMalayalam: PropTypes.func.isRequired,
+onMaltese: PropTypes.func.isRequired,
+onMam: PropTypes.func.isRequired,
+onManx: PropTypes.func.isRequired,
+onMaori: PropTypes.func.isRequired,
+onMarathi: PropTypes.func.isRequired,
+onMarshallese: PropTypes.func.isRequired,
+onMarwadi: PropTypes.func.isRequired,
+onMauritianCreole: PropTypes.func.isRequired,
+onMeadowMari: PropTypes.func.isRequired,
+onMeiteilonManipuri: PropTypes.func.isRequired,
+onMinang: PropTypes.func.isRequired,
+onMizo: PropTypes.func.isRequired,
+onMongolian: PropTypes.func.isRequired,
+onMyanmarBurmese: PropTypes.func.isRequired,
+onNahuatlEasternHuasteca: PropTypes.func.isRequired,
+onNdau: PropTypes.func.isRequired,
+onNdebeleSouth: PropTypes.func.isRequired,
+onNepalbhasaNewari: PropTypes.func.isRequired,
+onNepali: PropTypes.func.isRequired,
+onNKo: PropTypes.func.isRequired,
+onNorwegian: PropTypes.func.isRequired,
+onNuer: PropTypes.func.isRequired,
+onOccitan: PropTypes.func.isRequired,
+onOdiaOriya: PropTypes.func.isRequired,
+onOromo: PropTypes.func.isRequired,
+onOssetian: PropTypes.func.isRequired,
+onPangasinan: PropTypes.func.isRequired,
+onPapiamento: PropTypes.func.isRequired,
+onPashto: PropTypes.func.isRequired,
+onPersian: PropTypes.func.isRequired,
+onPolish: PropTypes.func.isRequired,
+onPortugueseBrazil: PropTypes.func.isRequired,
+onPortuguesePortugal: PropTypes.func.isRequired,
+onPunjabiGurmukhi: PropTypes.func.isRequired,
+onPunjabiShahmukhi: PropTypes.func.isRequired,
+onQuechua: PropTypes.func.isRequired,
+onQeqchi: PropTypes.func.isRequired,
+onRomani: PropTypes.func.isRequired,
+onRomanian: PropTypes.func.isRequired,
+onRundi: PropTypes.func.isRequired,
+onRussian: PropTypes.func.isRequired,
+onSamiNorth: PropTypes.func.isRequired,
+onSamoan: PropTypes.func.isRequired,
+onSango: PropTypes.func.isRequired,
+onSanskrit: PropTypes.func.isRequired,
+onSantaliLatin: PropTypes.func.isRequired,
+onSantaliOlChiki: PropTypes.func.isRequired,
+onScotsGaelic: PropTypes.func.isRequired,
+onSepedi: PropTypes.func.isRequired,
+onSerbian: PropTypes.func.isRequired,
+onSesotho: PropTypes.func.isRequired,
+onSeychelloisCreole: PropTypes.func.isRequired,
+onShan: PropTypes.func.isRequired,
+onShona: PropTypes.func.isRequired,
+onSicilian: PropTypes.func.isRequired,
+onSilesian: PropTypes.func.isRequired,
+onSindhi: PropTypes.func.isRequired,
+onSinhala: PropTypes.func.isRequired,
+onSlovak: PropTypes.func.isRequired,
+onSlovenian: PropTypes.func.isRequired,
+onSomali: PropTypes.func.isRequired,
+onSpanish: PropTypes.func.isRequired,
+onSundanese: PropTypes.func.isRequired,
+onSusu: PropTypes.func.isRequired,
+onSwahili: PropTypes.func.isRequired,
+onSwati: PropTypes.func.isRequired,
+onSwedish: PropTypes.func.isRequired,
+onTahitian: PropTypes.func.isRequired,
+onTajik: PropTypes.func.isRequired,
+onTamazight: PropTypes.func.isRequired,
+onTamazightTifinagh: PropTypes.func.isRequired,
+onTamil: PropTypes.func.isRequired,
+onTatar: PropTypes.func.isRequired,
+onTelugu: PropTypes.func.isRequired,
+onTetum: PropTypes.func.isRequired,
+onThai: PropTypes.func.isRequired,
+onTibetan: PropTypes.func.isRequired,
+onTigrinya: PropTypes.func.isRequired,
+onTiv: PropTypes.func.isRequired,
+onTokPisin: PropTypes.func.isRequired,
+onTongan: PropTypes.func.isRequired,
+onTshiluba: PropTypes.func.isRequired,
+onTsonga: PropTypes.func.isRequired,
+onTswana: PropTypes.func.isRequired,
+onTulu: PropTypes.func.isRequired,
+onTumbuka: PropTypes.func.isRequired,
+onTurkish: PropTypes.func.isRequired,
+onTurkmen: PropTypes.func.isRequired,
+onTuvan: PropTypes.func.isRequired,
+onTwi: PropTypes.func.isRequired,
+onUdmurt: PropTypes.func.isRequired,
+onUkrainian: PropTypes.func.isRequired,
+onUrdu: PropTypes.func.isRequired,
+onUyghur: PropTypes.func.isRequired,
+onUzbek: PropTypes.func.isRequired,
+onVenda: PropTypes.func.isRequired,
+onVenetian: PropTypes.func.isRequired,
+onVietnamese: PropTypes.func.isRequired,
+onWaray: PropTypes.func.isRequired,
+onWelsh: PropTypes.func.isRequired,
+onWolof: PropTypes.func.isRequired,
+onXhosa: PropTypes.func.isRequired,
+onYakut: PropTypes.func.isRequired,
+onYiddish: PropTypes.func.isRequired,
+onYoruba: PropTypes.func.isRequired,
+onYucatecMaya: PropTypes.func.isRequired,
+onZapotec: PropTypes.func.isRequired,
+onZulu: PropTypes.func.isRequired,
     onBitCrush: PropTypes.func.isRequired,
     onHigherPitch: PropTypes.func.isRequired,
     onLowerPitch: PropTypes.func.isRequired,
