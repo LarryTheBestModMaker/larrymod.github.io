@@ -66,6 +66,7 @@ import musicIcon from './icon--music.svg';
 import consoleHeadsetIcon from './icon--console-headset.svg';
 import droneSpeakerIcon from './icon--drone-speaker.svg';
 import tubeTVIcon from './icon--tv.svg';
+import translateIcon from './icon--translate.svg';
 
 import deleteIcon from '!../../lib/tw-recolor/build!./icon--delete.svg';
 import copyIcon from '!../../lib/tw-recolor/build!./icon--copy.svg';
