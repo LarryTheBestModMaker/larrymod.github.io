@@ -3,7 +3,22 @@
         "sounds/nano-hoedown.mp3": 153650,
         "sounds/monkeys-spinning-monkeys.mp3": 125070,
         "sounds/fluffing-a-duck.mp3": 67370,
-        "sounds/hall-of-the-mountain-king.mp3": 152980
+        "sounds/hall-of-the-mountain-king.mp3": 152980,
+        "sounds/sine-tone-100hz.wav": 10000,
+        "sounds/sine-tone-200hz.wav": 10000,
+        "sounds/sine-tone-300hz.wav": 10000,
+        "sounds/sine-tone-400hz.wav": 10000,
+        "sounds/sine-tone-500hz.wav": 10000,
+        "sounds/sine-tone-600hz.wav": 10000,
+        "sounds/sine-tone-700hz.wav": 10000,
+        "sounds/sine-tone-800hz.wav": 10000,
+        "sounds/sine-tone-900hz.wav": 10000,
+        "sounds/sine-tone-1000hz.wav": 10000,
+        "sounds/sine-tone-1100hz.wav": 10000,
+        "sounds/sine-tone-1200hz.wav": 10000,
+        "sounds/sine-tone-1300hz.wav": 10000,
+        "sounds/sine-tone-1400hz.wav": 10000,
+        "sounds/sine-tone-1500hz.wav": 10000,
     },
     "dinosaurmod": {
         "sounds/mibup15full.mp3": 132480
@@ -717,6 +732,21 @@
         "8f00eac6e286eb4ba5ff7bbeb8778d92": 153650,
         "a7c21348a70f24bd44d2fb5589308ed2": 125070,
         "9489391257b3bf52ba27edfc35a29458": 67370,
-        "c03cdbab50dc0ee43672b0ac0a39d3c7": 152980
+        "c03cdbab50dc0ee43672b0ac0a39d3c7": 152980,
+        "5b2533be2882dcd7a5995b9388e95b56": 10000,
+        "2f3a2d721eb3f7d8b592ab7bd842ed9a": 10000,
+        "4a0e64fe88cb2818bca4be31393a0882": 10000,
+        "50d88bd71273f69fb0fbbd86e2b184e6": 10000,
+        "516537a2aa5bccee60243ed9b5fb834b": 10000,
+        "b8fbbddcd9beb9e7a6cc6572e0c36d4b": 10000,
+        "ed0cc8e2aaa4df064700cbb1ef1f3bd2": 10000,
+        "409be23b7a6d73beaf580cc36a925f23": 10000,
+        "d06612e1bc3825958c23bfa1ee8fd9a5": 10000,
+        "4c093a2e52708fb6c7f474a13b3e0a50": 10000,
+        "24c3d25801a7e39dd6d6eab0c77ff087": 10000,
+        "9030107423dc734f1606e7fd3ff7993a": 10000,
+        "a12083f13c999249de6ff957d3717a7a": 10000,
+        "2e67ccaa6c5efa8075afc307da287b5c": 10000,
+        "9d63b2f4bb931a10417456b19fa0c881": 10000
     }
 }

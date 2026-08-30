@@ -21,6 +21,11 @@ export default defineMessages({
         description: 'Tag for filtering a library for effects',
         id: 'gui.libraryTags.effects'
     },
+    sineTones: {
+        defaultMessage: 'Sine Tones',
+        description: 'Tag for filtering a sound library by sine tones',
+        id: 'gui.libraryTags.sineTones'
+    },
     fantasy: {
         defaultMessage: 'Fantasy',
         description: 'Tag for filtering a library for fantasy',

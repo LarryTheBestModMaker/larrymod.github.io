@@ -7567,6 +7567,231 @@
         "rate": 44100
     },
     {
+        "name": "Sine Tone 100Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "5b2533be2882dcd7a5995b9388e95b56",
+        "dataFormat": "",
+        "md5ext": "5b2533be2882dcd7a5995b9388e95b56.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-100hz"
+    },
+    {
+        "name": "Sine Tone 1000Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "4c093a2e52708fb6c7f474a13b3e0a50",
+        "dataFormat": "",
+        "md5ext": "4c093a2e52708fb6c7f474a13b3e0a50.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1000hz"
+    },
+    {
+        "name": "Sine Tone 1100Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "24c3d25801a7e39dd6d6eab0c77ff087",
+        "dataFormat": "",
+        "md5ext": "24c3d25801a7e39dd6d6eab0c77ff087.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1100hz"
+    },
+    {
+        "name": "Sine Tone 1200Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "9030107423dc734f1606e7fd3ff7993a",
+        "dataFormat": "",
+        "md5ext": "9030107423dc734f1606e7fd3ff7993a.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1200hz"
+    },
+    {
+        "name": "Sine Tone 1300Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "a12083f13c999249de6ff957d3717a7a",
+        "dataFormat": "",
+        "md5ext": "a12083f13c999249de6ff957d3717a7a.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1300hz"
+    },
+    {
+        "name": "Sine Tone 1400Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "2e67ccaa6c5efa8075afc307da287b5c",
+        "dataFormat": "",
+        "md5ext": "2e67ccaa6c5efa8075afc307da287b5c.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1400hz"
+    },
+    {
+        "name": "Sine Tone 1500Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "9d63b2f4bb931a10417456b19fa0c881",
+        "dataFormat": "",
+        "md5ext": "9d63b2f4bb931a10417456b19fa0c881.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-1500hz"
+    },
+    {
+        "name": "Sine Tone 200Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "2f3a2d721eb3f7d8b592ab7bd842ed9a",
+        "dataFormat": "",
+        "md5ext": "2f3a2d721eb3f7d8b592ab7bd842ed9a.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-200hz"
+    },
+    {
+        "name": "Sine Tone 300Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "4a0e64fe88cb2818bca4be31393a0882",
+        "dataFormat": "",
+        "md5ext": "4a0e64fe88cb2818bca4be31393a0882.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-300hz"
+    },
+    {
+        "name": "Sine Tone 400Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "50d88bd71273f69fb0fbbd86e2b184e6",
+        "dataFormat": "",
+        "md5ext": "50d88bd71273f69fb0fbbd86e2b184e6.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-400hz"
+    },
+    {
+        "name": "Sine Tone 500Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "516537a2aa5bccee60243ed9b5fb834b",
+        "dataFormat": "",
+        "md5ext": "516537a2aa5bccee60243ed9b5fb834b.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-500hz"
+    },
+    {
+        "name": "Sine Tone 600Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "b8fbbddcd9beb9e7a6cc6572e0c36d4b",
+        "dataFormat": "",
+        "md5ext": "b8fbbddcd9beb9e7a6cc6572e0c36d4b.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-600hz"
+    },
+    {
+        "name": "Sine Tone 700Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "ed0cc8e2aaa4df064700cbb1ef1f3bd2",
+        "dataFormat": "",
+        "md5ext": "ed0cc8e2aaa4df064700cbb1ef1f3bd2.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-700hz"
+    },
+    {
+        "name": "Sine Tone 800Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "409be23b7a6d73beaf580cc36a925f23",
+        "dataFormat": "",
+        "md5ext": "409be23b7a6d73beaf580cc36a925f23.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-800hz"
+    },
+    {
+        "name": "Sine Tone 900Hz",
+        "tags": [
+            "larrymod",
+            "effects",
+            "sineTones",
+            "new"
+        ],
+        "assetId": "d06612e1bc3825958c23bfa1ee8fd9a5",
+        "dataFormat": "",
+        "md5ext": "d06612e1bc3825958c23bfa1ee8fd9a5.wav",
+        "sampleCount": 479998,
+        "rate": 48000,
+        "customSoundPreviewName": "sine-tones-900hz"
+    },
+    {
         "name": "Singer1",
         "tags": [
             "human",

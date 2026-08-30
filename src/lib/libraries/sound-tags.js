@@ -8,6 +8,7 @@ export default [
     {tag: 'themes', intlLabel: messages.themes},
     {tag: 'loops', intlLabel: messages.loops},
     {tag: 'effects', intlLabel: messages.effects},
+    {tag: 'sine tones', intlLabel: messages.sineTones},
     {type: 'divider'},
     {type: 'subtitle', intlLabel: "General"},
     {tag: 'animals', intlLabel: messages.animals},
