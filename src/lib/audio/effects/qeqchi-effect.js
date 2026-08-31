@@ -49,4 +49,4 @@ class QeqchiEffect {
     }
 }
 
-export default QʼeqchiʼEffect;
+export default QeqchiEffect;
