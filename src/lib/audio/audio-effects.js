@@ -142,7 +142,7 @@ import KannadaEffect from './effects/kannada-effect.js';
 import KanuriEffect from './effects/kanuri-effect.js';
 import KapampanganEffect from './effects/kapampangan-effect.js';
 import KazakhEffect from './effects/kazakh-effect.js';
-import KhasiEffect from './effects/khashi-effect.js';
+import KhasiEffect from './effects/khasi-effect.js';
 import KhmerEffect from './effects/khmer-effect.js';
 import KigaEffect from './effects/kiga-effect.js';
 import KikongoEffect from './effects/kikongo-effect.js';
